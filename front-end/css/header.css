@@ -10,11 +10,11 @@ header {
 .logo-header {
     background-image: url(../assets/logo.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 80px;
-    width: 120px;
+    width: 130px;
     background-position: center center;
-    border-radius: 50%;
+    border-radius: 30px;
     margin-left: 70px;
     flex: 0 0 auto;
 }
@@ -40,6 +40,16 @@ a:hover {
 
 .home {
     margin-left: auto;
+}
+
+.home-items {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.home-icon {
+    background-image: url(../assets/home-icon.png);
+    background-size: contain;
 }
 
 .login {
