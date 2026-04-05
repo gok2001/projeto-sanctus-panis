@@ -1,9 +1,10 @@
 footer {
-    background-color: rgb(231, 32, 32);
-    padding: 20px;
+    background-color: var(--cor-bg-escuro);
+    color: var(--cor-texto-claro);
+    padding: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 2fr) 1fr;
+    grid-template-rows: repeat(2, 3fr) 1fr;
     align-items: center;
     justify-items: start;
 }
@@ -14,6 +15,19 @@ footer {
 
 .links {
     grid-area: 1 / 2 / 2 / 3;
+}
+
+.footer-menu {
+    list-style: none;
+}
+
+.footer-link {
+    color: var(--cor-principal);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
 }
 
 .contato {

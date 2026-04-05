@@ -1,3 +1,10 @@
-.root {
+:root {
+    --cor-principal: #FBB534;
+    --cor-secundaria: #E63946;
+
+    --cor-bg-escuro: #1A1A1A;
+    --cor-bg-claro: #F5F5F5;
     
+    --cor-texto-claro: #FFFFFF;
+    --cor-texto-escuro: #000000;
 }
