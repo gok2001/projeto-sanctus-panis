@@ -1,6 +1,6 @@
 .main-home {
     display: grid;
-    grid-template: ;
+    grid-template: repeat(6, 1fr), repeat(4, 1fr);
 }
 
 .destaques {
