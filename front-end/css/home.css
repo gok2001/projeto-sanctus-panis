@@ -1,0 +1,21 @@
+.destaques {
+    background-color: var(--cor-bg-claro);
+}
+
+.final {
+    background-color: var(--cor-bg-claro);
+}
+
+.btn {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--cor-secundaria-hover);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
