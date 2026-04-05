@@ -8,13 +8,10 @@ header {
 }
 
 .logo-header {
-    background-image: url(../assets/logo.png);
-    background-repeat: no-repeat;
+    background-image: url(../assets/logo-escuro.png);
     background-size: cover;
     height: 80px;
     width: 130px;
-    background-position: center center;
-    border-radius: 30px;
     margin-left: 70px;
     flex: 0 0 auto;
 }

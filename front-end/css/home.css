@@ -1,3 +1,8 @@
+.main-home {
+    display: grid;
+    grid-template: ;
+}
+
 .destaques {
     background-color: var(--cor-bg-claro);
 }

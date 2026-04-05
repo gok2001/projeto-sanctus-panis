@@ -3,14 +3,20 @@ footer {
     color: var(--cor-texto-claro);
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 3fr) 1fr;
+    grid-template: repeat(2, 3fr) 1fr / repeat(3, 1fr);
     align-items: center;
     justify-items: start;
 }
 
-.logo-footer {
+.nome-footer {
     grid-area: 1 / 1 / 2 / 2;
+}
+
+.logo-footer {
+    background-image: url(../assets/logo-claro.png);
+    background-size: cover;
+    height: 80px;
+    width: 130px;
 }
 
 .links {
