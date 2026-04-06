@@ -8,7 +8,7 @@ header {
 
 .logo-header {
     background-image: url(../assets/logo-escuro.png);
-    background-size: cover;
+    background-size: contain;
     height: 100px;
     width: 150px;
     justify-self: center;
@@ -25,8 +25,56 @@ header {
 .header-link {
     color: var(--cor-texto-escuro);
     text-decoration: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
 }
 
 .header-link:hover {
     text-decoration: underline;
+}
+
+.home-icon {
+    background-image: url(../assets/home-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 35px;
+    width: 35px;
+}
+
+.cardapio-icon {
+    background-image: url(../assets/cardapio-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 35px;
+    width: 35px;
+}
+
+.carrinho-icon {
+    background-image: url(../assets/carrinho-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 35px;
+    width: 35px;
+}
+
+.pedidos-icon {
+    background-image: url(../assets/pedidos-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 35px;
+    width: 35px;
+}
+
+.login-icon {
+    background-image: url(../assets/login-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 35px;
+    width: 35px;
 }
