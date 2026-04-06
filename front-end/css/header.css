@@ -8,9 +8,9 @@ header {
 
 .logo-header {
     background-image: url(../assets/logo-escuro.png);
-    background-size: contain;
-    height: 100px;
-    width: 150px;
+    background-size: cover;
+    height: 120px;
+    width: 180px;
     justify-self: center;
 }
 
@@ -28,6 +28,7 @@ header {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    gap: 5px;
 }
 
 .header-link:hover {
