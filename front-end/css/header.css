@@ -1,29 +1,25 @@
 header {
     background-color: var(--cor-principal);
     width: 100%;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    padding: 20px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 }
 
 .logo-header {
     background-image: url(../assets/logo-escuro.png);
     background-size: cover;
-    height: 80px;
-    width: 130px;
-    margin-left: 70px;
-    flex: 0 0 auto;
+    height: 100px;
+    width: 150px;
+    justify-self: center;
 }
 
 .nav-header {
-    flex: 1;
-}
-
-.menu {
-    list-style: none;
+    width: 100%;
+    height: 100%;
     display: flex;
-    gap: 100px;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .header-link {
@@ -33,13 +29,4 @@ header {
 
 .header-link:hover {
     text-decoration: underline;
-}
-
-.home {
-    margin-left: auto;
-}
-
-.login {
-    margin-left: auto;
-    margin-right: 50px;
 }
