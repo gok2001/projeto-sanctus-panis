@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-@import url("root.css");
 @import url("header.css");
 @import url("home.css");
 @import url("footer.css");
@@ -9,4 +8,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "BebasNeue", sans-serif;
 }
+
+:root {
+    --cor-principal: #FBB534;
+    --cor-secundaria: #E63946;
+    
+    --cor-secundaria-hover: #aa2f3a;;
+
+    --cor-bg-escuro: #1A1A1A;
+    --cor-bg-claro: #F5F5F5;
+    
+    --cor-texto-claro: #FFFFFF;
+    --cor-texto-escuro: #000000;
+}
+
+@font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
