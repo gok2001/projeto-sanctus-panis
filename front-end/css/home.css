@@ -14,17 +14,24 @@
     grid-area: 1 / 2 / 2 / 3;
     background-color: var(--cor-bg-claro-transparente);
     height: 70vh;
-    margin-top: 20px;
+    margin-top: 50px;
+    padding: 30px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
 .titulo-home {
     font-family: var(--font-title);
     font-size: 64px;
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .sobre {
@@ -48,8 +55,11 @@
 .btn {
     background-color: var(--cor-secundaria);
     color: var(--cor-texto-claro);
+    font-size: 18px;
+    height: 60px;
+    width: fit-content;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 14px;
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.178);
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
