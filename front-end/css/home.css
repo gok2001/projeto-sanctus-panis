@@ -5,8 +5,14 @@
     margin: 20px 0;
 }
 
+.titulo-home {
+    font-family: var(--font-title);
+    font-size: 64px;
+}
+
 .principal {
     grid-area: 1 / 2 / 2 / 3;
+    text-align: center;
 }
 
 .sobre {
