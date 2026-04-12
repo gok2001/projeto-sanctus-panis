@@ -9,7 +9,6 @@
     gap: 20px;
 }
 
-
 .principal {
     grid-area: 1 / 2 / 2 / 3;
     background-color: var(--cor-bg-claro-transparente);
