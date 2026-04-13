@@ -22,6 +22,11 @@
     align-items: center;
 }
 
+.title-login {
+    font-family: var(--font-title);
+    font-size: 54px;
+}
+
 .login-form {
     height: 60%;
     width: 50%;

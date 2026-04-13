@@ -22,6 +22,12 @@
     align-items: center;
 }
 
+
+.cadastro-title {
+    font-family: var(--font-title);
+    font-size: 54px;
+}
+
 .cadastro-form {
     height: 60%;
     width: 50%;
@@ -43,7 +49,6 @@
 }
 
 .cadastro-btn {
-    width: 20%;
     align-self: center;
 }
 
