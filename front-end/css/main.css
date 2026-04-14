@@ -38,6 +38,10 @@
     --cor-coringa: #CCCCCC;
     --cor-coringa-esccuro: #666666;
 
+    --borda-padrao: 1px solid rgba(255, 255, 255, 0.3);
+
+    --sombra-padrao: 0 8px 32px rgba(0, 0, 0, 0.1);
+
     --font-title: "BebasNeue";
 }
 
