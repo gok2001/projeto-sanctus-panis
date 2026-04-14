@@ -11,7 +11,7 @@
 
 .cadastro {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: var(--cor-bg-claro-transparente);
+    background-color: var(--cor-bg-claro);
     backdrop-filter: blur(10px);
     height: 90vh;
     margin: 50px 0;

@@ -25,16 +25,18 @@
 ========================= */
 
 :root {
-    --cor-principal: #FBB534;
+    --cor-principal: #ffd166;
     --cor-secundaria: #E63946;
-    --cor-secundaria-hover: #aa2f3a;
+    --cor-secundaria-hover: #c92f3a;
     
     --cor-bg-escuro: #1A1A1A;
-    --cor-bg-claro: #F5F5F5;
-    --cor-bg-claro-transparente: #f5f5f5b4;
+    --cor-bg-claro: rgba(255, 255, 255, 0.75);
     
     --cor-texto-claro: #FFFFFF;
-    --cor-texto-escuro: #000000;
+    --cor-texto-escuro: #222222;
+
+    --cor-coringa: #CCCCCC;
+    --cor-coringa-esccuro: #666666;
 
     --font-title: "BebasNeue";
 }
