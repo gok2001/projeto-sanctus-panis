@@ -1,0 +1,72 @@
+body {
+    background-image: url(../assets/fundo\ Pag.png);
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.row .form-group {
+    flex: 1;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #d97706;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background-color: #b45309;
+}
+
+.resumo {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+}
