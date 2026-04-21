@@ -19,7 +19,6 @@
     /* efeito glassmorphism sobre imagem de fundo */
     background-color: var(--cor-bg-claro);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 
     height: 70vh;
     margin-top: 50px;
@@ -40,6 +39,16 @@
     font-size: 64px;
 }
 
+.texto-principal {
+    width: 80%;
+}
+
+.texto {
+    font-family: var(--font-text);
+    font-size: 20px;
+    line-height: 1.5;
+}
+
 .btns {
     display: flex;
     width: 100%;
@@ -50,7 +59,9 @@
 /* ===== SEÇÃO SOBRE ===== */
 .sobre {
     grid-area: 2 / 2 / 3 / 3;
+
     background-color: var(--cor-bg-claro);
+    backdrop-filter: blur(10px);
 
     height: 50vh;
     margin-top: 50px;
@@ -73,7 +84,9 @@
 /* ===== SEÇÃO DESTAQUES ===== */
 .destaques {
     grid-area: 3 / 2 / 4 / 3;
+
     background-color: var(--cor-bg-claro);
+    backdrop-filter: blur(10px);
 
     height: 60vh;
     margin-top: 50px;
@@ -92,34 +105,12 @@
     font-size: 48px;
 }
 
-
-/* ===== SEÇÃO GALERIA ===== */
-.galeria {
-    grid-area: 4 / 2 / 5 / 3;
-    background-color: var(--cor-bg-claro);
-
-    height: 60vh;
-    margin-top: 50px;
-    padding: 30px;
-
-    border-radius: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.titulo-galeria {
-    font-family: var(--font-title);
-    font-size: 48px;
-}
-
-
 /* ===== SEÇÃO FINAL ===== */
 .final {
-    grid-area: 5 / 2 / 6 / 3;
+    grid-area: 4 / 2 / 5 / 3;
+
     background-color: var(--cor-bg-claro);
+    backdrop-filter: blur(10px);
 
     height: 60vh;
     margin: 50px 0;
