@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanctus Panis</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="overlay">
+
+    <div style="text-align:center;">
+        <h1>Pagamento</h1>
+    </div>
+
+    <div class="container">
+
+        <form>
+
+            <div class="form-group">
+                <label>Nome no Cartão</label>
+                <input type="text" placeholder="João da Silva">
+            </div>
+
+            <div class="form-group">
+                <label>Número do Cartão</label>
+                <input type="text" placeholder="0000 0000 0000 0000">
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Validade</label>
+                    <input type="text" placeholder="MM/AA">
+                </div>
+
+                <div class="form-group">
+                    <label>CVV</label>
+                    <input type="text" placeholder="123">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Método de Pagamento</label>
+                <select>
+                    <option>Dinheiro</option>
+                    <option>Cartão de Crédito</option>
+                    <option>Cartão de Débito</option>
+                    <option>Pix</option>
+                </select>
+            </div>
+
+            <div class="resumo">
+                <strong>Resumo do Pedido</strong><br>
+                Hot Dog Especial<br>
+                Refrigerante<br><br>
+                <strong>Total: R$ 29,90</strong>
+            </div>
+
+            <button class="btn">Finalizar Pagamento</button>
+
+        </form>
+    </div>
+
+    </div>
+    
+    <div id="footer"></div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

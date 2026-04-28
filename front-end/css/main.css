@@ -8,6 +8,12 @@
 @import url("home.css");
 @import url("footer.css");
 @import url(cardapio.css);
+@import url("login.css");
+@import url("cadastro.css");
+@import url("pagamento.css");
+@import url("status.css");
+@import url("historico.css");
+
 /* =========================
     RESET
 ========================= */
@@ -23,17 +29,22 @@
 ========================= */
 
 :root {
-    --cor-principal: #FBB534;
+    --cor-principal: #ffd166;
     --cor-secundaria: #E63946;
-    --cor-secundaria-hover: #aa2f3a;
-    
+    --cor-secundaria-hover: #c92f3a;
     
     --cor-bg-escuro: #1A1A1A;
-    --cor-bg-claro: #F5F5F5;
-    --cor-bg-claro-transparente: #f5f5f5b4;
+    --cor-bg-claro: rgba(255, 255, 255, 0.75);
     
     --cor-texto-claro: #FFFFFF;
-    --cor-texto-escuro: #000000;
+    --cor-texto-escuro: #222222;
+
+    --cor-coringa: #CCCCCC;
+    --cor-coringa-esccuro: #666666;
+
+    --borda-padrao: 1px solid rgba(255, 255, 255, 0.3);
+
+    --sombra-padrao: 0 8px 32px rgba(0, 0, 0, 0.1);
 
     --font-title: "BebasNeue";
 }
@@ -51,7 +62,7 @@
 
 @font-face {
     font-family: "Inter";
-    src: url("../fonts/Inter-VariableFont_opsz\,wght.ttf") format(truetype);
+    src: url("../fonts/Inter-VariableFont_opsz\,wght.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
