@@ -1,17 +1,3 @@
-/* ===== LAYOUT PRINCIPAL ===== */
-.main-home {
-    background-image: url(../assets/x-bacon.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* efeito de fundo fixo (parallax leve) */
-    background-size: cover;
-    background-position: center;
-
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* conteúdo centralizado com laterais vazias */
-    gap: 20px;
-}
-
-
 /* ===== SEÇÃO PRINCIPAL ===== */
 .principal {
     grid-area: 1 / 2 / 2 / 3;

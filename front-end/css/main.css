@@ -66,3 +66,15 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.main {
+    background-image: url(../assets/x-bacon.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* efeito de fundo fixo (parallax leve) */
+    background-size: cover;
+    background-position: center;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; /* conteúdo centralizado com laterais vazias */
+    gap: 20px;
+}
