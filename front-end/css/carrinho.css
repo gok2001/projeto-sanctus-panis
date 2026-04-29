@@ -1,7 +1,3 @@
-*{
-    font-family: var(--font-title);
-}
-
 .carrinho-main {
     background-image: url(../assets/x-bacon.png);
     background-repeat: no-repeat;
@@ -15,7 +11,7 @@
     flex-direction: column;
 }
 
-.carrinho-btn{
+.carrinho-btn {
     margin-top: 10%;
     display: flex;
     flex-direction: column;
@@ -24,19 +20,19 @@
     gap: 2.5rem;
 }
 
-.carrinho-btn-add-mais-pedido{
+.carrinho-btn-add-mais-pedido {
     padding: 0.5rem 2rem;
     border-radius: 30px;
 }
 
-.carrinho-btn-finalizar-pedido{
+.carrinho-btn-finalizar-pedido {
     font-size: 1.2rem;
     padding: 0.5rem 6rem;
     border-radius: 30px;
     margin-bottom: 2rem;
 }
 
-.carrinho-pedido{
+.carrinho-pedido {
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
@@ -46,7 +42,7 @@
     margin-top: 2rem;
 }
 
-.carrinho-btn-lexeira{
+.carrinho-btn-lexeira {
     background-color: transparent;
     background-image: url(../assets/lixeira.png);
     background-repeat: no-repeat;
@@ -59,8 +55,7 @@
 }
 
 
-.carrinho-img-pedido{
+.carrinho-img-pedido {
     width: 100px;
     height: 100px;
 }
-

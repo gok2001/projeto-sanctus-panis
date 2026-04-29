@@ -5,9 +5,9 @@
 ========================= */
 
 @import url("header.css");
-@import url("home.css");
 @import url("footer.css");
-@import url(cardapio.css);
+@import url("home.css");
+@import url("cardapio.css");
 @import url("login.css");
 @import url("cadastro.css");
 @import url("pagamento.css");
