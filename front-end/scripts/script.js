@@ -18,3 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', '../pages/static/header.html');
     loadComponent('footer', '../pages/static/footer.html');
 });
+
+document.querySelectorAll('input[name="opcao"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        var pagamento = document.getElementById('pagamento');
+        
+        if (this.value === 'entrega' && this.checked) {
+            pagamento.style.display = 'block';
+        } else {
+            pagamento.style.display = 'none';
+        }
+    });
+});

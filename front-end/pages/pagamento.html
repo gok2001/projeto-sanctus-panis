@@ -11,11 +11,19 @@
     
     <main class="main">
 
-        <section class="container">
-            <h2>Pagamento</h1>
+        <section class="container finalizar-pedido-container">
+            <h2>Finalizar pedido</h2>
         
-            <form>
-                <div class="form-group">
+            <form class="form-finalizar-pedido">
+                <div class="entrega-retirada">
+                    <input type="radio" name="opcao" id="entrega" value="entrega">
+                    <label for="entrega">Entrega</label>
+
+                    <input type="radio" name="opcao" id="retirada" value="retirada">
+                    <label for="retirada">Retirada</label>
+                </div>
+
+                <div id="pagamento" class="pagamento" style="display: none;">
                     <label>Método de Pagamento</label>
                     <select>
                         <option>Dinheiro</option>
@@ -24,7 +32,7 @@
                     </select>
                 </div>
 
-                <div class="resumo">
+                <div class="resumo-pedido">
                     <h3>Resumo do Pedido</h3>
                     <p>Hot Dog Especial</p>
                     <p>Refrigerante</p>
