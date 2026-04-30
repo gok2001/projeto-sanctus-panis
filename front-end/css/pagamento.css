@@ -2,3 +2,17 @@
     grid-area: 1 / 2 / 2 / 3;
 }
 
+.form-finalizar-pedido {
+    height: 80%;
+}
+
+.pagamento {
+    height: 50%;
+}
+
+.encereco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

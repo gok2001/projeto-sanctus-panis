@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.querySelectorAll('input[name="opcao"]').forEach(radio => {
     radio.addEventListener('change', function() {
-        var pagamento = document.getElementById('pagamento');
+        let pagamento = document.getElementById('pagamento');
         
         if (this.value === 'entrega' && this.checked) {
             pagamento.style.display = 'block';
