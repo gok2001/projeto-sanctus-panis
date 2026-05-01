@@ -4,15 +4,20 @@
 
 .form-finalizar-pedido {
     height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
 }
 
 .pagamento {
     height: 50%;
+    flex-direction: column;
 }
 
-.encereco {
+.endereco {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 }

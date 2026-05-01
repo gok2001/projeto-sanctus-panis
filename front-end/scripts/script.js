@@ -24,7 +24,7 @@ document.querySelectorAll('input[name="opcao"]').forEach(radio => {
         let pagamento = document.getElementById('pagamento');
         
         if (this.value === 'entrega' && this.checked) {
-            pagamento.style.display = 'block';
+            pagamento.style.display = 'flex';
         } else {
             pagamento.style.display = 'none';
         }
