@@ -22,11 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('input[name="opcao"]').forEach(radio => {
     radio.addEventListener('change', function() {
         let pagamento = document.getElementById('pagamento');
+        let container = document.querySelector('.container')
         
         if (this.value === 'entrega' && this.checked) {
             pagamento.style.display = 'flex';
+            container.style.height = '80vh'
         } else {
             pagamento.style.display = 'none';
+            container.style.height = '60vh'
         }
     });
 });
