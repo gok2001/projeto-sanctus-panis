@@ -31,10 +31,10 @@
     --cor-principal: #ffd166;
     --cor-secundaria: #E63946;
     --cor-secundaria-hover: #c92f3a;
-    
+
     --cor-bg-escuro: #1A1A1A;
     --cor-bg-claro: rgba(255, 255, 255, 0.75);
-    
+
     --cor-texto-claro: #FFFFFF;
     --cor-texto-escuro: #222222;
 
@@ -67,15 +67,24 @@
     font-style: normal;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-title);
+}
+
 .main {
     background-image: url(../assets/x-bacon.png);
     background-repeat: no-repeat;
-    background-attachment: fixed; /* efeito de fundo fixo (parallax leve) */
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
 
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* conteúdo centralizado com laterais vazias */
+    grid-template-columns: 1fr 3fr 1fr;
     gap: 20px;
 }
 
@@ -85,6 +94,7 @@
     height: 60vh;
     margin: 50px 0;
     border-radius: 20px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

@@ -12,9 +12,13 @@
     <main class="main">
 
         <section class="container finalizar-pedido-container">
-            <h2>Finalizar pedido</h2>
+            
+            <h1>Finalizar pedido</h1>
         
             <form class="form-finalizar-pedido">
+
+                <h2>Selecione uma opção</h2>
+
                 <div class="entrega-retirada">
                     <input type="radio" name="opcao" id="entrega" value="entrega">
                     <label for="entrega">Entrega</label>
@@ -24,11 +28,12 @@
                 </div>
 
                 <div id="pagamento" class="pagamento" style="display: none;">
+
                     <div class="endereco">
-                        <h3>Endereço</h3>
+                        <h2>Endereço</h2>
 
                         <label for="cep">CEP:</label>
-                        <input type="text" name="" id="cep" placeholder="XX.XXX.XXX" required>
+                        <input type="text" name="" id="cep" placeholder="XXXXX.XXX" required>
 
                         <label for="rua">Rua:</label>
                         <input type="text" name="" id="rua" placeholder="Rua exemplo" required>
@@ -41,13 +46,14 @@
                     </div>
 
                     <div class="metodo-pagamento">
-                        <label>Método de Pagamento</label>
+                        <h2>Método de Pagamento</h2>
                         <select>
                             <option>Dinheiro</option>
                             <option>Cartão</option>
                             <option>Pix</option>
                         </select>
                     </div>
+
                 </div>
 
                 <div class="resumo-pedido">
@@ -58,7 +64,9 @@
                 </div>
 
                 <button class="btn">Finalizar Pedido</button>
+
             </form>
+
         </section>
 
     </main>
