@@ -10,7 +10,7 @@ async function loadComponent(id, file) {
 
         element.innerHTML = data;
     } catch (error) {
-        console.error('Erro ao carregar componente:', error);
+        console.error('Erro ao carregar componente: ', error);
     }
 }
 
@@ -23,13 +23,18 @@ document.querySelectorAll('input[name="opcao"]').forEach(radio => {
     radio.addEventListener('change', function() {
         let pagamento = document.getElementById('pagamento');
         let container = document.querySelector('.container')
+        let inputsEndereco = document.querySelectorAll('input')
         
         if (this.value === 'entrega' && this.checked) {
             pagamento.style.display = 'flex';
             container.style.height = '80vh'
         } else {
             pagamento.style.display = 'none';
-            container.style.height = '60vh'
+            container.style.height = '60vh';
+
+            inputsEndereco.forEach(input => {
+                input.required = false;
+            });
         }
     });
 });

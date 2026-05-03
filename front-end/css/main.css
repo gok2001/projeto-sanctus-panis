@@ -76,6 +76,18 @@ h6 {
     font-family: var(--font-title);
 }
 
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+fieldset {
+    border: none;
+}
+
 .main {
     background-image: url(../assets/x-bacon.png);
     background-repeat: no-repeat;
@@ -100,4 +112,8 @@ h6 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.hidden {
+    display: none;
 }

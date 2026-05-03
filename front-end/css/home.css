@@ -44,20 +44,6 @@
 /* ===== SEÇÃO SOBRE ===== */
 .sobre {
     grid-area: 2 / 2 / 3 / 3;
-
-    background-color: var(--cor-bg-claro);
-    backdrop-filter: blur(10px);
-
-    height: 50vh;
-    margin-top: 50px;
-    padding: 30px;
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .titulo-sobre {
@@ -69,20 +55,6 @@
 /* ===== SEÇÃO DESTAQUES ===== */
 .destaques {
     grid-area: 3 / 2 / 4 / 3;
-
-    background-color: var(--cor-bg-claro);
-    backdrop-filter: blur(10px);
-
-    height: 60vh;
-    margin-top: 50px;
-    padding: 30px;
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .titulo-destaques {
@@ -93,20 +65,6 @@
 /* ===== SEÇÃO FINAL ===== */
 .final {
     grid-area: 4 / 2 / 5 / 3;
-
-    background-color: var(--cor-bg-claro);
-    backdrop-filter: blur(10px);
-
-    height: 60vh;
-    margin: 50px 0;
-    padding: 30px;
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 
