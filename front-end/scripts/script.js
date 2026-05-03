@@ -14,27 +14,32 @@ async function loadComponent(id, file) {
     }
 }
 
+function handleOpcaoChange(event) {
+    let pagamento = document.getElementById('pagamento');
+    let inputsEndereco = document.querySelectorAll('.endereco input')
+    
+    if (event.target.value === 'entrega') {
+        pagamento.classList.remove('hidden');
+
+        inputsEndereco.forEach(input => {
+            input.required = true;
+        });
+    } else {
+        pagamento.classList.add('hidden');
+
+        inputsEndereco.forEach(input => {
+            input.required = false;
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', '../pages/static/header.html');
     loadComponent('footer', '../pages/static/footer.html');
-});
 
-document.querySelectorAll('input[name="opcao"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-        let pagamento = document.getElementById('pagamento');
-        let container = document.querySelector('.container')
-        let inputsEndereco = document.querySelectorAll('input')
-        
-        if (this.value === 'entrega' && this.checked) {
-            pagamento.style.display = 'flex';
-            container.style.height = '80vh'
-        } else {
-            pagamento.style.display = 'none';
-            container.style.height = '60vh';
+    const radios = document.querySelectorAll('input[name="opcao"]');
 
-            inputsEndereco.forEach(input => {
-                input.required = false;
-            });
-        }
+    radios.forEach(radio => {
+        radio.addEventListener('change', handleOpcaoChange);
     });
 });
