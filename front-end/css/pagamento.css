@@ -9,6 +9,13 @@
     gap: 20px;
 }
 
+.entrega-retirada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
 .pagamento {
     display: flex;
     flex-direction: column;
@@ -17,8 +24,14 @@
 
 .endereco {
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metodo-pagamento {
     display: flex;
     flex-direction: column;
     gap: 10px;

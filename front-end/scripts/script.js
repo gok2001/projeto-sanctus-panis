@@ -43,3 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
         radio.addEventListener('change', handleOpcaoChange);
     });
 });
+
+let botaoCardapio = document.getElementById('botao-cardapio');
+
+botaoCardapio.onclick = function () {
+    location.href = 'cardapio.html';
+}

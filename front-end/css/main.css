@@ -67,6 +67,10 @@
     font-style: normal;
 }
 
+body {
+    font-family: var(--font-text)
+}
+
 h1,
 h2,
 h3,
@@ -86,6 +90,27 @@ h2 {
 
 fieldset {
     border: none;
+}
+
+legend {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+input {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.13);
+}
+
+label {
+    font-size: 20px;
+}
+
+select {
+    font-size: 18px;
+    padding: 10px;
 }
 
 .main {
@@ -119,6 +144,9 @@ fieldset {
     display: none;
 }
 
+.bold {
+    font-weight: bold;
+}
 
 /* ===== BOTÕES ===== */
 .btn {

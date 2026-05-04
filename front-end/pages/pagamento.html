@@ -14,23 +14,31 @@
         <section class="container finalizar-pedido-container" aria-labelledby="titulo-finalizar">
             
             <h1 id="titulo-finalizar">Finalizar pedido</h1>
+
+             <div class="resumo-pedido">
+                <h2>Resumo do Pedido</h2>
+                <p>Hot Dog Especial</p>
+                <p>Refrigerante</p>
+                <p><strong>Total: R$ 29,90</strong></p>
+            </div>
         
-            <form class="form-finalizar-pedido" action="#" method="post">
+            <fieldset class="entrega-retirada">
+                <legend class="bold">Selecione uma opção</legend>
 
-                <fieldset class="entrega-retirada">
-                    <legend>Selecione uma opção</legend>
-
+                <div class="opcoes">
                     <input type="radio" name="opcao" id="entrega" value="entrega" required>
                     <label for="entrega">Entrega</label>
-
                     <input type="radio" name="opcao" id="retirada" value="retirada">
                     <label for="retirada">Retirada</label>
-                </fieldset>
+                </div>
+            </fieldset>
+
+            <form class="form-finalizar-pedido" action="#" method="post">
 
                 <div id="pagamento" class="pagamento hidden">
 
                     <fieldset class="endereco">
-                        <legend>Endereço</legend>
+                        <legend class="bold">Endereço</legend>
 
                         <label for="cep">CEP</label>
                         <input type="text" name="cep" id="cep" placeholder="00000-000" inputmode="numeric" autocomplete="postal-code" required>
@@ -39,14 +47,14 @@
                         <input type="text" name="rua" id="rua" placeholder="Rua exemplo" autocomplete="address-line1" required>
 
                         <label for="numero">Número</label>
-                        <input type="number" name="numero" id="numero" placeholder="000" required>
+                        <input type="text" name="numero" id="numero" inputmode="numeric" placeholder="000" required>
 
                         <label for="bairro">Bairro</label>
                         <input type="text" name="bairro" id="bairro" placeholder="Bairro exemplo" required>
                     </fieldset>
 
                     <div class="metodo-pagamento">
-                        <label for="seleciona-pagamento">Método de Pagamento</label>
+                        <label class="bold" for="seleciona-pagamento">Método de Pagamento</label>
 
                         <select name="seleciona-pagamento" id="seleciona-pagamento">
                             <option value="">Selecione uma opção</option>
@@ -56,13 +64,6 @@
                         </select>
                     </div>
 
-                </div>
-
-                <div class="resumo-pedido">
-                    <h2>Resumo do Pedido</h2>
-                    <p>Hot Dog Especial</p>
-                    <p>Refrigerante</p>
-                    <p><strong>Total: R$ 29,90</strong></p>
                 </div>
 
                 <button type="submit" class="btn">Finalizar Pedido</button>
