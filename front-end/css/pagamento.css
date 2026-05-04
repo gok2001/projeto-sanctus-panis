@@ -1,4 +1,10 @@
-.finalizar-pedido-container {
+.resumo-pedido {
+    background-color: var(--cor-bg-escuro-transparente);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.finalizar-pedido {
     grid-area: 1 / 2 / 2 / 3;
 }
 
