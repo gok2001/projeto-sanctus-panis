@@ -10,7 +10,7 @@
 @import url("login.css");
 @import url("cadastro.css");
 @import url("pagamento.css");
-@import url("status.css");
+@import url("detalhes-pedido.css");
 @import url("historico.css");
 
 /* =========================
@@ -133,9 +133,8 @@ select {
     background-color: var(--cor-bg-claro);
     backdrop-filter: blur(10px);
     min-height: 40vh;
-    height: auto;
-    min-width: 80%;
-    width: auto;
+    min-width: 70%;
+    max-width: 90%;
     margin: 50px 0;
     padding: 30px;
     border-radius: 20px;
