@@ -2,9 +2,14 @@
     grid-area: 1 / 2 / 2 / 3;
 }
 
+.pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .pedido {
     background-color: var(--cor-bg-escuro-transparente);
-    max-width: 60%;
     padding: 20px;
     border-radius: 15px;
 }
