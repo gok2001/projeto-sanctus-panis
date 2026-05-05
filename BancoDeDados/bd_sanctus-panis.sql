@@ -49,9 +49,6 @@ CREATE TABLE lanche (
 
 -- ------------------------------------------------------------
 -- ingredienteLanche: tabela de junção lanche <-> produto  (N:N)
---   Substitui o campo JSON "ingredientes" da tabela lanche.
---   Também registra a quantidade do ingrediente por lanche,
---   o que era impossível de consultar eficientemente via JSON.
 -- ------------------------------------------------------------
 CREATE TABLE ingredienteLanche (
   idIngrediente INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -77,8 +74,6 @@ CREATE TABLE pedidoLanche (
 
 -- ------------------------------------------------------------
 -- itemPedido: tabela de junção pedido <-> lanche  (N:N)
---   Substitui o campo JSON "qtdLanche" da tabela pedidoLanche.
---   Permite registrar quantos de cada lanche foram pedidos.
 -- ------------------------------------------------------------
 CREATE TABLE itemPedido (
   idItemPedido INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
