@@ -12,4 +12,12 @@
     background-color: var(--cor-bg-escuro-transparente);
     padding: 20px;
     border-radius: 15px;
+    text-decoration: none;
+    color: var(--cor-texto-escuro);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pedido:hover {
+    background-color: var(--cor-bg-escuro-transparente-hover);
+    transform: translateY(-2px);
 }

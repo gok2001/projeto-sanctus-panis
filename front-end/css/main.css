@@ -34,6 +34,7 @@
 
     --cor-bg-escuro: #1A1A1A;
     --cor-bg-escuro-transparente: #1a1a1a2a;
+    --cor-bg-escuro-transparente-hover: #1a1a1a6b;
     --cor-bg-claro: rgba(255, 255, 255, 0.75);
 
     --cor-texto-claro: #FFFFFF;
@@ -69,7 +70,8 @@
 }
 
 body {
-    font-family: var(--font-text)
+    font-family: var(--font-text);
+    color: var(--cor-texto-escuro);
 }
 
 h1,
