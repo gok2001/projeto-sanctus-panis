@@ -130,7 +130,7 @@ select {
 .container {
     background-color: var(--cor-bg-claro);
     backdrop-filter: blur(10px);
-    min-height: 60vh;
+    min-height: 40vh;
     height: auto;
     min-width: 80%;
     width: auto;
