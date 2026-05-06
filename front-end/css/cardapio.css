@@ -60,12 +60,7 @@
     text-overflow: ellipsis;
     white-space: nowrap; /* corta em uma linha */
 }
-.texto {
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* mostra só 2 linhas */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+
 .texto.ativo {
     -webkit-line-clamp: unset;
     overflow: visible;
