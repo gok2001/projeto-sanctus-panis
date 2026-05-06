@@ -10,11 +10,42 @@ async function loadComponent(id, file) {
 
         element.innerHTML = data;
     } catch (error) {
-        console.error('Erro ao carregar componente:', error);
+        console.error('Erro ao carregar componente: ', error);
+    }
+}
+
+function handleOpcaoChange(event) {
+    let pagamento = document.getElementById('pagamento');
+    let inputsEndereco = document.querySelectorAll('.endereco input')
+    
+    if (event.target.value === 'entrega') {
+        pagamento.classList.remove('hidden');
+
+        inputsEndereco.forEach(input => {
+            input.required = true;
+        });
+    } else {
+        pagamento.classList.add('hidden');
+
+        inputsEndereco.forEach(input => {
+            input.required = false;
+        });
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', '../pages/static/header.html');
     loadComponent('footer', '../pages/static/footer.html');
+
+    const radios = document.querySelectorAll('input[name="opcao"]');
+
+    radios.forEach(radio => {
+        radio.addEventListener('change', handleOpcaoChange);
+    });
 });
+
+let botaoCardapio = document.getElementById('botao-cardapio');
+
+botaoCardapio.onclick = function () {
+    location.href = 'cardapio.html';
+}

@@ -1,39 +1,12 @@
-.main-cadastro {
-    background-image: url(../assets/x-bacon.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 20px;
-}
-
 .cadastro {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: var(--cor-bg-claro);
-    backdrop-filter: blur(10px);
-    height: 90vh;
-    margin: 50px 0;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
 }
 
-
-.cadastro-title {
-    font-family: var(--font-title);
-    font-size: 54px;
-}
-
-.cadastro-form {
-    height: 60%;
-    width: 50%;
+.form-cadastro {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .label-cadastro {
@@ -41,7 +14,7 @@
 }
 
 .input-cadastro {
-    height: 10%;
+    height: 15%;
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;

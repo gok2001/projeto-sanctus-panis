@@ -8,62 +8,71 @@
 </head>
 <body>
     <div id="header"></div>
+    
+    <main class="main">
 
-    <div class="overlay">
+        <section class="container finalizar-pedido" aria-labelledby="titulo-finalizar">
+            
+            <h1 id="titulo-finalizar">Finalizar pedido</h1>
 
-    <div style="text-align:center;">
-        <h1>Pagamento</h1>
-    </div>
-
-    <div class="container">
-
-        <form>
-
-            <div class="form-group">
-                <label>Nome no Cartão</label>
-                <input type="text" placeholder="João da Silva">
+             <div class="resumo-pedido">
+                <h2>Resumo do Pedido</h2>
+                <p>Hot Dog Especial</p>
+                <p>Refrigerante</p>
+                <p><strong>Total: R$ 29,90</strong></p>
             </div>
+        
+            <fieldset class="entrega-retirada">
+                <legend class="bold">Selecione uma opção</legend>
 
-            <div class="form-group">
-                <label>Número do Cartão</label>
-                <input type="text" placeholder="0000 0000 0000 0000">
-            </div>
+                <div class="opcoes">
+                    <input type="radio" name="opcao" id="entrega" value="entrega" required>
+                    <label for="entrega">Entrega</label>
+                    <input type="radio" name="opcao" id="retirada" value="retirada">
+                    <label for="retirada">Retirada</label>
+                </div>
+            </fieldset>
 
-            <div class="row">
-                <div class="form-group">
-                    <label>Validade</label>
-                    <input type="text" placeholder="MM/AA">
+            <form class="form-finalizar-pedido" action="#" method="post">
+
+                <div id="pagamento" class="pagamento hidden">
+
+                    <fieldset class="endereco">
+                        <legend class="bold">Endereço</legend>
+
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" id="cep" placeholder="00000-000" inputmode="numeric" autocomplete="postal-code" required>
+
+                        <label for="rua">Rua</label>
+                        <input type="text" name="rua" id="rua" placeholder="Rua exemplo" autocomplete="address-line1" required>
+
+                        <label for="numero">Número</label>
+                        <input type="text" name="numero" id="numero" inputmode="numeric" placeholder="000" required>
+
+                        <label for="bairro">Bairro</label>
+                        <input type="text" name="bairro" id="bairro" placeholder="Bairro exemplo" required>
+                    </fieldset>
+
+                    <div class="metodo-pagamento">
+                        <label class="bold" for="seleciona-pagamento">Método de Pagamento</label>
+
+                        <select name="seleciona-pagamento" id="seleciona-pagamento">
+                            <option value="">Selecione uma opção</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="cartao">Cartão</option>
+                            <option value="pix">Pix</option>
+                        </select>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label>CVV</label>
-                    <input type="text" placeholder="123">
-                </div>
-            </div>
+                <button type="submit" class="btn">Finalizar Pedido</button>
 
-            <div class="form-group">
-                <label>Método de Pagamento</label>
-                <select>
-                    <option>Dinheiro</option>
-                    <option>Cartão de Crédito</option>
-                    <option>Cartão de Débito</option>
-                    <option>Pix</option>
-                </select>
-            </div>
+            </form>
 
-            <div class="resumo">
-                <strong>Resumo do Pedido</strong><br>
-                Hot Dog Especial<br>
-                Refrigerante<br><br>
-                <strong>Total: R$ 29,90</strong>
-            </div>
+        </section>
 
-            <button class="btn">Finalizar Pagamento</button>
-
-        </form>
-    </div>
-
-    </div>
+    </main>
     
     <div id="footer"></div>
 

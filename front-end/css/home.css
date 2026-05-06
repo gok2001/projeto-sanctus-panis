@@ -1,17 +1,3 @@
-/* ===== LAYOUT PRINCIPAL ===== */
-.main-home {
-    background-image: url(../assets/x-bacon.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* efeito de fundo fixo (parallax leve) */
-    background-size: cover;
-    background-position: center;
-
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* conteúdo centralizado com laterais vazias */
-    gap: 20px;
-}
-
-
 /* ===== SEÇÃO PRINCIPAL ===== */
 .principal {
     grid-area: 1 / 2 / 2 / 3;
@@ -19,7 +5,6 @@
     /* efeito glassmorphism sobre imagem de fundo */
     background-color: var(--cor-bg-claro);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 
     height: 70vh;
     margin-top: 50px;
@@ -36,8 +21,17 @@
 }
 
 .titulo-home {
-    font-family: var(--font-title);
     font-size: 64px;
+}
+
+.texto-principal {
+    width: 80%;
+}
+
+.texto {
+    font-family: var(--font-text);
+    font-size: 20px;
+    line-height: 1.5;
 }
 
 .btns {
@@ -50,18 +44,6 @@
 /* ===== SEÇÃO SOBRE ===== */
 .sobre {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: var(--cor-bg-claro);
-
-    height: 50vh;
-    margin-top: 50px;
-    padding: 30px;
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .titulo-sobre {
@@ -73,18 +55,6 @@
 /* ===== SEÇÃO DESTAQUES ===== */
 .destaques {
     grid-area: 3 / 2 / 4 / 3;
-    background-color: var(--cor-bg-claro);
-
-    height: 60vh;
-    margin-top: 50px;
-    padding: 30px;
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .titulo-destaques {
@@ -92,71 +62,8 @@
     font-size: 48px;
 }
 
-
-/* ===== SEÇÃO GALERIA ===== */
-.galeria {
-    grid-area: 4 / 2 / 5 / 3;
-    background-color: var(--cor-bg-claro);
-
-    height: 60vh;
-    margin-top: 50px;
-    padding: 30px;
-
-    border-radius: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.titulo-galeria {
-    font-family: var(--font-title);
-    font-size: 48px;
-}
-
-
 /* ===== SEÇÃO FINAL ===== */
 .final {
-    grid-area: 5 / 2 / 6 / 3;
-    background-color: var(--cor-bg-claro);
-
-    height: 60vh;
-    margin: 50px 0;
-    padding: 30px;
-
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    grid-area: 4 / 2 / 5 / 3;
 }
 
-
-/* ===== BOTÕES ===== */
-.btn {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-texto-claro);
-
-    font-size: 18px;
-    height: 60px;
-    width: fit-content;
-
-    padding: 10px;
-    border-radius: 14px;
-
-    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.178);
-
-    /* transições suaves para interação */
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--cor-secundaria-hover);
-    cursor: pointer;
-
-    /* leve elevação ao interagir */
-    box-shadow: 3px 4px 2px 2px rgba(0, 0, 0, 0.096);
-    transform: translateY(-2px);
-}
