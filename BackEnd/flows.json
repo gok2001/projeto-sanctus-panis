@@ -1,0 +1,282 @@
+[
+    {
+        "id": "beb2afbdfe0c55d9",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "135253198fc10621",
+        "type": "http response",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1590,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "aac8b92c5a0f8bdb",
+        "type": "mysql",
+        "z": "beb2afbdfe0c55d9",
+        "mydb": "ad3dfee5b9a299af",
+        "name": "",
+        "x": 1370,
+        "y": 400,
+        "wires": [
+            [
+                "135253198fc10621"
+            ]
+        ]
+    },
+    {
+        "id": "b6a67ba736cdbdec",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "postUsuario",
+        "func": "let emailUsuario = msg.payload.emailUsuario;\nlet cpfUsuario = msg.payload.cpfUsuario;\nlet senhaUsuario = msg.payload.senhaUsuario;\n\nmsg.topic = \"insert into usuario (emailUsuario, cpfUsuario, senhaUsuario) values (? , ? , ?)\"\nmsg.payload = [emailUsuario, cpfUsuario, senhaUsuario];\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "1231df98f0435008"
+            ]
+        ]
+    },
+    {
+        "id": "701dadc2e68e732a",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/addUsuario",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "b6a67ba736cdbdec"
+            ]
+        ]
+    },
+    {
+        "id": "e09816ecc75a62fd",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getUsuario",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "859893ca93754f7e"
+            ]
+        ]
+    },
+    {
+        "id": "859893ca93754f7e",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "getAllUsuario",
+        "func": "msg.topic = \"select * from usuario\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "1231df98f0435008"
+            ]
+        ]
+    },
+    {
+        "id": "51b060fe86587ada",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getProduto",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 460,
+        "wires": [
+            [
+                "8edd44926a484df7"
+            ]
+        ]
+    },
+    {
+        "id": "d4f6ce77e0f3f169",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/addProduto",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 560,
+        "wires": [
+            [
+                "b5440337b733861e"
+            ]
+        ]
+    },
+    {
+        "id": "8edd44926a484df7",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "getAllProduto",
+        "func": "msg.topic = \"select * from produto;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 460,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "68f810189c4daaef"
+            ]
+        ]
+    },
+    {
+        "id": "b5440337b733861e",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "postProduto",
+        "func": "let nomeProduto = msg.payload.nomeProduto;\nlet qtdProduto = msg.payload.qtdProduto;\nlet unidadeProduto = msg.payload.unidadeProduto;\nlet validadeProduto = msg.payload.validadeProduto\n\nmsg.topic = \"insert into produto (nomeProduto, qtdProduto, unidadeProduto, validadeProduto) values (? , ? , ?, ?);\"\nmsg.payload = [nomeProduto, qtdProduto, unidadeProduto, validadeProduto];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 560,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "68f810189c4daaef"
+            ]
+        ]
+    },
+    {
+        "id": "8b240ab23ad49cc9",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "getByEmailSenha",
+        "func": "let emailUsuario = msg.req.params.emailUsuario;\nlet senhaUsuario = msg.req.params.senhaUsuario;\n\nmsg.topic = \"Select * from usuario where emailUsuario = ? and senhaUsuario = ?\";\nmsg.payload = [emailUsuario, senhaUsuario];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 80,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "1231df98f0435008"
+            ]
+        ]
+    },
+    {
+        "id": "250f1a5a952b8794",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getByUsuario/:emailUsuario/:senhaUsuario",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 80,
+        "wires": [
+            [
+                "8b240ab23ad49cc9"
+            ]
+        ]
+    },
+    {
+        "id": "1231df98f0435008",
+        "type": "debug",
+        "z": "beb2afbdfe0c55d9",
+        "name": "UsuarioBUG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "68f810189c4daaef",
+        "type": "debug",
+        "z": "beb2afbdfe0c55d9",
+        "name": "ProdutoBUG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ad3dfee5b9a299af",
+        "type": "MySQLdatabase",
+        "name": "BD-sanctus-panis",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "sanctusPanis",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "3bb218cdd97d9019",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-mysql": "3.0.0"
+        }
+    }
+]
