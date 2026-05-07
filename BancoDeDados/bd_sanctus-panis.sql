@@ -11,7 +11,7 @@ USE sanctusPanis;
 -- ------------------------------------------------------------
 CREATE TABLE usuario (
   idUsuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  nomeUsuario VARCHAR(100) NOT NULL,
+  emailUsuario VARCHAR(100) NOT NULL,
   cpfUsuario VARCHAR(11)  NOT NULL UNIQUE,
   senhaUsuario VARCHAR(100) NOT NULL
 );
@@ -35,7 +35,8 @@ CREATE TABLE produto (
   idProduto INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nomeProduto VARCHAR(100) NOT NULL,
   qtdProduto FLOAT NOT NULL DEFAULT 0,
-  unidadeProduto VARCHAR(10) NOT NULL  -- ex: 'g', 'ml', 'un'
+  unidadeProduto VARCHAR(10) NOT NULL,  -- ex: 'g', 'ml', 'un'
+  validadeProduto date not null
 );
 
 -- ------------------------------------------------------------
