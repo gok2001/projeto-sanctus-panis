@@ -11,24 +11,8 @@
     width: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.label-login {
-    font-size: 20px;
-}
-
-.input-login {
-    height: 15%;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.13);
-}
-
-.login-btn {
-    width: 20%;
-    align-self: center;
+    align-content: center;
+    gap: 10px;
 }
 
 .cadastro-link {
