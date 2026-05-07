@@ -5,12 +5,14 @@
 .form-cadastro {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
-.cadastro-btn {
-    align-self: center;
+.cadastro-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .login-link {
