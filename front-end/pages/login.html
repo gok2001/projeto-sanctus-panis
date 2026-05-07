@@ -15,11 +15,13 @@
             <h1 class="title-login">Login</h1>
 
             <form action="" method="POST" class="login-form">
-                <label for="email" class="label-login">Email</label>
-                <input type="email" name="" id="" class="input-login" title="Digite seu email" maxlength="50" placeholder="email@email.com" required>
+                <fieldset class="login-field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email-login" id="email-login" title="Digite seu email" maxlength="50" placeholder="email@email.com" required>
 
-                <label for="senha" class="label-login">Senha</label>
-                <input type="password" name="" id="" class="input-login" title="Digite sua senha" minlength="8" required>
+                    <label for="senha" class="label-login">Senha</label>
+                    <input type="password" name="senha-login" id="senha-login" title="Digite sua senha" minlength="8" required>
+                </fieldset>
                 
                 <button type="submit" class="btn">Entrar</button>
             </form>

@@ -9,18 +9,6 @@
     gap: 10px;
 }
 
-.label-cadastro {
-    font-size: 20px;
-}
-
-.input-cadastro {
-    height: 15%;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.13);
-}
-
 .cadastro-btn {
     align-self: center;
 }
