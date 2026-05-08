@@ -1,5 +1,5 @@
-const URL = 'http://10.110.12.49:1880/addUsuario';
-const formCadastro = document.querySelector('#form-cadastro');
+const URL = 'http://10.110.12.62:1880/addUsuario';
+const formCadastro = document.querySelector('.form-cadastro');
 
 formCadastro.addEventListener('submit', async (event) => {
     event.preventDefault();
