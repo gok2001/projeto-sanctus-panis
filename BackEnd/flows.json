@@ -14,38 +14,24 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1590,
-        "y": 400,
+        "x": 1470,
+        "y": 720,
         "wires": []
-    },
-    {
-        "id": "aac8b92c5a0f8bdb",
-        "type": "mysql",
-        "z": "beb2afbdfe0c55d9",
-        "mydb": "ad3dfee5b9a299af",
-        "name": "",
-        "x": 1370,
-        "y": 400,
-        "wires": [
-            [
-                "135253198fc10621"
-            ]
-        ]
     },
     {
         "id": "b6a67ba736cdbdec",
         "type": "function",
         "z": "beb2afbdfe0c55d9",
-        "name": "postUsuario",
-        "func": "let emailUsuario = msg.payload.emailUsuario;\nlet cpfUsuario = msg.payload.cpfUsuario;\nlet senhaUsuario = msg.payload.senhaUsuario;\n\nmsg.topic = \"insert into usuario (emailUsuario, cpfUsuario, senhaUsuario) values (? , ? , ?)\"\nmsg.payload = [emailUsuario, cpfUsuario, senhaUsuario];\n\n\n\nreturn msg;",
+        "name": "insertUsuario",
+        "func": "let emailUsuario = msg.payload.emailUsuario;\nlet cpfUsuario = msg.payload.cpfUsuario;\nlet senhaUsuario = msg.payload.senhaUsuario;\n\nmsg.topic = \"insert into usuario (emailUsuario, cpfUsuario, senhaUsuario) values (? , ? , ?);\"\nmsg.payload = [emailUsuario, cpfUsuario, senhaUsuario];\n\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 240,
+        "x": 610,
+        "y": 580,
         "wires": [
             [
                 "aac8b92c5a0f8bdb",
@@ -63,8 +49,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 350,
-        "y": 240,
+        "x": 390,
+        "y": 580,
         "wires": [
             [
                 "b6a67ba736cdbdec"
@@ -81,8 +67,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 340,
-        "y": 160,
+        "x": 380,
+        "y": 500,
         "wires": [
             [
                 "859893ca93754f7e"
@@ -93,7 +79,7 @@
         "id": "859893ca93754f7e",
         "type": "function",
         "z": "beb2afbdfe0c55d9",
-        "name": "getAllUsuario",
+        "name": "selectAllUsuario",
         "func": "msg.topic = \"select * from usuario\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -101,8 +87,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 160,
+        "x": 620,
+        "y": 500,
         "wires": [
             [
                 "aac8b92c5a0f8bdb",
@@ -120,8 +106,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 240,
-        "y": 460,
+        "x": 260,
+        "y": 900,
         "wires": [
             [
                 "8edd44926a484df7"
@@ -138,8 +124,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 250,
-        "y": 560,
+        "x": 270,
+        "y": 1000,
         "wires": [
             [
                 "b5440337b733861e"
@@ -158,8 +144,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 460,
+        "x": 460,
+        "y": 900,
         "wires": [
             [
                 "aac8b92c5a0f8bdb",
@@ -171,7 +157,7 @@
         "id": "b5440337b733861e",
         "type": "function",
         "z": "beb2afbdfe0c55d9",
-        "name": "postProduto",
+        "name": "insertProduto",
         "func": "let nomeProduto = msg.payload.nomeProduto;\nlet qtdProduto = msg.payload.qtdProduto;\nlet unidadeProduto = msg.payload.unidadeProduto;\nlet validadeProduto = msg.payload.validadeProduto\n\nmsg.topic = \"insert into produto (nomeProduto, qtdProduto, unidadeProduto, validadeProduto) values (? , ? , ?, ?);\"\nmsg.payload = [nomeProduto, qtdProduto, unidadeProduto, validadeProduto];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -179,8 +165,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 560,
+        "x": 490,
+        "y": 1000,
         "wires": [
             [
                 "aac8b92c5a0f8bdb",
@@ -192,16 +178,16 @@
         "id": "8b240ab23ad49cc9",
         "type": "function",
         "z": "beb2afbdfe0c55d9",
-        "name": "getByEmailSenha",
-        "func": "let emailUsuario = msg.req.params.emailUsuario;\nlet senhaUsuario = msg.req.params.senhaUsuario;\n\nmsg.topic = \"Select * from usuario where emailUsuario = ? and senhaUsuario = ?\";\nmsg.payload = [emailUsuario, senhaUsuario];\nreturn msg;",
+        "name": "selectLogin",
+        "func": "let emailUsuario = msg.req.body.emailUsuario;\nlet senhaUsuario = msg.req.body.senhaUsuario;\n\nmsg.topic = \"Select * from usuario where emailUsuario = ? and senhaUsuario = ?\";\nmsg.payload = [emailUsuario, senhaUsuario];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 80,
+        "x": 570,
+        "y": 420,
         "wires": [
             [
                 "aac8b92c5a0f8bdb",
@@ -214,16 +200,16 @@
         "type": "http in",
         "z": "beb2afbdfe0c55d9",
         "name": "",
-        "url": "/getByUsuario/:emailUsuario/:senhaUsuario",
-        "method": "get",
+        "url": "/login",
+        "method": "post",
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 220,
-        "y": 80,
+        "x": 210,
+        "y": 420,
         "wires": [
             [
-                "8b240ab23ad49cc9"
+                "a0cf9ad13f5c27ee"
             ]
         ]
     },
@@ -240,8 +226,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
-        "y": 40,
+        "x": 810,
+        "y": 420,
         "wires": []
     },
     {
@@ -257,8 +243,228 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 400,
+        "x": 730,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "aac8b92c5a0f8bdb",
+        "type": "mysql",
+        "z": "beb2afbdfe0c55d9",
+        "mydb": "ad3dfee5b9a299af",
+        "name": "",
+        "x": 1230,
+        "y": 720,
+        "wires": [
+            [
+                "135253198fc10621"
+            ]
+        ]
+    },
+    {
+        "id": "a0cf9ad13f5c27ee",
+        "type": "json",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "8b240ab23ad49cc9"
+            ]
+        ]
+    },
+    {
+        "id": "407e39095ca0ca35",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "selectAllLanche",
+        "func": "msg.topic = \"select * from lanche;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 1180,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "e8490d2162255518"
+            ]
+        ]
+    },
+    {
+        "id": "d079f1f52cd60401",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getLanche",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1120,
+        "y": 1180,
+        "wires": [
+            [
+                "407e39095ca0ca35"
+            ]
+        ]
+    },
+    {
+        "id": "865567fd5347f829",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/addLanche",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1130,
+        "y": 1260,
+        "wires": [
+            [
+                "9aa2feee642ddbdc"
+            ]
+        ]
+    },
+    {
+        "id": "9aa2feee642ddbdc",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "insertLanche",
+        "func": "let nomeLanche = msg.payload.nomeLanche;\nlet precoLanche = msg.payload.precoLanche;\n\nmsg.topic = \"insert into lanche (nomeLanche, precoLanche) value (?, ?)\";\nmsg.payload = [nomeLanche, precoLanche];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 1260,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "e8490d2162255518"
+            ]
+        ]
+    },
+    {
+        "id": "e8490d2162255518",
+        "type": "debug",
+        "z": "beb2afbdfe0c55d9",
+        "name": "LancheBUG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1570,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "6fa72093c0ce6a32",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "selectAllEndereco",
+        "func": "msg.topic = \"select * from endereco;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 280,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "450ca7d031d3b7d7"
+            ]
+        ]
+    },
+    {
+        "id": "0660507bfb184e03",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getEndereco",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1250,
+        "y": 280,
+        "wires": [
+            [
+                "6fa72093c0ce6a32"
+            ]
+        ]
+    },
+    {
+        "id": "bbe1ab4a79b133fd",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/addEndereco",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1250,
+        "y": 360,
+        "wires": [
+            [
+                "0eb5df2854819fed"
+            ]
+        ]
+    },
+    {
+        "id": "0eb5df2854819fed",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "insertEndereco",
+        "func": "let nroCasa = msg.payload.nroCasa;\nlet bairro = msg.payload.bairro;\nlet rua = msg.payload.rua;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert int endereco (nroCasa, bairro, rua, idUsuario) value (?, ?, ?, ?);\";\nmsg.payload = [nroCasa, bairro, rua, idUsuario];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 360,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb",
+                "450ca7d031d3b7d7"
+            ]
+        ]
+    },
+    {
+        "id": "450ca7d031d3b7d7",
+        "type": "debug",
+        "z": "beb2afbdfe0c55d9",
+        "name": "EnderecoBUG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1740,
+        "y": 280,
         "wires": []
     },
     {
@@ -272,7 +478,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "3bb218cdd97d9019",
+        "id": "97d90d4179a80bef",
         "type": "global-config",
         "env": [],
         "modules": {
