@@ -44,7 +44,11 @@
 
     --cor-coringa: #CCCCCC;
     --cor-coringa-esccuro: #666666;
-
+.resumo-pedido {
+    background-color: var(--cor-bg-escuro-transparente);
+    padding: 20px;
+    border-radius: 15px;
+}
     --borda-padrao: 1px solid rgba(255, 255, 255, 0.3);
 
     --sombra-padrao: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -140,7 +144,7 @@ select {
     max-width: 90%;
     margin: 50px 0;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 50px;
 
     display: flex;
     flex-direction: column;
