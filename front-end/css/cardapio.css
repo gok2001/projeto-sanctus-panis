@@ -6,4 +6,37 @@
     background-color: var(--cor-bg-escuro-transparente);
     padding: 20px;
     border-radius: 20px;
+
+    width: 90%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.descricao {
+    font-size: 20px;
+}
+
+.preco {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.acoes-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
