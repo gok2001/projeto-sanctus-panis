@@ -5,7 +5,7 @@
 .resumo-pedido {
     background-color: var(--cor-bg-escuro-transparente);
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .form-finalizar-pedido {

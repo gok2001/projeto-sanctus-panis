@@ -44,11 +44,7 @@
 
     --cor-coringa: #CCCCCC;
     --cor-coringa-esccuro: #666666;
-.resumo-pedido {
-    background-color: var(--cor-bg-escuro-transparente);
-    padding: 20px;
-    border-radius: 15px;
-}
+
     --borda-padrao: 1px solid rgba(255, 255, 255, 0.3);
 
     --sombra-padrao: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -182,4 +178,10 @@ select {
 
     box-shadow: 3px 4px 2px 2px rgba(0, 0, 0, 0.096);
     transform: translateY(-2px);
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
