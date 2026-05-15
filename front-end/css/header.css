@@ -37,7 +37,7 @@
 }
 
 .home-icon {
-    background-image: url(../assets/home-icon.svg);
+    background-image: url(../assets/icon/home-icon.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -46,7 +46,7 @@
 }
 
 .cardapio-icon {
-    background-image: url(../assets/cardapio-icon.svg);
+    background-image: url(../assets/icon/cardapio-icon.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -55,7 +55,7 @@
 }
 
 .carrinho-icon {
-    background-image: url(../assets/carrinho-icon.svg);
+    background-image: url(../assets/icon/carrinho-icon.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -64,7 +64,7 @@
 }
 
 .pedidos-icon {
-    background-image: url(../assets/pedidos-icon.svg);
+    background-image: url(../assets/icon/pedidos-icon.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -73,7 +73,7 @@
 }
 
 .login-icon {
-    background-image: url(../assets/login-icon.svg);
+    background-image: url(../assets/icon/login-icon.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;

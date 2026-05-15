@@ -63,14 +63,14 @@
 
 @font-face {
     font-family: "BebasNeue";
-    src: url("../fonts/BebasNeue-Regular.ttf") format("truetype");
+    src: url("../assets/fonts/BebasNeue-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("../fonts/Inter-VariableFont_opsz\,wght.ttf") format("truetype");
+    src: url("../assets/fonts/Inter-VariableFont_opsz\,wght.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -149,7 +149,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
 }
 
 .hidden {
@@ -173,8 +173,6 @@ select {
     border-radius: 14px;
 
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.178);
-
-    /* transições suaves para interação */
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -182,7 +180,6 @@ select {
     background-color: var(--cor-secundaria-hover);
     cursor: pointer;
 
-    /* leve elevação ao interagir */
     box-shadow: 3px 4px 2px 2px rgba(0, 0, 0, 0.096);
     transform: translateY(-2px);
 }
