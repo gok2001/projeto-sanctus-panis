@@ -1,4 +1,4 @@
-const URL = 'http://10.110.12.62:1880/login';
+const URL = 'http://localhost:1880/login';
 const formLogin = document.querySelector('.login-form');
 
 formLogin.addEventListener('submit', async (event) => {

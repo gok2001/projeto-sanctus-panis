@@ -11,9 +11,10 @@ USE sanctusPanis;
 -- ------------------------------------------------------------
 CREATE TABLE usuario (
   idUsuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  emailUsuario VARCHAR(100) NOT NULL,
+  emailUsuario VARCHAR(100) NOT NULL UNIQUE,
   cpfUsuario VARCHAR(11)  NOT NULL UNIQUE,
-  senhaUsuario VARCHAR(100) NOT NULL
+  senhaUsuario VARCHAR(255) NOT NULL,
+  roleUsuario ENUM('user', 'admin') NOT NULL DEFAULT 'user'
 );
 
 -- ------------------------------------------------------------
@@ -68,7 +69,7 @@ CREATE TABLE pedidoLanche (
   idPedido INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   observacaoPedido VARCHAR(500),
   datahoraPedido TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  statusPedido VARCHAR(100) NOT NULL DEFAULT 'pendente',
+  statusPedido ENUM('pendente', 'preparando', 'pronto_retirada', 'saiu_entrega', 'entregue', 'cancelado') NOT NULL DEFAULT 'pendente',
   idUsuario INT NOT NULL,
   FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario)
 );

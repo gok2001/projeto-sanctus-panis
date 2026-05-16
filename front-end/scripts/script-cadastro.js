@@ -1,4 +1,4 @@
-const URL = 'http://10.110.12.62:1880/addUsuario';
+const URL = 'http://localhost:1880/addUsuario';
 const formCadastro = document.querySelector('.form-cadastro');
 
 formCadastro.addEventListener('submit', async (event) => {
