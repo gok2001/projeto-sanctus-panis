@@ -2,10 +2,6 @@
     grid-area: 1 / 2 / 2 / 3;
 }
 
-.title-login {
-    font-size: 54px;
-}
-
 .login-form {
     height: 60%;
     width: 40%;

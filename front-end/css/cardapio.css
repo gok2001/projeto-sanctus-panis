@@ -40,3 +40,9 @@
     align-items: center;
     gap: 10px;
 }
+
+.lanche-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

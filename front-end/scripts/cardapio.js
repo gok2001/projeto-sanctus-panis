@@ -1,9 +1,14 @@
 import { estaLogado, ehAdmin } from "./auth.js";
 
-const URL = 'http://localhost:1880/getLanche';
-const response = await fetch(URL);
-const lanches = await response.json();
 const cardapio = document.querySelector('.lista-cardapio')
+const btnAdmin = document.querySelector('.btn-admin');
+const modal = document.querySelector('.modal-lanche');
+const btnAddIngrediente = document.querySelector('.btn-add-ingrediente');
+const ingredientesContainer = document.querySelector('.ingredientes-container');
+
+const URL_getLanche = 'http://localhost:1880/getLanche';
+const responseLanche = await fetch(URL_getLanche);
+const lanches = await responseLanche.json();
 
 lanches.forEach(lanche => {
 
@@ -33,9 +38,37 @@ lanches.forEach(lanche => {
     cardapio.appendChild(card);
 });
 
-
-const btnAdmin = document.querySelector('.btn-admin');
-
 if (estaLogado() && ehAdmin()) {
     btnAdmin.classList.remove('hidden');
 }
+
+btnAdmin.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+});
+
+const URL_getProduto = 'http://localhost:1880/getProduto';
+const responseProduto = await fetch(URL_getProduto);
+const produtos = await responseProduto.json();
+
+function criarIngrediente() {
+    const div = document.createElement('div');
+    div.classList.add('ingrediente-item');
+
+    const options = produtos.map(produto => `
+        <option value="${produto.idProduto}">
+            ${produto.nomeProduto}
+        </option>
+    `).join('');
+
+    div.innerHTML = `
+        <select>
+        <input type="number" class="quantidade-input" placeholder="Quantidade">
+        <input type="text" class="unidade-input" placeholder="g/un">
+    `;
+
+    return div;
+}
+
+btnAddIngrediente.addEventListener('click', () => {
+    ingredientesContainer.appendChild(criarIngrediente());
+});
