@@ -28,8 +28,8 @@ formCadastro.addEventListener('submit', async (event) => {
             },
             body: JSON.stringify(dados)
         });
-
-        alert('Cadastro enviado!')
+        alert('Cadastro enviado!');
+        window.location.href = 'login.html';
     } catch (erro) {
         console.error('Erro:', erro);
         alert('Erro ao cadastrar usuário');
