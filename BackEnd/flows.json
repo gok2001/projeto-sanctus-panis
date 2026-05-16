@@ -124,11 +124,11 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 270,
+        "x": 170,
         "y": 1000,
         "wires": [
             [
-                "b5440337b733861e"
+                "569abaf35465b422"
             ]
         ]
     },
@@ -165,7 +165,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 510,
         "y": 1000,
         "wires": [
             [
@@ -326,11 +326,11 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1130,
+        "x": 1030,
         "y": 1260,
         "wires": [
             [
-                "9aa2feee642ddbdc"
+                "bcb6c9489418608a"
             ]
         ]
     },
@@ -339,7 +339,7 @@
         "type": "function",
         "z": "beb2afbdfe0c55d9",
         "name": "insertLanche",
-        "func": "let nomeLanche = msg.payload.nomeLanche;\nlet precoLanche = msg.payload.precoLanche;\n\nmsg.topic = \"insert into lanche (nomeLanche, precoLanche) value (?, ?)\";\nmsg.payload = [nomeLanche, precoLanche];\nreturn msg;",
+        "func": "let nomeLanche = msg.payload.nomeLanche;\nlet precoLanche = msg.payload.precoLanche;\n\nmsg.topic = \"insert into lanche (nomeLanche, precoLanche) values (?, ?)\";\nmsg.payload = [nomeLanche, precoLanche];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -384,8 +384,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
-        "y": 280,
+        "x": 1430,
+        "y": 180,
         "wires": [
             [
                 "aac8b92c5a0f8bdb",
@@ -403,8 +403,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1250,
-        "y": 280,
+        "x": 1210,
+        "y": 180,
         "wires": [
             [
                 "6fa72093c0ce6a32"
@@ -421,11 +421,11 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1250,
-        "y": 360,
+        "x": 1110,
+        "y": 260,
         "wires": [
             [
-                "0eb5df2854819fed"
+                "4f26f214418efdf3"
             ]
         ]
     },
@@ -434,15 +434,15 @@
         "type": "function",
         "z": "beb2afbdfe0c55d9",
         "name": "insertEndereco",
-        "func": "let nroCasa = msg.payload.nroCasa;\nlet bairro = msg.payload.bairro;\nlet rua = msg.payload.rua;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert int endereco (nroCasa, bairro, rua, idUsuario) value (?, ?, ?, ?);\";\nmsg.payload = [nroCasa, bairro, rua, idUsuario];\nreturn msg;",
+        "func": "let nroCasa = msg.payload.nroCasa;\nlet bairro = msg.payload.bairro;\nlet rua = msg.payload.rua;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert int endereco (nroCasa, bairro, rua, idUsuario) values (?, ?, ?, ?);\";\nmsg.payload = [nroCasa, bairro, rua, idUsuario];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1460,
-        "y": 360,
+        "x": 1420,
+        "y": 260,
         "wires": [
             [
                 "aac8b92c5a0f8bdb",
@@ -463,9 +463,333 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1740,
-        "y": 280,
+        "x": 1700,
+        "y": 180,
         "wires": []
+    },
+    {
+        "id": "799676b4af4f634b",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "selectAllIngrediente",
+        "func": "msg.topic = \"select * from ingredienteLanche;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2190,
+        "y": 360,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb"
+            ]
+        ]
+    },
+    {
+        "id": "c394d3b03bcdb99b",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getIngrediente",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1930,
+        "y": 360,
+        "wires": [
+            [
+                "799676b4af4f634b"
+            ]
+        ]
+    },
+    {
+        "id": "b58f1e3af8176b02",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/addIngrediente",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1780,
+        "y": 440,
+        "wires": [
+            [
+                "cdd557d3f45e7ea0"
+            ]
+        ]
+    },
+    {
+        "id": "6cfeb6e34c25d0b4",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "insertIngrediente",
+        "func": "let idIngrediente = msg.payload.idIngrediente;\nlet idLanche = msg.payload.idLanche;\nlet idProduto = msg.payload.idProduto;\nlet quantidade = msg.payload.quantidade;\nlet unidade = msg.payload.unidade;\n\nmsg.topic = \"insert into ingredienteLanche(idIngrediente, idLanche, idProduto, quantidade, unidade) values (?,?,?,?,?);\"\nmsg.payload = [idIngrediente, idLanche, idProduto, quantidade, unidade];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2190,
+        "y": 440,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb"
+            ]
+        ]
+    },
+    {
+        "id": "569abaf35465b422",
+        "type": "json",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 1000,
+        "wires": [
+            [
+                "b5440337b733861e"
+            ]
+        ]
+    },
+    {
+        "id": "bcb6c9489418608a",
+        "type": "json",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1190,
+        "y": 1260,
+        "wires": [
+            [
+                "9aa2feee642ddbdc"
+            ]
+        ]
+    },
+    {
+        "id": "cdd557d3f45e7ea0",
+        "type": "json",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 2010,
+        "y": 440,
+        "wires": [
+            [
+                "6cfeb6e34c25d0b4"
+            ]
+        ]
+    },
+    {
+        "id": "4f26f214418efdf3",
+        "type": "json",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1270,
+        "y": 260,
+        "wires": [
+            [
+                "0eb5df2854819fed"
+            ]
+        ]
+    },
+    {
+        "id": "afa964de08e06f8b",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "function 1",
+        "func": "msg.topic = \"select * from pedidoLanche;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2380,
+        "y": 720,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb"
+            ]
+        ]
+    },
+    {
+        "id": "2f3a865f6a49d2cd",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getPedido",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 2140,
+        "y": 720,
+        "wires": [
+            [
+                "afa964de08e06f8b"
+            ]
+        ]
+    },
+    {
+        "id": "58b64de9804a6b80",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "function 2",
+        "func": "let idPedido = msg.payload.idPedido;\nlet observacaoPedido = msg.payload.observacaoPedido;\nlet datahoraPedido = msg.payload.datahoraPedido;\nlet statusPedido = msg.payload.statusPedido;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert into pedidoLanche (idPedido, observacaoPedido, datahoraPedido, statusPedido, idUsuario) values (?, ?, ?, ?, ?);\";\nmsg.payload = [idPedido, observacaoPedido, datahoraPedido, statusPedido, idUsuario];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2380,
+        "y": 800,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb"
+            ]
+        ]
+    },
+    {
+        "id": "3c43dd49d20b3159",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/addPedido",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 2040,
+        "y": 800,
+        "wires": [
+            [
+                "99d36060585406fa"
+            ]
+        ]
+    },
+    {
+        "id": "99d36060585406fa",
+        "type": "json",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 2230,
+        "y": 800,
+        "wires": [
+            [
+                "58b64de9804a6b80"
+            ]
+        ]
+    },
+    {
+        "id": "a2ed76c32af48e2d",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/getItemPedido",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1970,
+        "y": 1040,
+        "wires": [
+            [
+                "67315dee6a7ec726"
+            ]
+        ]
+    },
+    {
+        "id": "67315dee6a7ec726",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "function 3",
+        "func": "msg.topic = \"select * from itemPedido;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2280,
+        "y": 1040,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb"
+            ]
+        ]
+    },
+    {
+        "id": "c4ba749599e3b927",
+        "type": "http in",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "url": "/addItemPedido",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1920,
+        "y": 1100,
+        "wires": [
+            [
+                "0e788215af421389"
+            ]
+        ]
+    },
+    {
+        "id": "ec75125b9ed8b4a0",
+        "type": "function",
+        "z": "beb2afbdfe0c55d9",
+        "name": "function 4",
+        "func": "let idItemPedido = msg.payload.idItemPedido;\nlet idPedido = msg.payload.idPedido;\nlet idLanche = msg.payload.idLanche;\nlet quantidade = msg.payload.quantidade;\n\nmsg.topic = \"insert into itemPedido (idItemPedido, idPedido, idLanche, quantidade) values (?, ?, ?, ?);\";\nmsg.payload = [idItemPedido, idPedido, idLanche, quantidade];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2300,
+        "y": 1100,
+        "wires": [
+            [
+                "aac8b92c5a0f8bdb"
+            ]
+        ]
+    },
+    {
+        "id": "0e788215af421389",
+        "type": "json",
+        "z": "beb2afbdfe0c55d9",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 2130,
+        "y": 1100,
+        "wires": [
+            [
+                "ec75125b9ed8b4a0"
+            ]
+        ]
     },
     {
         "id": "ad3dfee5b9a299af",
@@ -478,7 +802,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "97d90d4179a80bef",
+        "id": "fead015c8df3a969",
         "type": "global-config",
         "env": [],
         "modules": {
