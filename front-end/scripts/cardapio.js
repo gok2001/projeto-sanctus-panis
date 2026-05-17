@@ -68,6 +68,7 @@ function criarIngrediente() {
         <select>
         <input type="number" class="quantidade-input" placeholder="Quantidade">
         <input type="text" class="unidade-input" placeholder="g/un">
+        <button type="button" class="btn btn-remove">X</button>
     `;
 
     return div;

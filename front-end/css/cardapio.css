@@ -41,12 +41,6 @@
     gap: 10px;
 }
 
-.lanche-field {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .btn-admin {
     position: fixed;
     bottom: 50px;
@@ -55,4 +49,27 @@
 
 .modal-lanche {
     grid-area: 2 / 2 / 3 / 3;
+}
+
+.form-lanche {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lanche-field {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ingredientes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ingrediente-item {
+    display: flex;
+    gap: 20px;
 }

@@ -119,6 +119,16 @@ input {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.13);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
 label {
     font-size: 20px;
 }
