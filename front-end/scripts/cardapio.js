@@ -26,9 +26,9 @@ lanches.forEach(lanche => {
         <div class="acoes-item">
 
             <div class="quantidade">
-                <button class="btn">-</button>
+                <button class="btn menos">-</button>
                 <span class="qtd">0</span>
-                <button class="btn">+</button>
+                <button class="btn mais">+</button>
             </div>
 
             <button class="btn">Adicionar</button>
@@ -43,7 +43,11 @@ if (estaLogado() && ehAdmin()) {
 }
 
 btnAdmin.addEventListener('click', () => {
-    modal.classList.remove('hidden');
+    if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+    } else {
+        modal.classList.add('hidden');
+    }
 });
 
 const URL_getProduto = 'http://localhost:1880/getProduto';
