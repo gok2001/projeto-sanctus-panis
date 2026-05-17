@@ -10,8 +10,8 @@
     width: 100%;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .item-info {
@@ -45,4 +45,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.btn-admin {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.modal-lanche {
+    grid-area: 2 / 2 / 3 / 3;
 }
