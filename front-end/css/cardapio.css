@@ -2,6 +2,14 @@
     grid-area: 1 / 2 / 2 / 3;
 }
 
+.lista-cardapio {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .item-cardapio {
     background-color: var(--cor-bg-escuro-transparente);
     padding: 20px;

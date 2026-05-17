@@ -19,7 +19,8 @@ lanches.forEach(lanche => {
         <div class="item-info">
 
             <h2>${lanche.nomeLanche}</h2>
-            <p class="preco">R$ ${lanche.precoLanche}</p>
+            <p class="descricao">${lanche.descricao}</p>
+            <p class="preco">R$ ${lanche.precoLanche.toFixed(2)}</p>
             
         </div>
 
