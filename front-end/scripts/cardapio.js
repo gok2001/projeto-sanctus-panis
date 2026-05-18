@@ -6,6 +6,8 @@ const modal = document.querySelector('.modal-lanche');
 const btnAddIngrediente = document.querySelector('.btn-add-ingrediente');
 const ingredientesContainer = document.querySelector('.ingredientes-container');
 
+const formLanche = document.querySelector('.form-lanche');
+
 const URL_getLanche = 'http://localhost:1880/getLanche';
 const responseLanche = await fetch(URL_getLanche);
 const lanches = await responseLanche.json();
@@ -66,7 +68,7 @@ function criarIngrediente() {
     `).join('');
 
     div.innerHTML = `
-        <select>${options}</select>
+        <select class="produto-select">${options}</select>
         <input type="number" class="quantidade-input" placeholder="Quantidade">
         <input type="text" class="unidade-input" placeholder="g/un">
         <button type="button" class="btn btn-remove">X</button>
@@ -77,4 +79,49 @@ function criarIngrediente() {
 
 btnAddIngrediente.addEventListener('click', () => {
     ingredientesContainer.appendChild(criarIngrediente());
+});
+
+const URL_addLanche = 'http://localhost:1880/addLanche';
+
+formLanche.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const nomeLanche = document.querySelector('#nome-lanche').value;
+    const precoLanche = document.querySelector('#preco-lanche').value;
+    const ingredientes = [];
+    
+    document.querySelectorAll('.ingrediente-item').forEach(item => {
+        ingredientes.push({
+            idProduto: item.querySelector('.produto-select').value,
+            quantidade: item.querySelector('.quantidade-input').value,
+            unidade: item.querySelector('.unidade-input').value
+        });
+    });
+
+    const dados = {
+        nomeLanche,
+        precoLanche,
+        ingredientes
+    }
+    
+    try {
+        const response = await fetch(
+            URL_addLanche, 
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            }
+        );
+
+        alert('Lanche cadastrado!');
+        location.reload();
+
+    } catch (erro) {
+        console.error(erro);
+        alert('Erro ao cadastrar lanche')
+    }
+    
 });
