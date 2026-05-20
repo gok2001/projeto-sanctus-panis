@@ -74,6 +74,12 @@ function criarIngrediente() {
         <button type="button" class="btn btn-remove">X</button>
     `;
 
+    const btnRemove = div.querySelector('.btn-remove');
+
+    btnRemove.addEventListener('click', () => {
+        div.remove();
+    });
+
     return div;
 }
 
