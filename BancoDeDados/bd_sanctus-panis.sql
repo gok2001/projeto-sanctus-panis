@@ -68,7 +68,7 @@ CREATE TABLE pedidoLanche (
   idPedido INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   observacaoPedido VARCHAR(500),
   datahoraPedido TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  statusPedido ENUM('pendente', 'preparando', 'pronto_retirada', 'saiu_entrega', 'entregue', 'cancelado') NOT NULL DEFAULT 'pendente',
+  statusPedido ENUM('carrinho', 'finalizado') NOT NULL,
   idUsuario INT NOT NULL,
   FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario)
 );
