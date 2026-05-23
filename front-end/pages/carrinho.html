@@ -14,21 +14,13 @@
         <section class="container carrinho">
             <h1>Carrinho</h1>
 
-            <div class="carrinho-pedido">
-                <h2 class="nome-lanche">X-Burguer</h2>
-                <p class="observacoes">Observações:</p>
-                <p class="preco preco-carrinho">R$ 29,90</p>
+            <div class="itens-carrinho"></div>
 
-                <button class="btn">Excluir</button>
-            </div>
-
-            <div class="total">
-                <p>Total: R$ 29,90</p>
-            </div>
+            <div class="total"></div>
             
             <div class="btns">
-                <button class="btn">Adicionar mais itens</button>
-                <button class="btn">Finalizar Pedido</button>
+                <button class="btn btn-add-itens">Adicionar mais itens</button>
+                <button class="btn btn-finalizar">Finalizar Pedido</button>
             </div>
         </section>
         
@@ -37,5 +29,6 @@
     <div id="footer"></div>
 
     <script src="../scripts/layout.js"></script>
+    <script type="module" src="../scripts/carrinho.js"></script>
 </body>
 </html>
