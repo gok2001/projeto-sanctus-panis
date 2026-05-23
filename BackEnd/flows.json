@@ -8,17 +8,6 @@
         "env": []
     },
     {
-        "id": "f05e8d287b04e86b",
-        "type": "http response",
-        "z": "e7e6ac57badb8044",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1510,
-        "y": 720,
-        "wires": []
-    },
-    {
         "id": "b5960a474ffbd5ad",
         "type": "function",
         "z": "e7e6ac57badb8044",
@@ -34,8 +23,8 @@
         "y": 580,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "622750dbe3c4765d"
+                "622750dbe3c4765d",
+                "2fc00983ce33dc94"
             ]
         ]
     },
@@ -91,8 +80,8 @@
         "y": 500,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "622750dbe3c4765d"
+                "622750dbe3c4765d",
+                "2fc00983ce33dc94"
             ]
         ]
     },
@@ -107,7 +96,7 @@
         "skipBodyParsing": false,
         "swaggerDoc": "",
         "x": 260,
-        "y": 900,
+        "y": 860,
         "wires": [
             [
                 "068494b3abd6dedd"
@@ -124,8 +113,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 170,
-        "y": 1000,
+        "x": 90,
+        "y": 940,
         "wires": [
             [
                 "a88ae973781dce83"
@@ -145,11 +134,11 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 900,
+        "y": 860,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "9f8a0d2f0aed2042"
+                "9f8a0d2f0aed2042",
+                "fbb1713678d57236"
             ]
         ]
     },
@@ -165,12 +154,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 1000,
+        "x": 470,
+        "y": 940,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "9f8a0d2f0aed2042"
+                "9f8a0d2f0aed2042",
+                "fbb1713678d57236"
             ]
         ]
     },
@@ -190,8 +179,8 @@
         "y": 420,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "622750dbe3c4765d"
+                "622750dbe3c4765d",
+                "2fc00983ce33dc94"
             ]
         ]
     },
@@ -226,8 +215,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 420,
+        "x": 910,
+        "y": 440,
         "wires": []
     },
     {
@@ -244,7 +233,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 1000,
+        "y": 940,
         "wires": []
     },
     {
@@ -275,12 +264,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
+        "x": 1100,
         "y": 1180,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "05f2a2fd761f7ca5"
+                "05f2a2fd761f7ca5",
+                "11813f55df85ae1d"
             ]
         ]
     },
@@ -332,12 +321,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1130,
+        "x": 1110,
         "y": 1260,
         "wires": [
             [
                 "05f2a2fd761f7ca5",
-                "8f30fcae7dffd0b8"
+                "11813f55df85ae1d"
             ]
         ]
     },
@@ -354,8 +343,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1430,
-        "y": 1240,
+        "x": 1350,
+        "y": 1260,
         "wires": []
     },
     {
@@ -370,12 +359,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1430,
-        "y": 180,
+        "x": 1390,
+        "y": 140,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "18b0d11a6e468a71"
+                "18b0d11a6e468a71",
+                "d7726cddc3cda606"
             ]
         ]
     },
@@ -389,8 +378,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1210,
-        "y": 180,
+        "x": 1170,
+        "y": 140,
         "wires": [
             [
                 "90b9c9df206e3e6e"
@@ -407,8 +396,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1110,
-        "y": 260,
+        "x": 1070,
+        "y": 220,
         "wires": [
             [
                 "4f9b0d4f65ea626d"
@@ -420,19 +409,19 @@
         "type": "function",
         "z": "e7e6ac57badb8044",
         "name": "insertEndereco",
-        "func": "let nroCasa = msg.payload.nroCasa;\nlet bairro = msg.payload.bairro;\nlet rua = msg.payload.rua;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert int endereco (nroCasa, bairro, rua, idUsuario) values (?, ?, ?, ?);\";\nmsg.payload = [nroCasa, bairro, rua, idUsuario];\nreturn msg;",
+        "func": "let nroCasa = msg.payload.nroCasa;\nlet bairro = msg.payload.bairro;\nlet rua = msg.payload.rua;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert into endereco (nroCasa, bairro, rua, idUsuario) values (?, ?, ?, ?);\";\nmsg.payload = [nroCasa, bairro, rua, idUsuario];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1420,
-        "y": 260,
+        "x": 1400,
+        "y": 220,
         "wires": [
             [
-                "8f30fcae7dffd0b8",
-                "18b0d11a6e468a71"
+                "18b0d11a6e468a71",
+                "d7726cddc3cda606"
             ]
         ]
     },
@@ -449,8 +438,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1700,
-        "y": 180,
+        "x": 1660,
+        "y": 140,
         "wires": []
     },
     {
@@ -465,11 +454,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2210,
+        "x": 2190,
         "y": 360,
         "wires": [
             [
-                "8f30fcae7dffd0b8"
+                "3ac30b69edbef1e1"
             ]
         ]
     },
@@ -525,7 +514,7 @@
         "y": 440,
         "wires": [
             [
-                "8f30fcae7dffd0b8"
+                "3ac30b69edbef1e1"
             ]
         ]
     },
@@ -537,8 +526,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 350,
-        "y": 1000,
+        "x": 310,
+        "y": 940,
         "wires": [
             [
                 "c9c307d4d07355b0"
@@ -585,8 +574,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 1270,
-        "y": 260,
+        "x": 1230,
+        "y": 220,
         "wires": [
             [
                 "de99148834c0fcd8"
@@ -597,7 +586,7 @@
         "id": "e6734132e4cc212e",
         "type": "function",
         "z": "e7e6ac57badb8044",
-        "name": "function 1",
+        "name": "selectPedido",
         "func": "msg.topic = \"select * from pedidoLanche;\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -605,11 +594,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2380,
+        "x": 2390,
         "y": 720,
         "wires": [
             [
-                "8f30fcae7dffd0b8"
+                "ca965caf8054c312",
+                "ab979c38386dff0e"
             ]
         ]
     },
@@ -635,19 +625,20 @@
         "id": "66f989f336945dea",
         "type": "function",
         "z": "e7e6ac57badb8044",
-        "name": "function 2",
-        "func": "let idPedido = msg.payload.idPedido;\nlet observacaoPedido = msg.payload.observacaoPedido;\nlet datahoraPedido = msg.payload.datahoraPedido;\nlet statusPedido = msg.payload.statusPedido;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert into pedidoLanche (idPedido, observacaoPedido, datahoraPedido, statusPedido, idUsuario) values (?, ?, ?, ?, ?);\";\nmsg.payload = [idPedido, observacaoPedido, datahoraPedido, statusPedido, idUsuario];\nreturn msg;",
+        "name": "insertPedido",
+        "func": "let idPedido = msg.payload.idPedido;\nlet observacaoPedido = msg.payload.observacaoPedido;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert into pedidoLanche (idPedido, observacaoPedido, idUsuario) values (?, ?, ?);\";\nmsg.payload = [idPedido, observacaoPedido, idUsuario];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2380,
+        "x": 2390,
         "y": 800,
         "wires": [
             [
-                "8f30fcae7dffd0b8"
+                "ca965caf8054c312",
+                "ab979c38386dff0e"
             ]
         ]
     },
@@ -695,7 +686,7 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1970,
+        "x": 1910,
         "y": 1040,
         "wires": [
             [
@@ -707,7 +698,7 @@
         "id": "1898900b01e436d2",
         "type": "function",
         "z": "e7e6ac57badb8044",
-        "name": "function 3",
+        "name": "selectItemPedido",
         "func": "msg.topic = \"select * from itemPedido;\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -715,11 +706,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2280,
+        "x": 2330,
         "y": 1040,
         "wires": [
             [
-                "8f30fcae7dffd0b8"
+                "9e1c385d31759871",
+                "25bbf4fcd32b0315"
             ]
         ]
     },
@@ -745,7 +737,7 @@
         "id": "7525739b5c945b1e",
         "type": "function",
         "z": "e7e6ac57badb8044",
-        "name": "function 4",
+        "name": "insertItemPedido",
         "func": "let idItemPedido = msg.payload.idItemPedido;\nlet idPedido = msg.payload.idPedido;\nlet idLanche = msg.payload.idLanche;\nlet quantidade = msg.payload.quantidade;\n\nmsg.topic = \"insert into itemPedido (idItemPedido, idPedido, idLanche, quantidade) values (?, ?, ?, ?);\";\nmsg.payload = [idItemPedido, idPedido, idLanche, quantidade];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -753,11 +745,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2300,
+        "x": 2330,
         "y": 1100,
         "wires": [
             [
-                "8f30fcae7dffd0b8"
+                "9e1c385d31759871",
+                "25bbf4fcd32b0315"
             ]
         ]
     },
@@ -778,28 +771,13 @@
         ]
     },
     {
-        "id": "8f30fcae7dffd0b8",
-        "type": "mysql",
-        "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
-        "name": "",
-        "x": 1210,
-        "y": 720,
-        "wires": [
-            [
-                "c0f5a21223e9206c",
-                "f05e8d287b04e86b"
-            ]
-        ]
-    },
-    {
         "id": "8e47630bf1695e71",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
         "mydb": "a1c369c5823d2cf7",
         "name": "",
-        "x": 2570,
-        "y": 280,
+        "x": 3470,
+        "y": 320,
         "wires": [
             [
                 "e438f5d45d1b3b42"
@@ -818,8 +796,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1930,
-        "y": 280,
+        "x": 2750,
+        "y": 320,
         "wires": [
             [
                 "85b3ae4e03c82dd8"
@@ -833,8 +811,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 2970,
-        "y": 280,
+        "x": 3810,
+        "y": 320,
         "wires": []
     },
     {
@@ -849,8 +827,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2340,
-        "y": 280,
+        "x": 3220,
+        "y": 320,
         "wires": [
             [
                 "8e47630bf1695e71"
@@ -869,8 +847,8 @@
         "stream": false,
         "addname": "",
         "property": "payload",
-        "x": 2130,
-        "y": 280,
+        "x": 3010,
+        "y": 320,
         "wires": [
             [
                 "8bbcf97304882310"
@@ -894,13 +872,223 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 2770,
-        "y": 280,
+        "x": 3670,
+        "y": 320,
         "wires": [
             [
                 "d5df3e535169e2d6"
             ]
         ]
+    },
+    {
+        "id": "9c3828c949710c37",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d7726cddc3cda606",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "a1c369c5823d2cf7",
+        "name": "",
+        "x": 1650,
+        "y": 220,
+        "wires": [
+            [
+                "9c3828c949710c37"
+            ]
+        ]
+    },
+    {
+        "id": "18c979984244af01",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2830,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3ac30b69edbef1e1",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "a1c369c5823d2cf7",
+        "name": "",
+        "x": 2530,
+        "y": 400,
+        "wires": [
+            [
+                "18c979984244af01",
+                "c0f5a21223e9206c"
+            ]
+        ]
+    },
+    {
+        "id": "ac2b8fc97df06ca3",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1190,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "2fc00983ce33dc94",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "a1c369c5823d2cf7",
+        "name": "",
+        "x": 890,
+        "y": 500,
+        "wires": [
+            [
+                "ac2b8fc97df06ca3"
+            ]
+        ]
+    },
+    {
+        "id": "08c63a99f4fd95ad",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 950,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "fbb1713678d57236",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "a1c369c5823d2cf7",
+        "name": "",
+        "x": 730,
+        "y": 860,
+        "wires": [
+            [
+                "08c63a99f4fd95ad"
+            ]
+        ]
+    },
+    {
+        "id": "a6466785cfb3d9b4",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1530,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "11813f55df85ae1d",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "a1c369c5823d2cf7",
+        "name": "",
+        "x": 1350,
+        "y": 1180,
+        "wires": [
+            [
+                "a6466785cfb3d9b4"
+            ]
+        ]
+    },
+    {
+        "id": "9e1c385d31759871",
+        "type": "debug",
+        "z": "e7e6ac57badb8044",
+        "name": "ItemPedidoBUG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2600,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "88254f00acac4427",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2770,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "25bbf4fcd32b0315",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "a1c369c5823d2cf7",
+        "name": "",
+        "x": 2590,
+        "y": 1100,
+        "wires": [
+            [
+                "88254f00acac4427"
+            ]
+        ]
+    },
+    {
+        "id": "991225761e99353f",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2850,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "ca965caf8054c312",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "a1c369c5823d2cf7",
+        "name": "",
+        "x": 2630,
+        "y": 800,
+        "wires": [
+            [
+                "991225761e99353f"
+            ]
+        ]
+    },
+    {
+        "id": "ab979c38386dff0e",
+        "type": "debug",
+        "z": "e7e6ac57badb8044",
+        "name": "PedidoBUG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2630,
+        "y": 720,
+        "wires": []
     },
     {
         "id": "a1c369c5823d2cf7",
@@ -913,7 +1101,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "326dc6bfd64c78ba",
+        "id": "74f7edeee40bd64f",
         "type": "global-config",
         "env": [],
         "modules": {
