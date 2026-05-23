@@ -5,8 +5,9 @@ const btnAdmin = document.querySelector('.btn-admin');
 const modal = document.querySelector('.modal-lanche');
 const btnAddIngrediente = document.querySelector('.btn-add-ingrediente');
 const ingredientesContainer = document.querySelector('.ingredientes-container');
-
 const formLanche = document.querySelector('.form-lanche');
+
+let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
 const URL_getLanche = 'http://localhost:1880/getLanche';
 const responseLanche = await fetch(URL_getLanche);
@@ -16,6 +17,9 @@ lanches.forEach(lanche => {
 
     const card = document.createElement('article');
     card.classList.add('item-cardapio');
+    card.dataset.id = lanche.idLanche;
+    card.dataset.nome = lanche.nomeLanche;
+    card.dataset.preco = lanche.precoLanche;
 
     card.innerHTML = `
         <div class="item-info">
@@ -34,11 +38,63 @@ lanches.forEach(lanche => {
                 <button class="btn mais">+</button>
             </div>
 
-            <button class="btn">Adicionar</button>
+            <button class="btn btn-add-carrinho">Adicionar</button>
         </div>
     `;
 
     cardapio.appendChild(card);
+
+    const btnMais = card.querySelector('.mais');
+    const btnMenos = card.querySelector('.menos');
+    const qtd = card.querySelector('.qtd');
+    const btnAdicionar = card.querySelector('.btn-add-carrinho');
+
+    let quantidade = 0;
+
+    btnMais.addEventListener('click', () => {
+        quantidade++;
+        qtd.textContent = quantidade;
+    });
+
+    btnMenos.addEventListener('click', () => {
+        if (quantidade > 0) {
+            quantidade--;
+            qtd.textContent = quantidade;
+        }
+    });
+
+    btnAdicionar.addEventListener('click', () => {
+        if (quantidade <= 0) {
+            alert('Escolha uma quantidade maior que 0');
+            return;
+        }
+
+        const id = card.dataset.id;
+        const nome = card.dataset.nome;
+        const preco = Number(card.dataset.preco);
+
+        const itemExistente = carrinho.find(item => item.id === id);
+
+        if (itemExistente) {
+            itemExistente.quantidade += quantidade;
+        } else {
+            carrinho.push({
+                id,
+                nome,
+                preco,
+                quantidade
+            });
+        }
+
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+        console.log(carrinho);
+
+        quantidade = 0;
+        qtd.textContent = 0;
+
+        alert('Item adicionado ao carrinho!')
+    });
 });
 
 if (estaLogado() && ehAdmin()) {
