@@ -159,7 +159,7 @@
         "wires": [
             [
                 "9f8a0d2f0aed2042",
-                "fbb1713678d57236"
+                "b20387fdac3dad37"
             ]
         ]
     },
@@ -232,8 +232,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 940,
+        "x": 670,
+        "y": 1080,
         "wires": []
     },
     {
@@ -326,7 +326,7 @@
         "wires": [
             [
                 "05f2a2fd761f7ca5",
-                "11813f55df85ae1d"
+                "e8ae92149dc528a8"
             ]
         ]
     },
@@ -343,8 +343,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1350,
-        "y": 1260,
+        "x": 1310,
+        "y": 1400,
         "wires": []
     },
     {
@@ -598,8 +598,8 @@
         "y": 720,
         "wires": [
             [
-                "ca965caf8054c312",
-                "ab979c38386dff0e"
+                "ab979c38386dff0e",
+                "b6e9d22c72f1dd67"
             ]
         ]
     },
@@ -626,7 +626,7 @@
         "type": "function",
         "z": "e7e6ac57badb8044",
         "name": "insertPedido",
-        "func": "let idPedido = msg.payload.idPedido;\nlet observacaoPedido = msg.payload.observacaoPedido;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert into pedidoLanche (idPedido, observacaoPedido, idUsuario) values (?, ?, ?);\";\nmsg.payload = [idPedido, observacaoPedido, idUsuario];\nreturn msg;",
+        "func": "let observacaoPedido = msg.payload.observacaoPedido;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = `\n    INSERT INTO pedidoLanche (\n        observacaoPedido, \n        idUsuario\n    ) \n    VALUES (?, ?)\n`;\nmsg.payload = [observacaoPedido, idUsuario];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -711,7 +711,7 @@
         "wires": [
             [
                 "9e1c385d31759871",
-                "25bbf4fcd32b0315"
+                "fafd700544643508"
             ]
         ]
     },
@@ -738,7 +738,7 @@
         "type": "function",
         "z": "e7e6ac57badb8044",
         "name": "insertItemPedido",
-        "func": "let idItemPedido = msg.payload.idItemPedido;\nlet idPedido = msg.payload.idPedido;\nlet idLanche = msg.payload.idLanche;\nlet quantidade = msg.payload.quantidade;\n\nmsg.topic = \"insert into itemPedido (idItemPedido, idPedido, idLanche, quantidade) values (?, ?, ?, ?);\";\nmsg.payload = [idItemPedido, idPedido, idLanche, quantidade];\nreturn msg;",
+        "func": "let idPedido = msg.payload.idPedido;\nlet idLanche = msg.payload.idLanche;\nlet quantidade = msg.payload.quantidade;\n\nmsg.topic = `\n    INSERT INTO itemPedido (\n        idPedido, \n        idLanche, \n        quantidade\n    ) \n    VALUES (?, ?, ?)\n    `;\nmsg.payload = [idPedido, idLanche, quantidade];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -774,7 +774,7 @@
         "id": "8e47630bf1695e71",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 3470,
         "y": 320,
@@ -895,7 +895,7 @@
         "id": "d7726cddc3cda606",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 1650,
         "y": 220,
@@ -920,7 +920,7 @@
         "id": "3ac30b69edbef1e1",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 2530,
         "y": 400,
@@ -946,7 +946,7 @@
         "id": "2fc00983ce33dc94",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 890,
         "y": 500,
@@ -971,7 +971,7 @@
         "id": "fbb1713678d57236",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 730,
         "y": 860,
@@ -996,7 +996,7 @@
         "id": "11813f55df85ae1d",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 1350,
         "y": 1180,
@@ -1019,8 +1019,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2600,
-        "y": 1040,
+        "x": 2580,
+        "y": 920,
         "wires": []
     },
     {
@@ -1030,7 +1030,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 2770,
+        "x": 3010,
         "y": 1100,
         "wires": []
     },
@@ -1038,13 +1038,13 @@
         "id": "25bbf4fcd32b0315",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 2590,
         "y": 1100,
         "wires": [
             [
-                "88254f00acac4427"
+                "2ad8a3fcc9321ec2"
             ]
         ]
     },
@@ -1055,7 +1055,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 2850,
+        "x": 3030,
         "y": 800,
         "wires": []
     },
@@ -1063,13 +1063,13 @@
         "id": "ca965caf8054c312",
         "type": "mysql",
         "z": "e7e6ac57badb8044",
-        "mydb": "a1c369c5823d2cf7",
+        "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 800,
         "wires": [
             [
-                "991225761e99353f"
+                "5565123d052ec070"
             ]
         ]
     },
@@ -1086,12 +1086,152 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
+        "x": 2610,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b6e9d22c72f1dd67",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
         "x": 2630,
+        "y": 720,
+        "wires": [
+            [
+                "98056996731e3458"
+            ]
+        ]
+    },
+    {
+        "id": "98056996731e3458",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2850,
         "y": 720,
         "wires": []
     },
     {
-        "id": "a1c369c5823d2cf7",
+        "id": "5565123d052ec070",
+        "type": "function",
+        "z": "e7e6ac57badb8044",
+        "name": "formatarPedido",
+        "func": "msg.payload = {\n    sucesso: true,\n    insertId: msg.payload.insertId\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2840,
+        "y": 800,
+        "wires": [
+            [
+                "991225761e99353f"
+            ]
+        ]
+    },
+    {
+        "id": "2ad8a3fcc9321ec2",
+        "type": "function",
+        "z": "e7e6ac57badb8044",
+        "name": "formatarItemPedido",
+        "func": "msg.payload = {\n    sucesso: true\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2810,
+        "y": 1100,
+        "wires": [
+            [
+                "88254f00acac4427"
+            ]
+        ]
+    },
+    {
+        "id": "fafd700544643508",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 2590,
+        "y": 1040,
+        "wires": [
+            [
+                "e577c28c6f676f7b"
+            ]
+        ]
+    },
+    {
+        "id": "e577c28c6f676f7b",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2770,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "b20387fdac3dad37",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 730,
+        "y": 940,
+        "wires": [
+            [
+                "12b43ea5275eb0d2"
+            ]
+        ]
+    },
+    {
+        "id": "12b43ea5275eb0d2",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 950,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e8ae92149dc528a8",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 1350,
+        "y": 1260,
+        "wires": [
+            [
+                "29aad6feb0a66f57"
+            ]
+        ]
+    },
+    {
+        "id": "29aad6feb0a66f57",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1530,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "516bad169977ff50",
         "type": "MySQLdatabase",
         "name": "",
         "host": "127.0.0.1",
@@ -1101,7 +1241,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "74f7edeee40bd64f",
+        "id": "9a437923c3938b6d",
         "type": "global-config",
         "env": [],
         "modules": {
