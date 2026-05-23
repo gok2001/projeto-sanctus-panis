@@ -7,7 +7,7 @@ let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
 function rendenizarCarrinho() {
     itensCarrinho.innerHTML = '';
-    totalHTML = '';
+    totalHTML.innerHTML = '';
 
     if (carrinho.length === 0) {
         itensCarrinho.innerHTML = `<p>Seu carrinho está vazio.</p>`;
@@ -53,14 +53,63 @@ btnAddItens.addEventListener('click', () => {
     window.location.href = './cardapio.html';
 });
 
-btnFinalizar.addEventListener('click', () => {
+const URL_addPedido = 'http://localhost:1880/addPedido';
+const URL_addItemPedido = 'http://localhost:1880/addItemPedido';
+
+btnFinalizar.addEventListener('click', async () => {
     if (carrinho.length === 0) {
-        alert('Seu carrinho está vazio.');
+        alert('Carrinho vazio');
 
         return;
     }
 
-    window.location.href = './pagamento.html';
+    try {
+        const dadosPedido = { observacaoPedido: '', idUsuario: 1};
+        const responsePedido = await fetch(
+            URL_addPedido,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify(dadosPedido)
+            }
+        );
+
+        const pedidoCriado = await responsePedido.json();
+        const idPedido = pedidoCriado.insertId;
+
+        for (const item of carrinho) {
+            const dadosItem = {
+                idPedido,
+                idLanche: item.id,
+                quantidade: item.quantidade
+            };
+        }
+
+        await fetch(
+            URL_addItemPedido,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify(dadosItem)
+            }
+        );
+
+        localStorage.removeItem('carrinho');
+        carrinho = [];
+        
+        window.location.href = './pagamento.html';
+    } catch (erro) {
+        alert('Erro ao finalizar pedido');
+    }
+
+
+
 });
 
 rendenizarCarrinho();

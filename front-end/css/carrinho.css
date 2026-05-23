@@ -2,6 +2,15 @@
     grid-area: 1 / 2 / 2 / 3;
 }
 
+.itens-carrinho {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
 .carrinho-pedido {
     background-color: var(--cor-bg-escuro-transparente);
     padding: 20px;
