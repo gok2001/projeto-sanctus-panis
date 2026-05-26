@@ -1,24 +1,20 @@
-.login {
+.perfil {
     grid-area: 1 / 2 / 2 / 3;
 }
 
-.login-form {
+.perfil-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-.login-field {
+.perfil-field {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.cadastro-link {
-    text-decoration: none;
-}
-
-.cadastro-link:hover {
-    text-decoration: underline;
+.admin-area {
+    grid-area: 2 / 2 / 3 / 3;
 }

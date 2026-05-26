@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main class="main">
+        <section class="container perfil">
+            <h1>Meu Perfil</h1>
+
+            <form class="perfil-form">
+
+                <fieldset class="perfil-field">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+
+                    <label for="senha">Nova senha</label>
+                    <input type="password" id="senha">
+                </fieldset>
+
+                <button type="submit" class="btn">Atualizar Dados</button>
+
+            </form>
+        </section>
+
+        <section class="container admin-area hidden">
+            <h2>Área Administrativa</h2>
+            <p>Controle de estoque dos produtos.</p>
+            <div id="estoque-container"></div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../scripts/layout.js"></script>
+    <script type="module" src="../scripts/perfil.js"></script>
+</body>
+</html>
