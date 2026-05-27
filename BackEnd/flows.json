@@ -175,7 +175,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 590,
         "y": 420,
         "wires": [
             [
@@ -233,7 +233,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 670,
-        "y": 1080,
+        "y": 1020,
         "wires": []
     },
     {
@@ -344,7 +344,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1310,
-        "y": 1400,
+        "y": 1360,
         "wires": []
     },
     {
@@ -686,8 +686,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1910,
-        "y": 1040,
+        "x": 1950,
+        "y": 1420,
         "wires": [
             [
                 "1898900b01e436d2"
@@ -706,8 +706,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2330,
-        "y": 1040,
+        "x": 2370,
+        "y": 1420,
         "wires": [
             [
                 "9e1c385d31759871",
@@ -725,8 +725,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 1920,
-        "y": 1100,
+        "x": 1960,
+        "y": 1480,
         "wires": [
             [
                 "fa5723f889112fba"
@@ -745,8 +745,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2330,
-        "y": 1100,
+        "x": 2370,
+        "y": 1480,
         "wires": [
             [
                 "9e1c385d31759871",
@@ -762,8 +762,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 2130,
-        "y": 1100,
+        "x": 2170,
+        "y": 1480,
         "wires": [
             [
                 "7525739b5c945b1e"
@@ -1019,8 +1019,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2580,
-        "y": 920,
+        "x": 2620,
+        "y": 1300,
         "wires": []
     },
     {
@@ -1030,8 +1030,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 3010,
-        "y": 1100,
+        "x": 3050,
+        "y": 1480,
         "wires": []
     },
     {
@@ -1040,8 +1040,8 @@
         "z": "e7e6ac57badb8044",
         "mydb": "516bad169977ff50",
         "name": "",
-        "x": 2590,
-        "y": 1100,
+        "x": 2630,
+        "y": 1480,
         "wires": [
             [
                 "2ad8a3fcc9321ec2"
@@ -1147,8 +1147,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2810,
-        "y": 1100,
+        "x": 2850,
+        "y": 1480,
         "wires": [
             [
                 "88254f00acac4427"
@@ -1161,8 +1161,8 @@
         "z": "e7e6ac57badb8044",
         "mydb": "516bad169977ff50",
         "name": "",
-        "x": 2590,
-        "y": 1040,
+        "x": 2630,
+        "y": 1420,
         "wires": [
             [
                 "e577c28c6f676f7b"
@@ -1176,8 +1176,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 2770,
-        "y": 1040,
+        "x": 2810,
+        "y": 1420,
         "wires": []
     },
     {
@@ -1231,6 +1231,198 @@
         "wires": []
     },
     {
+        "id": "4402cd4afd78b3ee",
+        "type": "http in",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "url": "/putPedido/:idPedido",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 2050,
+        "y": 880,
+        "wires": [
+            [
+                "35c43bb9ce92adea"
+            ]
+        ]
+    },
+    {
+        "id": "35c43bb9ce92adea",
+        "type": "function",
+        "z": "e7e6ac57badb8044",
+        "name": "updatePedido",
+        "func": "let idPedido = msg.req.params.idPedido;\n\nlet statusPedido = msg.req.body.statusPedido;\n\nmsg.topic = \"update pedidoLanche set statusPedido = ? where idPedido = ?;\";\nmsg.payload = [statusPedido, idPedido];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2380,
+        "y": 880,
+        "wires": [
+            [
+                "c6d76ab2532bf7dd",
+                "ab979c38386dff0e"
+            ]
+        ]
+    },
+    {
+        "id": "c6d76ab2532bf7dd",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 2630,
+        "y": 880,
+        "wires": [
+            [
+                "5bad9fc5d8606482"
+            ]
+        ]
+    },
+    {
+        "id": "5bad9fc5d8606482",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2850,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "526f43cf0ed0973c",
+        "type": "function",
+        "z": "e7e6ac57badb8044",
+        "name": "selectPedidoCarrinho",
+        "func": "msg.topic = \"select * from pedidoLanche where statusPedido like 'carrinho';\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2360,
+        "y": 960,
+        "wires": [
+            [
+                "e43319af95bc877b",
+                "ab979c38386dff0e"
+            ]
+        ]
+    },
+    {
+        "id": "407da0019362e4bb",
+        "type": "http in",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "url": "/getCarrinho",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 2060,
+        "y": 960,
+        "wires": [
+            [
+                "526f43cf0ed0973c"
+            ]
+        ]
+    },
+    {
+        "id": "e43319af95bc877b",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 2630,
+        "y": 960,
+        "wires": [
+            [
+                "44a86a782ad2a3bd"
+            ]
+        ]
+    },
+    {
+        "id": "44a86a782ad2a3bd",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2850,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "768975e12b642f56",
+        "type": "function",
+        "z": "e7e6ac57badb8044",
+        "name": "selectPedidoFinalizado",
+        "func": "msg.topic = \"select * from pedidoLanche where statusPedido like 'finalizado';\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2370,
+        "y": 1040,
+        "wires": [
+            [
+                "233e3d2d15f7362b",
+                "ab979c38386dff0e"
+            ]
+        ]
+    },
+    {
+        "id": "e4b23864cd14a6d9",
+        "type": "http in",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "url": "/getFinalizado",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 2070,
+        "y": 1040,
+        "wires": [
+            [
+                "768975e12b642f56"
+            ]
+        ]
+    },
+    {
+        "id": "233e3d2d15f7362b",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 2630,
+        "y": 1040,
+        "wires": [
+            [
+                "7170eb86e5d7f26b"
+            ]
+        ]
+    },
+    {
+        "id": "7170eb86e5d7f26b",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2850,
+        "y": 1040,
+        "wires": []
+    },
+    {
         "id": "516bad169977ff50",
         "type": "MySQLdatabase",
         "name": "",
@@ -1241,7 +1433,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "9a437923c3938b6d",
+        "id": "121d4165a761dbb1",
         "type": "global-config",
         "env": [],
         "modules": {
