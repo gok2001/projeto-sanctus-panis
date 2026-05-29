@@ -11,7 +11,7 @@ const inputSenha = document.querySelector('#senha');
 
 const adminArea = document.querySelector('.admin-area');
 
-const ingredientesContainer = document.querySelector('.ingredientes-container');
+const ingredientesContainer = document.querySelector('#ingredientes-container');
 const formIngrediente = document.querySelector('.form-ingrediente');
 const inputNomeIngrediente = document.querySelector('.nome-ingrediente');
 const inputQuantidadeIngrediente = document.querySelector('.quantidade-ingrediente');
@@ -32,6 +32,13 @@ function verificarUsuario() {
 function carregarDadosUsuario() {
     inputNome.value = usuario.nomeUsuario;
     inputEmail.value = usuario.emailUsuario;
+}
+
+function verificarAdmin() {
+    if (estaLogado() && ehAdmin()) {
+        adminArea.classList.remove('hidden');
+        carregarIngredientes();
+    }
 }
 
 formPerfil.addEventListener('submit', async (event) => {
@@ -64,7 +71,7 @@ formPerfil.addEventListener('submit', async (event) => {
             ...dadosAtualizados
         };
 
-        localStorage.setItem('usuario', JSON.stringify(usuarioAtualizado));
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioAtualizado));
 
         alert('Perfil atualizado com sucesso');
 
@@ -75,13 +82,9 @@ formPerfil.addEventListener('submit', async (event) => {
     }
 });
 
-if (estaLogado() && ehAdmin()) {
-    carregarIngredientes();
-}
-
 async function carregarIngredientes() {
     try {
-        const response = await fetch(`${API_URL}/getIngredientes`);
+        const response = await fetch(`${API_URL}/getProduto`);
 
         if (!response.ok) {
             throw new Error('Erro ao buscar ingredientes');
@@ -93,20 +96,20 @@ async function carregarIngredientes() {
         ingredientes.forEach((ingrediente) => {
             ingredientesContainer.innerHTML += `
                 <div class="ingrediente-item">
-                    <span>${ingrediente.nomeIngrediente}</span>
+                    <span>${ingrediente.nomeProduto}</span>
 
-                    <input type="number" id="quantidade-${ingrediente.idIngrediente}" value="${ingrediente.quantidadeIngrediente}">
+                    <input type="number" id="quantidade-${ingrediente.idProduto}" value="${ingrediente.qtdProduto}">
 
-                    <span>${ingrediente.unidadeIngrediente}</span>
+                    <span>${ingrediente.unidadeProduto}</span>
 
-                    <button class="btn"onclick="atualizarIngrediente(${ingrediente.idIngrediente})">Salvar</button>
-                    <button class="btn-padrao" onclick="removerIngrediente(${ingrediente.idIngrediente})">Remover</button>
+                    <button class="btn"onclick="atualizarIngrediente(${ingrediente.idProduto})">Salvar</button>
+                    <button class="btn" onclick="removerIngrediente(${ingrediente.idProduto})">X</button>
                 </div>
             `;
         });
     } catch(error) {
         console.error(error);
-        alert('Erro ao carregar ingredientes');
+        alert('Erro ao carregar ingredientes'); 
     }
 }
 
@@ -114,14 +117,14 @@ formIngrediente.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const novoIngrediente = { 
-        nomeIngrediente: inputNomeIngrediente.value,
-        quantidadeIngrediente: inputQuantidadeIngrediente.value,
-        unidadeIngrediente: inputUnidadeIngrediente.value
+        nomeProduto: inputNomeIngrediente.value,
+        qtdProduto: inputQuantidadeIngrediente.value,
+        unidadeProduto: inputUnidadeIngrediente.value
     };
 
     try {
         const response = await fetch(
-            `${API_URL}/createIngrediente`,
+            `${API_URL}/addProduto`,
             {
                 method: 'POST',
                 headers: {
