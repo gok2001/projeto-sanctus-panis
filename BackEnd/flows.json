@@ -12,7 +12,7 @@
         "type": "function",
         "z": "e7e6ac57badb8044",
         "name": "insertUsuario",
-        "func": "let emailUsuario = msg.payload.emailUsuario;\nlet cpfUsuario = msg.payload.cpfUsuario;\nlet senhaUsuario = msg.payload.senhaUsuario;\n\nmsg.topic = \"insert into usuario (emailUsuario, cpfUsuario, senhaUsuario) values (? , ? , ?);\"\nmsg.payload = [emailUsuario, cpfUsuario, senhaUsuario];\n\n\n\nreturn msg;",
+        "func": "let nomeUsuario = msg.payload.nomeUsuario;\nlet emailUsuario = msg.payload.emailUsuario;\nlet cpfUsuario = msg.payload.cpfUsuario;\nlet senhaUsuario = msg.payload.senhaUsuario;\n\nmsg.topic = \"insert into usuario (nomeUsuario, emailUsuario, cpfUsuario, senhaUsuario) values (?, ?, ?, ?);\"\nmsg.payload = [nomeUsuario, emailUsuario, cpfUsuario, senhaUsuario];\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -24,7 +24,7 @@
         "wires": [
             [
                 "622750dbe3c4765d",
-                "2fc00983ce33dc94"
+                "c9f878647bb8eb0b"
             ]
         ]
     },
@@ -81,7 +81,7 @@
         "wires": [
             [
                 "622750dbe3c4765d",
-                "2fc00983ce33dc94"
+                "a372d4e85e3c9f4e"
             ]
         ]
     },
@@ -95,7 +95,7 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 260,
+        "x": 80,
         "y": 860,
         "wires": [
             [
@@ -215,8 +215,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 440,
+        "x": 890,
+        "y": 720,
         "wires": []
     },
     {
@@ -326,7 +326,7 @@
         "wires": [
             [
                 "05f2a2fd761f7ca5",
-                "e8ae92149dc528a8"
+                "397fdc505df17576"
             ]
         ]
     },
@@ -343,8 +343,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1310,
-        "y": 1360,
+        "x": 1270,
+        "y": 1440,
         "wires": []
     },
     {
@@ -481,44 +481,6 @@
         ]
     },
     {
-        "id": "d6a4c9bf2c7630fd",
-        "type": "http in",
-        "z": "e7e6ac57badb8044",
-        "name": "",
-        "url": "/addIngrediente",
-        "method": "post",
-        "upload": false,
-        "skipBodyParsing": false,
-        "swaggerDoc": "",
-        "x": 1780,
-        "y": 440,
-        "wires": [
-            [
-                "0ca1e6ee81cc3a84"
-            ]
-        ]
-    },
-    {
-        "id": "4e36609e8fbacf75",
-        "type": "function",
-        "z": "e7e6ac57badb8044",
-        "name": "insertIngrediente",
-        "func": "let idIngrediente = msg.payload.idIngrediente;\nlet idLanche = msg.payload.idLanche;\nlet idProduto = msg.payload.idProduto;\nlet quantidade = msg.payload.quantidade;\nlet unidade = msg.payload.unidade;\n\nmsg.topic = \"insert into ingredienteLanche(idIngrediente, idLanche, idProduto, quantidade, unidade) values (?,?,?,?,?);\"\nmsg.payload = [idIngrediente, idLanche, idProduto, quantidade, unidade];\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2190,
-        "y": 440,
-        "wires": [
-            [
-                "3ac30b69edbef1e1"
-            ]
-        ]
-    },
-    {
         "id": "a88ae973781dce83",
         "type": "json",
         "z": "e7e6ac57badb8044",
@@ -526,7 +488,7 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 310,
+        "x": 290,
         "y": 940,
         "wires": [
             [
@@ -547,22 +509,6 @@
         "wires": [
             [
                 "c533256b527a25c8"
-            ]
-        ]
-    },
-    {
-        "id": "0ca1e6ee81cc3a84",
-        "type": "json",
-        "z": "e7e6ac57badb8044",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 2010,
-        "y": 440,
-        "wires": [
-            [
-                "4e36609e8fbacf75"
             ]
         ]
     },
@@ -776,8 +722,8 @@
         "z": "e7e6ac57badb8044",
         "mydb": "516bad169977ff50",
         "name": "",
-        "x": 3470,
-        "y": 320,
+        "x": 2030,
+        "y": 1260,
         "wires": [
             [
                 "e438f5d45d1b3b42"
@@ -796,8 +742,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2750,
-        "y": 320,
+        "x": 1450,
+        "y": 1260,
         "wires": [
             [
                 "85b3ae4e03c82dd8"
@@ -811,8 +757,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 3810,
-        "y": 320,
+        "x": 2370,
+        "y": 1260,
         "wires": []
     },
     {
@@ -827,8 +773,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3220,
-        "y": 320,
+        "x": 1800,
+        "y": 1260,
         "wires": [
             [
                 "8e47630bf1695e71"
@@ -847,8 +793,8 @@
         "stream": false,
         "addname": "",
         "property": "payload",
-        "x": 3010,
-        "y": 320,
+        "x": 1610,
+        "y": 1260,
         "wires": [
             [
                 "8bbcf97304882310"
@@ -872,8 +818,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 3670,
-        "y": 320,
+        "x": 2210,
+        "y": 1260,
         "wires": [
             [
                 "d5df3e535169e2d6"
@@ -912,8 +858,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 2830,
-        "y": 400,
+        "x": 2590,
+        "y": 360,
         "wires": []
     },
     {
@@ -922,12 +868,11 @@
         "z": "e7e6ac57badb8044",
         "mydb": "516bad169977ff50",
         "name": "",
-        "x": 2530,
-        "y": 400,
+        "x": 2410,
+        "y": 360,
         "wires": [
             [
-                "18c979984244af01",
-                "c0f5a21223e9206c"
+                "18c979984244af01"
             ]
         ]
     },
@@ -938,23 +883,9 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1190,
-        "y": 500,
+        "x": 1070,
+        "y": 420,
         "wires": []
-    },
-    {
-        "id": "2fc00983ce33dc94",
-        "type": "mysql",
-        "z": "e7e6ac57badb8044",
-        "mydb": "516bad169977ff50",
-        "name": "",
-        "x": 890,
-        "y": 500,
-        "wires": [
-            [
-                "ac2b8fc97df06ca3"
-            ]
-        ]
     },
     {
         "id": "08c63a99f4fd95ad",
@@ -1206,31 +1137,6 @@
         "wires": []
     },
     {
-        "id": "e8ae92149dc528a8",
-        "type": "mysql",
-        "z": "e7e6ac57badb8044",
-        "mydb": "516bad169977ff50",
-        "name": "",
-        "x": 1350,
-        "y": 1260,
-        "wires": [
-            [
-                "29aad6feb0a66f57"
-            ]
-        ]
-    },
-    {
-        "id": "29aad6feb0a66f57",
-        "type": "http response",
-        "z": "e7e6ac57badb8044",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1530,
-        "y": 1260,
-        "wires": []
-    },
-    {
         "id": "4402cd4afd78b3ee",
         "type": "http in",
         "z": "e7e6ac57badb8044",
@@ -1423,6 +1329,84 @@
         "wires": []
     },
     {
+        "id": "2fc00983ce33dc94",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 870,
+        "y": 420,
+        "wires": [
+            [
+                "ac2b8fc97df06ca3"
+            ]
+        ]
+    },
+    {
+        "id": "01a8c52627115e32",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1070,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a372d4e85e3c9f4e",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 870,
+        "y": 500,
+        "wires": [
+            [
+                "01a8c52627115e32"
+            ]
+        ]
+    },
+    {
+        "id": "8539e095981c535b",
+        "type": "http response",
+        "z": "e7e6ac57badb8044",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1070,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "c9f878647bb8eb0b",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 870,
+        "y": 580,
+        "wires": [
+            [
+                "8539e095981c535b"
+            ]
+        ]
+    },
+    {
+        "id": "397fdc505df17576",
+        "type": "mysql",
+        "z": "e7e6ac57badb8044",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 1270,
+        "y": 1260,
+        "wires": [
+            [
+                "c0f5a21223e9206c"
+            ]
+        ]
+    },
+    {
         "id": "516bad169977ff50",
         "type": "MySQLdatabase",
         "name": "",
@@ -1433,7 +1417,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "121d4165a761dbb1",
+        "id": "22516609f4b09beb",
         "type": "global-config",
         "env": [],
         "modules": {

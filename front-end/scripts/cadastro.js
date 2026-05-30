@@ -4,6 +4,7 @@ const formCadastro = document.querySelector('.form-cadastro');
 formCadastro.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    const nomeUsuario = document.querySelector('#nome-cadastro').value;
     const emailUsuario = document.querySelector('#email-cadastro').value;
     const cpfUsuario = document.querySelector('#cpf').value;
     const senhaUsuario = document.querySelector('#senha-cadastro').value;
@@ -15,6 +16,7 @@ formCadastro.addEventListener('submit', async (event) => {
     }
 
     const dados = {
+        nomeUsuario,
         emailUsuario,
         cpfUsuario,
         senhaUsuario

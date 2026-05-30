@@ -11,6 +11,7 @@ USE sanctusPanis;
 -- ------------------------------------------------------------
 CREATE TABLE usuario (
   idUsuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nomeUsuario VARCHAR(100) NOT NULL,
   emailUsuario VARCHAR(100) NOT NULL UNIQUE,
   cpfUsuario VARCHAR(11)  NOT NULL UNIQUE,
   senhaUsuario VARCHAR(255) NOT NULL,
