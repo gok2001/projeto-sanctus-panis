@@ -14,25 +14,6 @@ async function loadComponent(id, file) {
     }
 }
 
-function handleOpcaoChange(event) {
-    let pagamento = document.getElementById('pagamento');
-    let inputsEndereco = document.querySelectorAll('.endereco input')
-    
-    if (event.target.value === 'entrega') {
-        pagamento.classList.remove('hidden');
-
-        inputsEndereco.forEach(input => {
-            input.required = true;
-        });
-    } else {
-        pagamento.classList.add('hidden');
-
-        inputsEndereco.forEach(input => {
-            input.required = false;
-        });
-    }
-}
-
 function atualizarMenuUsuario() {
     const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
 

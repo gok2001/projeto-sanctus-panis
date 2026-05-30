@@ -100,10 +100,6 @@ btnFinalizar.addEventListener('click', async () => {
                 }
             );
         }
-
-
-        localStorage.removeItem('carrinho');
-        carrinho = [];
         
         window.location.href = './pagamento.html';
     } catch (erro) {
