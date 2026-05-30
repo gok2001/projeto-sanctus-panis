@@ -64,7 +64,8 @@ btnFinalizar.addEventListener('click', async () => {
     }
 
     try {
-        const dadosPedido = { observacaoPedido: '', idUsuario: 1};
+        const usuario = JSON.parse(localStorage.getItem('usuarioLogado'))
+        const dadosPedido = { idUsuario: usuario.idUsuario };
         const responsePedido = await fetch(
             URL_addPedido,
             {
@@ -86,19 +87,20 @@ btnFinalizar.addEventListener('click', async () => {
                 idLanche: item.id,
                 quantidade: item.quantidade
             };
+
+            await fetch(
+                URL_addItemPedido,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+    
+                    body: JSON.stringify(dadosItem)
+                }
+            );
         }
 
-        await fetch(
-            URL_addItemPedido,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-
-                body: JSON.stringify(dadosItem)
-            }
-        );
 
         localStorage.removeItem('carrinho');
         carrinho = [];
