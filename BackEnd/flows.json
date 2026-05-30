@@ -1,6 +1,6 @@
 [
     {
-        "id": "e7e6ac57badb8044",
+        "id": "7da178446d48c9d6",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "b5960a474ffbd5ad",
+        "id": "77de911dc33f6817",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "insertUsuario",
         "func": "let nomeUsuario = msg.payload.nomeUsuario;\nlet emailUsuario = msg.payload.emailUsuario;\nlet cpfUsuario = msg.payload.cpfUsuario;\nlet senhaUsuario = msg.payload.senhaUsuario;\n\nmsg.topic = \"insert into usuario (nomeUsuario, emailUsuario, cpfUsuario, senhaUsuario) values (?, ?, ?, ?);\"\nmsg.payload = [nomeUsuario, emailUsuario, cpfUsuario, senhaUsuario];\n\nreturn msg;",
         "outputs": 1,
@@ -23,15 +23,15 @@
         "y": 580,
         "wires": [
             [
-                "622750dbe3c4765d",
-                "c9f878647bb8eb0b"
+                "8103ac821eee7c49",
+                "135df2f407562ab8"
             ]
         ]
     },
     {
-        "id": "15d363d598ecb58a",
+        "id": "13d345fdd1375cc1",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/addUsuario",
         "method": "post",
@@ -42,14 +42,14 @@
         "y": 580,
         "wires": [
             [
-                "b5960a474ffbd5ad"
+                "77de911dc33f6817"
             ]
         ]
     },
     {
-        "id": "a4454c4ee6ee8fb5",
+        "id": "5ef46ead774a7452",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getUsuario",
         "method": "get",
@@ -60,14 +60,14 @@
         "y": 500,
         "wires": [
             [
-                "127f55bd97ee3340"
+                "f9fd3b9fec90c7dd"
             ]
         ]
     },
     {
-        "id": "127f55bd97ee3340",
+        "id": "f9fd3b9fec90c7dd",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectAllUsuario",
         "func": "msg.topic = \"select * from usuario\";\nreturn msg;",
         "outputs": 1,
@@ -80,51 +80,51 @@
         "y": 500,
         "wires": [
             [
-                "622750dbe3c4765d",
-                "a372d4e85e3c9f4e"
+                "8103ac821eee7c49",
+                "64d1eca71ccf9b5a"
             ]
         ]
     },
     {
-        "id": "03160d56868cb03a",
+        "id": "ff6926122f9387bc",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getProduto",
         "method": "get",
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 80,
+        "x": 120,
         "y": 860,
         "wires": [
             [
-                "068494b3abd6dedd"
+                "537d39457f6ca860"
             ]
         ]
     },
     {
-        "id": "5cc82f8b5f2d456b",
+        "id": "a6fa1299108845ae",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/addProduto",
         "method": "post",
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 90,
+        "x": 130,
         "y": 940,
         "wires": [
             [
-                "a88ae973781dce83"
+                "263d67acae0192e5"
             ]
         ]
     },
     {
-        "id": "068494b3abd6dedd",
+        "id": "537d39457f6ca860",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "getAllProduto",
         "func": "msg.topic = \"select * from produto;\"\nreturn msg;",
         "outputs": 1,
@@ -133,19 +133,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
+        "x": 500,
         "y": 860,
         "wires": [
             [
-                "9f8a0d2f0aed2042",
-                "fbb1713678d57236"
+                "1acf0f8402b651c9",
+                "a521f65e2d1af48e"
             ]
         ]
     },
     {
-        "id": "c9c307d4d07355b0",
+        "id": "90553efe1657afb6",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "insertProduto",
         "func": "let nomeProduto = msg.payload.nomeProduto;\nlet qtdProduto = msg.payload.qtdProduto;\nlet unidadeProduto = msg.payload.unidadeProduto;\n\nmsg.topic = \"insert into produto (nomeProduto, qtdProduto, unidadeProduto) values (? , ? , ?);\"\nmsg.payload = [nomeProduto, qtdProduto, unidadeProduto];\nreturn msg;",
         "outputs": 1,
@@ -154,19 +154,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
+        "x": 510,
         "y": 940,
         "wires": [
             [
-                "9f8a0d2f0aed2042",
-                "b20387fdac3dad37"
+                "1acf0f8402b651c9",
+                "cb4dab4745ac7e7b"
             ]
         ]
     },
     {
-        "id": "0ac33ce922dc8991",
+        "id": "6fcdd6b0a82fbd8d",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectLogin",
         "func": "let emailUsuario = msg.req.body.emailUsuario;\nlet senhaUsuario = msg.req.body.senhaUsuario;\n\nmsg.topic = \"Select * from usuario where emailUsuario = ? and senhaUsuario = ?\";\nmsg.payload = [emailUsuario, senhaUsuario];\nreturn msg;",
         "outputs": 1,
@@ -179,15 +179,15 @@
         "y": 420,
         "wires": [
             [
-                "622750dbe3c4765d",
-                "2fc00983ce33dc94"
+                "8103ac821eee7c49",
+                "d87c3e67ad5d27a3"
             ]
         ]
     },
     {
-        "id": "1434d8613716db4d",
+        "id": "64a250699b1a9a0d",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/login",
         "method": "post",
@@ -198,14 +198,14 @@
         "y": 420,
         "wires": [
             [
-                "fc9513e7628b857d"
+                "ed69f3afcd1bc9ba"
             ]
         ]
     },
     {
-        "id": "622750dbe3c4765d",
+        "id": "8103ac821eee7c49",
         "type": "debug",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "UsuarioBUG",
         "active": true,
         "tosidebar": true,
@@ -215,14 +215,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
-        "y": 720,
+        "x": 870,
+        "y": 660,
         "wires": []
     },
     {
-        "id": "9f8a0d2f0aed2042",
+        "id": "1acf0f8402b651c9",
         "type": "debug",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "ProdutoBUG",
         "active": true,
         "tosidebar": true,
@@ -232,14 +232,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 1020,
+        "x": 710,
+        "y": 780,
         "wires": []
     },
     {
-        "id": "fc9513e7628b857d",
+        "id": "ed69f3afcd1bc9ba",
         "type": "json",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -248,14 +248,14 @@
         "y": 420,
         "wires": [
             [
-                "0ac33ce922dc8991"
+                "6fcdd6b0a82fbd8d"
             ]
         ]
     },
     {
-        "id": "76480be9ee9aedcb",
+        "id": "cbe523c049787bea",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectAllLanche",
         "func": "msg.topic = `\n    SELECT\n        lanche.idLanche,\n        lanche.nomeLanche,\n        lanche.precoLanche,\n\n        GROUP_CONCAT(\n            produto.nomeProduto\n            SEPARATOR ', '\n        ) AS descricao\n    FROM lanche\n    \n    JOIN ingredienteLanche\n        ON lanche.idLanche =\n           ingredienteLanche.idLanche\n\n    JOIN produto\n        ON produto.idProduto =\n           ingredienteLanche.idProduto\n\n    GROUP BY lanche.idLanche\n`;\nreturn msg;",
         "outputs": 1,
@@ -264,55 +264,55 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1100,
-        "y": 1180,
+        "x": 1120,
+        "y": 1680,
         "wires": [
             [
-                "05f2a2fd761f7ca5",
-                "11813f55df85ae1d"
+                "7dc2dcd3ad8715cb",
+                "4ef7878c97c43bed"
             ]
         ]
     },
     {
-        "id": "83b572dbdf10a3ba",
+        "id": "e19699b77922a293",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getLanche",
         "method": "get",
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 740,
-        "y": 1180,
+        "x": 760,
+        "y": 1680,
         "wires": [
             [
-                "76480be9ee9aedcb"
+                "cbe523c049787bea"
             ]
         ]
     },
     {
-        "id": "0664f2b9200f8d01",
+        "id": "b24270c9155accc0",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/addLanche",
         "method": "post",
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 750,
-        "y": 1260,
+        "x": 770,
+        "y": 1760,
         "wires": [
             [
-                "7b1182ec68cbe971"
+                "a5e34e1a5b1ebcad"
             ]
         ]
     },
     {
-        "id": "c533256b527a25c8",
+        "id": "86569ec082604193",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "insertLanche",
         "func": "let nomeLanche = msg.payload.nomeLanche;\nlet precoLanche = msg.payload.precoLanche;\nmsg.ingredientes = msg.payload.ingredientes;\n\nmsg.topic = `\n    INSERT INTO lanche (nomeLanche, precoLanche) \n    VALUES (?, ?)\n`;\n\nmsg.payload = [ nomeLanche, precoLanche ];\n\nreturn msg;",
         "outputs": 1,
@@ -321,19 +321,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 1260,
+        "x": 1130,
+        "y": 1760,
         "wires": [
             [
-                "05f2a2fd761f7ca5",
-                "397fdc505df17576"
+                "7dc2dcd3ad8715cb",
+                "a3f9e68b17b78050"
             ]
         ]
     },
     {
-        "id": "05f2a2fd761f7ca5",
+        "id": "7dc2dcd3ad8715cb",
         "type": "debug",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "LancheBUG",
         "active": true,
         "tosidebar": true,
@@ -343,14 +343,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1270,
-        "y": 1440,
+        "x": 1350,
+        "y": 1580,
         "wires": []
     },
     {
-        "id": "90b9c9df206e3e6e",
+        "id": "71107f968b2e7dc6",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectAllEndereco",
         "func": "msg.topic = \"select * from endereco;\";\nreturn msg;",
         "outputs": 1,
@@ -363,15 +363,15 @@
         "y": 140,
         "wires": [
             [
-                "18b0d11a6e468a71",
-                "d7726cddc3cda606"
+                "829dbb4b8aafc4d1",
+                "60288543a29bdf08"
             ]
         ]
     },
     {
-        "id": "a7688366c3cad30d",
+        "id": "ab3066523436ac54",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getEndereco",
         "method": "get",
@@ -382,14 +382,14 @@
         "y": 140,
         "wires": [
             [
-                "90b9c9df206e3e6e"
+                "71107f968b2e7dc6"
             ]
         ]
     },
     {
-        "id": "90ac8231ca5f3e18",
+        "id": "ec9058b0a81917e5",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/addEndereco",
         "method": "post",
@@ -400,14 +400,14 @@
         "y": 220,
         "wires": [
             [
-                "4f9b0d4f65ea626d"
+                "d67af7376bb1b0e4"
             ]
         ]
     },
     {
-        "id": "de99148834c0fcd8",
+        "id": "5dbb434038ff2092",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "insertEndereco",
         "func": "let nroCasa = msg.payload.nroCasa;\nlet bairro = msg.payload.bairro;\nlet rua = msg.payload.rua;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = \"insert into endereco (nroCasa, bairro, rua, idUsuario) values (?, ?, ?, ?);\";\nmsg.payload = [nroCasa, bairro, rua, idUsuario];\nreturn msg;",
         "outputs": 1,
@@ -420,15 +420,15 @@
         "y": 220,
         "wires": [
             [
-                "18b0d11a6e468a71",
-                "d7726cddc3cda606"
+                "829dbb4b8aafc4d1",
+                "60288543a29bdf08"
             ]
         ]
     },
     {
-        "id": "18b0d11a6e468a71",
+        "id": "829dbb4b8aafc4d1",
         "type": "debug",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "EnderecoBUG",
         "active": true,
         "tosidebar": true,
@@ -443,9 +443,9 @@
         "wires": []
     },
     {
-        "id": "b8d79be1bb37a370",
+        "id": "8f50a5bc2af98919",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectAllIngrediente",
         "func": "msg.topic = \"select * from ingredienteLanche;\"\nreturn msg;",
         "outputs": 1,
@@ -458,14 +458,14 @@
         "y": 360,
         "wires": [
             [
-                "3ac30b69edbef1e1"
+                "1dd3d56192e70c76"
             ]
         ]
     },
     {
-        "id": "ac2f52c88ee06a15",
+        "id": "aa559bde35462fa5",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getIngrediente",
         "method": "get",
@@ -476,46 +476,46 @@
         "y": 360,
         "wires": [
             [
-                "b8d79be1bb37a370"
+                "8f50a5bc2af98919"
             ]
         ]
     },
     {
-        "id": "a88ae973781dce83",
+        "id": "263d67acae0192e5",
         "type": "json",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 290,
+        "x": 310,
         "y": 940,
         "wires": [
             [
-                "c9c307d4d07355b0"
+                "90553efe1657afb6"
             ]
         ]
     },
     {
-        "id": "7b1182ec68cbe971",
+        "id": "a5e34e1a5b1ebcad",
         "type": "json",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 930,
-        "y": 1260,
+        "x": 950,
+        "y": 1760,
         "wires": [
             [
-                "c533256b527a25c8"
+                "86569ec082604193"
             ]
         ]
     },
     {
-        "id": "4f9b0d4f65ea626d",
+        "id": "d67af7376bb1b0e4",
         "type": "json",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -524,14 +524,14 @@
         "y": 220,
         "wires": [
             [
-                "de99148834c0fcd8"
+                "5dbb434038ff2092"
             ]
         ]
     },
     {
-        "id": "e6734132e4cc212e",
+        "id": "b55b62d754940d2c",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectPedido",
         "func": "msg.topic = \"select * from pedidoLanche;\";\nreturn msg;",
         "outputs": 1,
@@ -544,15 +544,15 @@
         "y": 720,
         "wires": [
             [
-                "ab979c38386dff0e",
-                "b6e9d22c72f1dd67"
+                "8f0c7c661ced3268",
+                "342283c0b19d792e"
             ]
         ]
     },
     {
-        "id": "54e1cb423639e041",
+        "id": "d61236db40151bf4",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getPedido",
         "method": "get",
@@ -563,14 +563,14 @@
         "y": 720,
         "wires": [
             [
-                "e6734132e4cc212e"
+                "b55b62d754940d2c"
             ]
         ]
     },
     {
-        "id": "66f989f336945dea",
+        "id": "0c655183c9c9c860",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "insertPedido",
         "func": "let observacaoPedido = msg.payload.observacaoPedido;\nlet idUsuario = msg.payload.idUsuario;\n\nmsg.topic = `\n    INSERT INTO pedidoLanche (\n        observacaoPedido, \n        idUsuario\n    ) \n    VALUES (?, ?)\n`;\nmsg.payload = [observacaoPedido, idUsuario];\nreturn msg;",
         "outputs": 1,
@@ -583,15 +583,15 @@
         "y": 800,
         "wires": [
             [
-                "ca965caf8054c312",
-                "ab979c38386dff0e"
+                "45f3fbd8a9baeb2f",
+                "8f0c7c661ced3268"
             ]
         ]
     },
     {
-        "id": "7cf29a6f62891c55",
+        "id": "08e3bffc3d60531e",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/addPedido",
         "method": "post",
@@ -602,14 +602,14 @@
         "y": 800,
         "wires": [
             [
-                "c5e2fa6d6f7c3d93"
+                "4586b780f41dd38a"
             ]
         ]
     },
     {
-        "id": "c5e2fa6d6f7c3d93",
+        "id": "4586b780f41dd38a",
         "type": "json",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -618,14 +618,14 @@
         "y": 800,
         "wires": [
             [
-                "66f989f336945dea"
+                "0c655183c9c9c860"
             ]
         ]
     },
     {
-        "id": "5f28fc5d92566621",
+        "id": "270296919f24c3d9",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getItemPedido",
         "method": "get",
@@ -636,14 +636,14 @@
         "y": 1420,
         "wires": [
             [
-                "1898900b01e436d2"
+                "d687cbed71e3f648"
             ]
         ]
     },
     {
-        "id": "1898900b01e436d2",
+        "id": "d687cbed71e3f648",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectItemPedido",
         "func": "msg.topic = \"select * from itemPedido;\";\nreturn msg;",
         "outputs": 1,
@@ -656,15 +656,15 @@
         "y": 1420,
         "wires": [
             [
-                "9e1c385d31759871",
-                "fafd700544643508"
+                "d567c9c8d14193b7",
+                "139b26c786a60da1"
             ]
         ]
     },
     {
-        "id": "dc91cdd99bc1b6cd",
+        "id": "46dc01a8e19a6c77",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/addItemPedido",
         "method": "post",
@@ -675,14 +675,14 @@
         "y": 1480,
         "wires": [
             [
-                "fa5723f889112fba"
+                "80bd84b4c9d6b249"
             ]
         ]
     },
     {
-        "id": "7525739b5c945b1e",
+        "id": "dc2df7b7e5352d9d",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "insertItemPedido",
         "func": "let idPedido = msg.payload.idPedido;\nlet idLanche = msg.payload.idLanche;\nlet quantidade = msg.payload.quantidade;\n\nmsg.topic = `\n    INSERT INTO itemPedido (\n        idPedido, \n        idLanche, \n        quantidade\n    ) \n    VALUES (?, ?, ?)\n    `;\nmsg.payload = [idPedido, idLanche, quantidade];\nreturn msg;",
         "outputs": 1,
@@ -695,15 +695,15 @@
         "y": 1480,
         "wires": [
             [
-                "9e1c385d31759871",
-                "25bbf4fcd32b0315"
+                "d567c9c8d14193b7",
+                "8bf0960312705dd3"
             ]
         ]
     },
     {
-        "id": "fa5723f889112fba",
+        "id": "80bd84b4c9d6b249",
         "type": "json",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -712,28 +712,28 @@
         "y": 1480,
         "wires": [
             [
-                "7525739b5c945b1e"
+                "dc2df7b7e5352d9d"
             ]
         ]
     },
     {
-        "id": "8e47630bf1695e71",
+        "id": "f1571d93447b10c7",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
-        "x": 2030,
-        "y": 1260,
+        "x": 2050,
+        "y": 1760,
         "wires": [
             [
-                "e438f5d45d1b3b42"
+                "1cabc2d6413c4fd9"
             ]
         ]
     },
     {
-        "id": "c0f5a21223e9206c",
+        "id": "1ebbc9c30c398207",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "insertIngredientes",
         "func": "const idLanche = msg.payload.insertId;\nconst ingredientes = msg.ingredientes;\n\nmsg.payload = ingredientes.map(ingrediente => {\n    return {\n        topic: `\n            insert into ingredienteLanche (\n                idLanche,\n                idProduto,\n                quantidade,\n                unidade\n            )\n            values (\n                ${idLanche},\n                ${ingrediente.idProduto},\n                ${ingrediente.quantidade},\n                '${ingrediente.unidade}'\n            )\n        `\n    };\n});\n\nreturn msg;",
         "outputs": 1,
@@ -742,29 +742,29 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
-        "y": 1260,
+        "x": 1470,
+        "y": 1760,
         "wires": [
             [
-                "85b3ae4e03c82dd8"
+                "782e93eec7770323"
             ]
         ]
     },
     {
-        "id": "d5df3e535169e2d6",
+        "id": "d6f80be662820581",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 2370,
-        "y": 1260,
+        "x": 2390,
+        "y": 1760,
         "wires": []
     },
     {
-        "id": "8bbcf97304882310",
+        "id": "fb68548c82e675cc",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "prepararQuery",
         "func": "msg.topic = msg.payload.topic;\nreturn msg;",
         "outputs": 1,
@@ -773,18 +773,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1800,
-        "y": 1260,
+        "x": 1820,
+        "y": 1760,
         "wires": [
             [
-                "8e47630bf1695e71"
+                "f1571d93447b10c7"
             ]
         ]
     },
     {
-        "id": "85b3ae4e03c82dd8",
+        "id": "782e93eec7770323",
         "type": "split",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -793,18 +793,18 @@
         "stream": false,
         "addname": "",
         "property": "payload",
-        "x": 1610,
-        "y": 1260,
+        "x": 1630,
+        "y": 1760,
         "wires": [
             [
-                "8bbcf97304882310"
+                "fb68548c82e675cc"
             ]
         ]
     },
     {
-        "id": "e438f5d45d1b3b42",
+        "id": "1cabc2d6413c4fd9",
         "type": "join",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "mode": "auto",
         "build": "object",
@@ -818,18 +818,18 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 2210,
-        "y": 1260,
+        "x": 2230,
+        "y": 1760,
         "wires": [
             [
-                "d5df3e535169e2d6"
+                "d6f80be662820581"
             ]
         ]
     },
     {
-        "id": "9c3828c949710c37",
+        "id": "3e7c47337708b0ce",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -838,23 +838,23 @@
         "wires": []
     },
     {
-        "id": "d7726cddc3cda606",
+        "id": "60288543a29bdf08",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 1650,
         "y": 220,
         "wires": [
             [
-                "9c3828c949710c37"
+                "3e7c47337708b0ce"
             ]
         ]
     },
     {
-        "id": "18c979984244af01",
+        "id": "89704c01a506d633",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -863,23 +863,23 @@
         "wires": []
     },
     {
-        "id": "3ac30b69edbef1e1",
+        "id": "1dd3d56192e70c76",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2410,
         "y": 360,
         "wires": [
             [
-                "18c979984244af01"
+                "89704c01a506d633"
             ]
         ]
     },
     {
-        "id": "ac2b8fc97df06ca3",
+        "id": "63b2b981eed57b91",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -888,9 +888,9 @@
         "wires": []
     },
     {
-        "id": "08c63a99f4fd95ad",
+        "id": "951d441ef2605f71",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -899,48 +899,48 @@
         "wires": []
     },
     {
-        "id": "fbb1713678d57236",
+        "id": "a521f65e2d1af48e",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 730,
         "y": 860,
         "wires": [
             [
-                "08c63a99f4fd95ad"
+                "951d441ef2605f71"
             ]
         ]
     },
     {
-        "id": "a6466785cfb3d9b4",
+        "id": "d78c9972cc7adabe",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1530,
-        "y": 1180,
+        "x": 1550,
+        "y": 1680,
         "wires": []
     },
     {
-        "id": "11813f55df85ae1d",
+        "id": "4ef7878c97c43bed",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
-        "x": 1350,
-        "y": 1180,
+        "x": 1370,
+        "y": 1680,
         "wires": [
             [
-                "a6466785cfb3d9b4"
+                "d78c9972cc7adabe"
             ]
         ]
     },
     {
-        "id": "9e1c385d31759871",
+        "id": "d567c9c8d14193b7",
         "type": "debug",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "ItemPedidoBUG",
         "active": true,
         "tosidebar": true,
@@ -955,9 +955,9 @@
         "wires": []
     },
     {
-        "id": "88254f00acac4427",
+        "id": "1d80b0e8d1d6b6ed",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -966,23 +966,23 @@
         "wires": []
     },
     {
-        "id": "25bbf4fcd32b0315",
+        "id": "8bf0960312705dd3",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 1480,
         "wires": [
             [
-                "2ad8a3fcc9321ec2"
+                "64fc21492afbeff1"
             ]
         ]
     },
     {
-        "id": "991225761e99353f",
+        "id": "2455762bc4b92221",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -991,23 +991,23 @@
         "wires": []
     },
     {
-        "id": "ca965caf8054c312",
+        "id": "45f3fbd8a9baeb2f",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 800,
         "wires": [
             [
-                "5565123d052ec070"
+                "b29dcc5d787786be"
             ]
         ]
     },
     {
-        "id": "ab979c38386dff0e",
+        "id": "8f0c7c661ced3268",
         "type": "debug",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "PedidoBUG",
         "active": true,
         "tosidebar": true,
@@ -1022,23 +1022,23 @@
         "wires": []
     },
     {
-        "id": "b6e9d22c72f1dd67",
+        "id": "342283c0b19d792e",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 720,
         "wires": [
             [
-                "98056996731e3458"
+                "e5de94986c08e6a0"
             ]
         ]
     },
     {
-        "id": "98056996731e3458",
+        "id": "e5de94986c08e6a0",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1047,9 +1047,9 @@
         "wires": []
     },
     {
-        "id": "5565123d052ec070",
+        "id": "b29dcc5d787786be",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "formatarPedido",
         "func": "msg.payload = {\n    sucesso: true,\n    insertId: msg.payload.insertId\n};\nreturn msg;",
         "outputs": 1,
@@ -1062,14 +1062,14 @@
         "y": 800,
         "wires": [
             [
-                "991225761e99353f"
+                "2455762bc4b92221"
             ]
         ]
     },
     {
-        "id": "2ad8a3fcc9321ec2",
+        "id": "64fc21492afbeff1",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "formatarItemPedido",
         "func": "msg.payload = {\n    sucesso: true\n};\nreturn msg;",
         "outputs": 1,
@@ -1082,28 +1082,28 @@
         "y": 1480,
         "wires": [
             [
-                "88254f00acac4427"
+                "1d80b0e8d1d6b6ed"
             ]
         ]
     },
     {
-        "id": "fafd700544643508",
+        "id": "139b26c786a60da1",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 1420,
         "wires": [
             [
-                "e577c28c6f676f7b"
+                "a5e07a732de5763c"
             ]
         ]
     },
     {
-        "id": "e577c28c6f676f7b",
+        "id": "a5e07a732de5763c",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1112,23 +1112,23 @@
         "wires": []
     },
     {
-        "id": "b20387fdac3dad37",
+        "id": "cb4dab4745ac7e7b",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 730,
         "y": 940,
         "wires": [
             [
-                "12b43ea5275eb0d2"
+                "0dd3ac16739bbdd2"
             ]
         ]
     },
     {
-        "id": "12b43ea5275eb0d2",
+        "id": "0dd3ac16739bbdd2",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1137,9 +1137,9 @@
         "wires": []
     },
     {
-        "id": "4402cd4afd78b3ee",
+        "id": "50fcb51dc8bd452f",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/putPedido/:idPedido",
         "method": "put",
@@ -1150,14 +1150,14 @@
         "y": 880,
         "wires": [
             [
-                "35c43bb9ce92adea"
+                "aeff55e5f5c27bf4"
             ]
         ]
     },
     {
-        "id": "35c43bb9ce92adea",
+        "id": "aeff55e5f5c27bf4",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "updatePedido",
         "func": "let idPedido = msg.req.params.idPedido;\n\nlet statusPedido = msg.req.body.statusPedido;\n\nmsg.topic = \"update pedidoLanche set statusPedido = ? where idPedido = ?;\";\nmsg.payload = [statusPedido, idPedido];\nreturn msg;",
         "outputs": 1,
@@ -1170,29 +1170,29 @@
         "y": 880,
         "wires": [
             [
-                "c6d76ab2532bf7dd",
-                "ab979c38386dff0e"
+                "3e211b90d22c8d85",
+                "8f0c7c661ced3268"
             ]
         ]
     },
     {
-        "id": "c6d76ab2532bf7dd",
+        "id": "3e211b90d22c8d85",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 880,
         "wires": [
             [
-                "5bad9fc5d8606482"
+                "250f6f1ff0e8b219"
             ]
         ]
     },
     {
-        "id": "5bad9fc5d8606482",
+        "id": "250f6f1ff0e8b219",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1201,9 +1201,9 @@
         "wires": []
     },
     {
-        "id": "526f43cf0ed0973c",
+        "id": "668e3ffc879fda0c",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectPedidoCarrinho",
         "func": "msg.topic = \"select * from pedidoLanche where statusPedido like 'carrinho';\";\nreturn msg;",
         "outputs": 1,
@@ -1216,15 +1216,15 @@
         "y": 960,
         "wires": [
             [
-                "e43319af95bc877b",
-                "ab979c38386dff0e"
+                "e327ffe1678621ca",
+                "8f0c7c661ced3268"
             ]
         ]
     },
     {
-        "id": "407da0019362e4bb",
+        "id": "f8d8caba4cd77482",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getCarrinho",
         "method": "get",
@@ -1235,28 +1235,28 @@
         "y": 960,
         "wires": [
             [
-                "526f43cf0ed0973c"
+                "668e3ffc879fda0c"
             ]
         ]
     },
     {
-        "id": "e43319af95bc877b",
+        "id": "e327ffe1678621ca",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 960,
         "wires": [
             [
-                "44a86a782ad2a3bd"
+                "cf4dbf2e3e800b93"
             ]
         ]
     },
     {
-        "id": "44a86a782ad2a3bd",
+        "id": "cf4dbf2e3e800b93",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1265,9 +1265,9 @@
         "wires": []
     },
     {
-        "id": "768975e12b642f56",
+        "id": "c8b894e7b3b75ba3",
         "type": "function",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "selectPedidoFinalizado",
         "func": "msg.topic = \"select * from pedidoLanche where statusPedido like 'finalizado';\";\nreturn msg;",
         "outputs": 1,
@@ -1280,15 +1280,15 @@
         "y": 1040,
         "wires": [
             [
-                "233e3d2d15f7362b",
-                "ab979c38386dff0e"
+                "4d3e1cda12729298",
+                "8f0c7c661ced3268"
             ]
         ]
     },
     {
-        "id": "e4b23864cd14a6d9",
+        "id": "00e9c819cb6123a6",
         "type": "http in",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "url": "/getFinalizado",
         "method": "get",
@@ -1299,28 +1299,28 @@
         "y": 1040,
         "wires": [
             [
-                "768975e12b642f56"
+                "c8b894e7b3b75ba3"
             ]
         ]
     },
     {
-        "id": "233e3d2d15f7362b",
+        "id": "4d3e1cda12729298",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 2630,
         "y": 1040,
         "wires": [
             [
-                "7170eb86e5d7f26b"
+                "145f2a8eb1cdb9bf"
             ]
         ]
     },
     {
-        "id": "7170eb86e5d7f26b",
+        "id": "145f2a8eb1cdb9bf",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1329,23 +1329,23 @@
         "wires": []
     },
     {
-        "id": "2fc00983ce33dc94",
+        "id": "d87c3e67ad5d27a3",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 870,
         "y": 420,
         "wires": [
             [
-                "ac2b8fc97df06ca3"
+                "63b2b981eed57b91"
             ]
         ]
     },
     {
-        "id": "01a8c52627115e32",
+        "id": "7f8e96ae8a3a534f",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1354,23 +1354,23 @@
         "wires": []
     },
     {
-        "id": "a372d4e85e3c9f4e",
+        "id": "64d1eca71ccf9b5a",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 870,
         "y": 500,
         "wires": [
             [
-                "01a8c52627115e32"
+                "7f8e96ae8a3a534f"
             ]
         ]
     },
     {
-        "id": "8539e095981c535b",
+        "id": "e3aba54e6b13fba8",
         "type": "http response",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -1379,32 +1379,159 @@
         "wires": []
     },
     {
-        "id": "c9f878647bb8eb0b",
+        "id": "135df2f407562ab8",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
         "x": 870,
         "y": 580,
         "wires": [
             [
-                "8539e095981c535b"
+                "e3aba54e6b13fba8"
             ]
         ]
     },
     {
-        "id": "397fdc505df17576",
+        "id": "a3f9e68b17b78050",
         "type": "mysql",
-        "z": "e7e6ac57badb8044",
+        "z": "7da178446d48c9d6",
         "mydb": "516bad169977ff50",
         "name": "",
-        "x": 1270,
-        "y": 1260,
+        "x": 1290,
+        "y": 1760,
         "wires": [
             [
-                "c0f5a21223e9206c"
+                "1ebbc9c30c398207"
             ]
         ]
+    },
+    {
+        "id": "d5d609869b24cbbf",
+        "type": "http in",
+        "z": "7da178446d48c9d6",
+        "name": "",
+        "url": "/putProduto",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 1020,
+        "wires": [
+            [
+                "0eb9403a1c6d434f"
+            ]
+        ]
+    },
+    {
+        "id": "0eb9403a1c6d434f",
+        "type": "function",
+        "z": "7da178446d48c9d6",
+        "name": "updateProduto",
+        "func": "let idProduto = msg.req.body.idProduto;\nlet qtdProduto = msg.req.body.qtdProduto;\n\nmsg.topic = `\n    UPDATE produto\n    SET qtdProduto = ?\n    WHERE idProduto = ?`;\nmsg.payload = [qtdProduto, idProduto];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1020,
+        "wires": [
+            [
+                "529cb523d9e12a3b",
+                "1acf0f8402b651c9"
+            ]
+        ]
+    },
+    {
+        "id": "529cb523d9e12a3b",
+        "type": "mysql",
+        "z": "7da178446d48c9d6",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 730,
+        "y": 1020,
+        "wires": [
+            [
+                "fc653f610ed0d339"
+            ]
+        ]
+    },
+    {
+        "id": "fc653f610ed0d339",
+        "type": "http response",
+        "z": "7da178446d48c9d6",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 950,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "a6663d924e194f96",
+        "type": "http in",
+        "z": "7da178446d48c9d6",
+        "name": "",
+        "url": "/deleteProduto",
+        "method": "delete",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 1100,
+        "wires": [
+            [
+                "e990264930bbfc01"
+            ]
+        ]
+    },
+    {
+        "id": "e990264930bbfc01",
+        "type": "function",
+        "z": "7da178446d48c9d6",
+        "name": "removerProduto",
+        "func": "let idProduto = msg.req.body.idProduto;\n\nmsg.topic = `\n    DELETE FROM produto\n    WHERE idProduto = ?`;\nmsg.payload = [idProduto];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1100,
+        "wires": [
+            [
+                "2f2a38c96a099203"
+            ]
+        ]
+    },
+    {
+        "id": "2f2a38c96a099203",
+        "type": "mysql",
+        "z": "7da178446d48c9d6",
+        "mydb": "516bad169977ff50",
+        "name": "",
+        "x": 730,
+        "y": 1100,
+        "wires": [
+            [
+                "54a1ea5f2fa925c8"
+            ]
+        ]
+    },
+    {
+        "id": "54a1ea5f2fa925c8",
+        "type": "http response",
+        "z": "7da178446d48c9d6",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 950,
+        "y": 1100,
+        "wires": []
     },
     {
         "id": "516bad169977ff50",
@@ -1417,7 +1544,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "22516609f4b09beb",
+        "id": "fae4343af2e1712a",
         "type": "global-config",
         "env": [],
         "modules": {
