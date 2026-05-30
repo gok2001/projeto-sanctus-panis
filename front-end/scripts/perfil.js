@@ -11,11 +11,11 @@ const inputSenha = document.querySelector('#senha');
 
 const adminArea = document.querySelector('.admin-area');
 
-const ingredientesContainer = document.querySelector('#ingredientes-container');
-const formIngrediente = document.querySelector('.form-ingrediente');
-const inputNomeIngrediente = document.querySelector('.nome-ingrediente');
-const inputQuantidadeIngrediente = document.querySelector('.quantidade-ingrediente');
-const inputUnidadeIngrediente = document.querySelector('.unidade-ingrediente');
+const produtosContainer = document.querySelector('#produtos-container');
+const formProduto = document.querySelector('.form-produto');
+const inputNomeProduto = document.querySelector('.nome-produto');
+const inputQtdProduto = document.querySelector('.quantidade-produto');
+const inputUnidadeProduto = document.querySelector('.unidade-produto');
 
 window.addEventListener('DOMContentLoaded', () => {
     verificarUsuario();
@@ -37,7 +37,7 @@ function carregarDadosUsuario() {
 function verificarAdmin() {
     if (estaLogado() && ehAdmin()) {
         adminArea.classList.remove('hidden');
-        carregarIngredientes();
+        carregarProdutos();
     }
 }
 
@@ -82,44 +82,44 @@ formPerfil.addEventListener('submit', async (event) => {
     }
 });
 
-async function carregarIngredientes() {
+async function carregarProdutos() {
     try {
         const response = await fetch(`${API_URL}/getProduto`);
 
         if (!response.ok) {
-            throw new Error('Erro ao buscar ingredientes');
+            throw new Error('Erro ao buscar produtos');
         }
 
-        const ingredientes = await response.json();
-        ingredientesContainer.innerHTML = '';
+        const produtos = await response.json();
+        produtosContainer.innerHTML = '';
 
-        ingredientes.forEach((ingrediente) => {
-            ingredientesContainer.innerHTML += `
-                <div class="ingrediente-item">
-                    <span>${ingrediente.nomeProduto}</span>
+        produtos.forEach((produto) => {
+            produtosContainer.innerHTML += `
+                <div class="produto-item">
+                    <span>${produto.nomeProduto}</span>
 
-                    <input type="number" id="quantidade-${ingrediente.idProduto}" value="${ingrediente.qtdProduto}">
+                    <input type="number" id="quantidade-${produto.idProduto}" value="${produto.qtdProduto}">
 
-                    <span>${ingrediente.unidadeProduto}</span>
+                    <span>${produto.unidadeProduto}</span>
 
-                    <button class="btn"onclick="atualizarIngrediente(${ingrediente.idProduto})">Salvar</button>
-                    <button class="btn" onclick="removerIngrediente(${ingrediente.idProduto})">X</button>
+                    <button type="button" class="btn"onclick="atualizarProduto(${produto.idProduto})">Salvar</button>
+                    <button type="button" class="btn" onclick="removerProduto(${produto.idProduto})">X</button>
                 </div>
             `;
         });
     } catch(error) {
         console.error(error);
-        alert('Erro ao carregar ingredientes'); 
+        alert('Erro ao carregar produtos'); 
     }
 }
 
-formIngrediente.addEventListener('submit', async (event) => {
+formProduto.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const novoIngrediente = { 
-        nomeProduto: inputNomeIngrediente.value,
-        qtdProduto: inputQuantidadeIngrediente.value,
-        unidadeProduto: inputUnidadeIngrediente.value
+    const novoProduto = { 
+        nomeProduto: inputNomeProduto.value,
+        qtdProduto: inputQtdProduto.value,
+        unidadeProduto: inputUnidadeProduto.value
     };
 
     try {
@@ -131,37 +131,37 @@ formIngrediente.addEventListener('submit', async (event) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(
-                    novoIngrediente
+                    novoProduto
                 )
             }
         );
 
         if (!response.ok) {
-            throw new Error('Erro ao adicionar ingrediente');
+            throw new Error('Erro ao adicionar produto');
         }
 
-        alert('Ingrediente adicionado');
+        alert('Produto adicionado');
 
-        formIngrediente.reset();
-        carregarIngredientes();
+        formProduto.reset();
+        carregarProdutos();
 
     } catch(erro) {
         console.error(erro);
-        alert('Erro ao adicionar ingrediente');
+        alert('Erro ao adicionar produto');
     }
 });
 
-window.atualizarIngrediente = async function(idIngrediente) {
+window.atualizarProduto = async function(idProduto) {
 
-    const inputQuantidade = document.getElementById(`quantidade-${idIngrediente}`);
+    const inputQuantidade = document.getElementById(`quantidade-${idProduto}`);
     const dadosAtualizados = {
-        idIngrediente,
-        quantidadeIngrediente: inputQuantidade.value
+        idProduto,
+        qtdProduto: inputQuantidade.value
     };
 
     try {
         const response = await fetch(
-            `${API_URL}/updateIngrediente`,
+            `${API_URL}/putProduto`,
             {
                 method: 'PUT',
                 headers: {
@@ -174,20 +174,18 @@ window.atualizarIngrediente = async function(idIngrediente) {
         );
 
         if (!response.ok) {
-            throw new Error('Erro ao atualizar ingrediente');
+            throw new Error('Erro ao atualizar Produto');
         }
 
-        alert('Ingrediente atualizado');
-    }
-    catch(error) {
+        alert('Produto atualizado');
+    } catch(error) {
         console.error(error);
-        alert('Erro ao atualizar ingrediente');
+        alert('Erro ao atualizar produto');
     }
-
 }
 
-window.removerIngrediente = async function(idIngrediente) {
-    const confirmar = confirm('Deseja remover esse ingrediente?');
+window.removerProduto = async function(idProduto) {
+    const confirmar = confirm('Deseja remover esse produto?');
 
     if (!confirmar) {
         return;
@@ -195,27 +193,27 @@ window.removerIngrediente = async function(idIngrediente) {
 
     try {
         const response = await fetch(
-            `${API_URL}/deleteIngrediente`,
+            `${API_URL}/deleteProduto`,
             {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    idIngrediente
+                    idProduto
                 })
             }
         );
 
         if (!response.ok) {
-            throw new Error('Erro ao remover ingrediente');
+            throw new Error('Erro ao remover produto');
         }
 
-        alert('Ingrediente removido');
+        alert('Produto removido');
 
-        carregarIngredientes();
+        carregarProdutos();
     } catch(erro) {
         console.error(erro);
-        alert('Erro ao remover ingrediente');
+        alert('Erro ao remover produto');
     }
 }
