@@ -105,9 +105,6 @@ btnFinalizar.addEventListener('click', async () => {
     } catch (erro) {
         alert('Erro ao finalizar pedido');
     }
-
-
-
 });
 
 rendenizarCarrinho();
