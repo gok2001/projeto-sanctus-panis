@@ -3,9 +3,6 @@ import { API_URL } from "./api.js";
 
 const usuario = obterUsuario();
 const formPerfil = document.querySelector('.perfil-form');
-const inputNome = document.querySelector('#nome');
-const inputEmail = document.querySelector('#email');
-const inputSenha = document.querySelector('#senha');
 
 const adminArea = document.querySelector('.admin-area');
 const produtosContainer = document.querySelector('#produtos-container');
@@ -31,8 +28,8 @@ function verificarUsuario() {
 }
 
 function carregarDadosUsuario() {
-    inputNome.value = usuario.nomeUsuario;
-    inputEmail.value = usuario.emailUsuario;
+    nomeUsuario.value = usuario.nomeUsuario;
+    emailUsuario.value = usuario.emailUsuario;
 }
 
 function verificarAdmin() {
@@ -45,15 +42,39 @@ function verificarAdmin() {
 formPerfil.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    const nomeUsuario = document.querySelector('#nome').value;trim();
+    const emailUsuario = document.querySelector('#email').value.trim();
+    const senhaUsuario = document.querySelector('#senha');
+
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!nome) {
+        alert('Informe seu nome');
+        return;
+    }
+
+    if (!regexEmail.test(email)) {
+        alert('Email inválido');
+        return;
+    }
+
+    if (senha && senha.length < 6) {
+        alert('A nova senha deve possuir pelo menos 6 caracteres');
+        return;
+    }
+
     btnAtualizar.disabled = true;
     btnAtualizar.textContent = 'Atualizando...'
 
     const dadosAtualizados = {
         idUsuario: usuario.idUsuario,
-        nomeUsuario: inputNome.value,
-        emailUsuario: inputEmail.value,
-        senhaUsuario: inputSenha.value
+        nomeUsuario: nomeUsuario.value,
+        emailUsuario: emailUsuario.value,
     };
+
+    if (senhaUsuario) {
+        dadosAtualizados.senhaUsuario = senhaUsuario;
+    }
 
     try {
         const response = await fetch(
@@ -80,7 +101,7 @@ formPerfil.addEventListener('submit', async (event) => {
 
         alert('Perfil atualizado com sucesso');
 
-        inputSenha.value = '';
+        senhaUsuario.value = '';
     } catch (error) {
         console.error(error);
         alert('Erro ao atualizar perfil');
