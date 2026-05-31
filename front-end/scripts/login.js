@@ -7,11 +7,21 @@ const btnLogin = formLogin.querySelector('button');
 formLogin.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    const emailUsuario = document.querySelector('#email-login').value.trim();
+    const senhaUsuario = document.querySelector('#senha-login').value;
+
+    if (!emailUsuario) {
+        alert('Informe seu email');
+        return;
+    }
+
+    if (!senhaUsuario) {
+        alert('Informe sua senha');
+        return;
+    }
+
     btnLogin.disabled = true;
     btnLogin.textContent = 'Entrando...'
-    
-    const emailUsuario = document.querySelector('#email-login').value;
-    const senhaUsuario = document.querySelector('#senha-login').value;
 
     const dados = { emailUsuario, senhaUsuario };
 

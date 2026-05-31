@@ -18,7 +18,6 @@ formCadastro.addEventListener('submit', async (event) => {
 
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
     try {
         if (!nomeUsuario) {
             alert('Informe seu nome');
