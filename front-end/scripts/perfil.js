@@ -17,7 +17,7 @@ const inputQtdProduto = document.querySelector('.quantidade-produto');
 const inputUnidadeProduto = document.querySelector('.unidade-produto');
 
 const btnLogout = document.querySelector('#btn-logout');
-const btnAtualizar = formPerfil.querySelector('button[type="submit"');
+const btnAtualizar = formPerfil.querySelector('button[type="submit"]');
 const btnProduto = formProduto.querySelector('button')
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -101,7 +101,7 @@ formPerfil.addEventListener('submit', async (event) => {
 
         alert('Perfil atualizado com sucesso');
 
-        senhaUsuario.value = '';
+        inputSenha.value = '';
     } catch (error) {
         console.error(error);
         alert('Erro ao atualizar perfil');
