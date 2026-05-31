@@ -4,6 +4,64 @@ const formCadastro = document.querySelector('.form-cadastro');
 
 const btnCadastro = formCadastro.querySelector('button');
 
+const inputCpf = document.querySelector('#cpf');
+
+inputCpf.addEventListener('input', () => {
+    let valor = inputCpf.value.replace(/\D/g, '').slice(0, 11);
+
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
+    inputCpf.value = valor;
+});
+
+function validarCPF(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+
+    if (cpf.length !== 11) {
+        return false;
+    }
+
+    if (/^(\d)\1{10}$/.test(cpf)) {
+        return false;
+    }
+
+    let soma = 0;
+
+    for (let i = 0; i < 9; i++) {
+        soma += Number(cpf.charAt(i)) * (10 - i);
+    }
+
+    let resto = (soma * 10) % 11;
+
+    if (resto === 10) {
+        resto = 0;
+    }
+
+    if (resto !== Number(cpf.charAt(9))) {
+        return false;
+    }
+
+    soma = 0;
+
+    for (let i = 0; i < 10; i++) {
+        soma += Number(cpf.charAt(i)) * (11 - i);
+    }
+
+    resto = (soma * 10) % 11;
+
+    if (resto === 10) {
+        resto = 0;
+    }
+
+    if (resto !== Number(cpf.charAt(10))) {
+        return false;
+    }
+
+    return true;
+}
+
 formCadastro.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -32,6 +90,11 @@ formCadastro.addEventListener('submit', async (event) => {
 
     if (!cpfUsuario) {
         alert('Informe seu CPF');
+        return;
+    }
+
+    if (validarCPF(cpfUsuario)) {
+        alert('CPF invpalido');
         return;
     }
 
