@@ -79,6 +79,19 @@ formFinalizarPedido.addEventListener('submit', async (event) => {
             }
         }
 
+        await fetch(
+            `${API_URL}/baixarEstoquePedido`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    idPedido
+                })
+            }
+        );
+
         localStorage.removeItem('carrinho');
 
         alert('Pedido realizado com sucesso!');
