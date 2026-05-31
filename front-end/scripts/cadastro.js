@@ -1,9 +1,14 @@
-import { API_URL } from "./api";
+import { API_URL } from "./api.js";
 
 const formCadastro = document.querySelector('.form-cadastro');
 
+const btnCadastro = formCadastro.querySelector('button');
+
 formCadastro.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    btnCadastro.disabled = true;
+    btnCadastro.textContent = 'Cadastrando...';
 
     const nomeUsuario = document.querySelector('#nome-cadastro').value;
     const emailUsuario = document.querySelector('#email-cadastro').value;
@@ -38,5 +43,8 @@ formCadastro.addEventListener('submit', async (event) => {
     } catch (erro) {
         console.error('Erro:', erro);
         alert('Erro ao cadastrar usuário');
+    } finally {
+        btnCadastro.disabled = false;
+        btnCadastro.textContent = 'Cadastrar';
     }
 });

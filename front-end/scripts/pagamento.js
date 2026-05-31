@@ -1,5 +1,5 @@
-import { API_URL } from "./api";
-import { obterUsuario } from "./auth";
+import { API_URL } from "./api.js";
+import { obterUsuario } from "./auth.js";
 
 const formFinalizarPedido = document.querySelector('.form-finalizar-pedido');
 const itensResumo = document.querySelector('#itens-resumo');
@@ -10,6 +10,8 @@ const trocoContainer = document.querySelector('#troco-container');
 const inputTroco = document.querySelector('#troco');
 
 const usuario = obterUsuario();
+
+const btnPedido = formFinalizarPedido.querySelector('button');
 
 window.addEventListener('DOMContentLoaded', () => {
     carregarResumoPedido();
@@ -25,6 +27,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 formFinalizarPedido.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    btnPedido.disabled = true;
+    btnPedido.textContent = 'Pedindo...';
     
     if (!usuario) {
         alert('Você precisa estar logado!');
@@ -99,6 +104,9 @@ formFinalizarPedido.addEventListener('submit', async (event) => {
     } catch (erro) {
         console.error(erro);
         alert('Erro ao finalizar o pedido');
+    } finally {
+        btnPedido.disabled = false;
+        btnPedido.textContent = 'Finalizar Pedido';
     }
 })
 

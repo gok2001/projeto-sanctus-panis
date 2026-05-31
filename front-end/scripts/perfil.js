@@ -3,16 +3,20 @@ import { API_URL } from "./api.js";
 
 const usuario = obterUsuario();
 const formPerfil = document.querySelector('.perfil-form');
-const btnLogout = document.querySelector('#btn-logout');
 const inputNome = document.querySelector('#nome');
 const inputEmail = document.querySelector('#email');
 const inputSenha = document.querySelector('#senha');
+
 const adminArea = document.querySelector('.admin-area');
 const produtosContainer = document.querySelector('#produtos-container');
 const formProduto = document.querySelector('.form-produto');
 const inputNomeProduto = document.querySelector('.nome-produto');
 const inputQtdProduto = document.querySelector('.quantidade-produto');
 const inputUnidadeProduto = document.querySelector('.unidade-produto');
+
+const btnLogout = document.querySelector('#btn-logout');
+const btnAtualizar = formPerfil.querySelector('button[type="submit"');
+const btnProduto = formProduto.querySelector('button')
 
 window.addEventListener('DOMContentLoaded', () => {
     verificarUsuario();
@@ -40,6 +44,10 @@ function verificarAdmin() {
 
 formPerfil.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    btnAtualizar.disabled = true;
+    btnAtualizar.textContent = 'Atualizando...'
+
     const dadosAtualizados = {
         idUsuario: usuario.idUsuario,
         nomeUsuario: inputNome.value,
@@ -73,9 +81,12 @@ formPerfil.addEventListener('submit', async (event) => {
         alert('Perfil atualizado com sucesso');
 
         inputSenha.value = '';
-    } catch(error) {
+    } catch (error) {
         console.error(error);
         alert('Erro ao atualizar perfil');
+    } finally {
+        btnAtualizar.disabled = false;
+        btnAtualizar.textContent = 'Atualizar Dados';
     }
 });
 
@@ -99,7 +110,7 @@ async function carregarProdutos() {
 
                     <span>${produto.unidadeProduto}</span>
 
-                    <button type="button" class="btn"onclick="atualizarProduto(${produto.idProduto})">Salvar</button>
+                    <button type="button" class="btn" onclick="atualizarProduto(${produto.idProduto})">Salvar</button>
                     <button type="button" class="btn" onclick="removerProduto(${produto.idProduto})">X</button>
                 </div>
             `;
@@ -112,6 +123,9 @@ async function carregarProdutos() {
 
 formProduto.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    btnProduto.disabled = true;
+    btnProduto.textContent = 'Adicionando...';
 
     const novoProduto = { 
         nomeProduto: inputNomeProduto.value,
@@ -145,6 +159,9 @@ formProduto.addEventListener('submit', async (event) => {
     } catch(erro) {
         console.error(erro);
         alert('Erro ao adicionar produto');
+    } finally {
+        btnProduto.disabled = false;
+        btnProduto.textContent = 'Adicionar Produto';
     }
 });
 

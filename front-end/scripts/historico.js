@@ -1,5 +1,5 @@
-import { API_URL } from "./api";
-import { obterUsuario } from "./auth";
+import { API_URL } from "./api.js";
+import { obterUsuario } from "./auth.js";
 
 const usuario = obterUsuario();
 const pedidosContainer = document.querySelector('.pedidos');

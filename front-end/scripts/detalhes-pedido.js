@@ -1,4 +1,4 @@
-import { API_URL } from "./api";
+import { API_URL } from "./api.js";
 
 const params = new URLSearchParams(window.location.search);
 const idPedido = params.get('id');

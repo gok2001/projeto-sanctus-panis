@@ -1,4 +1,4 @@
-import { obterUsuario } from "./auth";
+import { obterUsuario } from "./auth.js";
 
 async function loadComponent(id, file) {
     const element = document.getElementById(id);
