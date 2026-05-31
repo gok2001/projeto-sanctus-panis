@@ -58,6 +58,14 @@ const botaoCardapio = document.querySelector('#botao-cardapio');
 
 if (botaoCardapio) {
     botaoCardapio.onclick = () => {
-        location.href = 'cardapio.html';
+        location.href = './cardapio.html';
+    }
+}
+
+const botaoCardapioFinal = document.querySelector('#botao-cardapio-final');
+
+if (botaoCardapioFinal) {
+    botaoCardapioFinal.onclick = () => {
+        location.href = './cardapio.html';
     }
 }
