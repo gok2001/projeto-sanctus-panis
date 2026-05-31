@@ -34,7 +34,6 @@ async function carregarTodosPedidos() {
                     </a>
 
                     <select onchange="atualizarStatus(${pedido.idPedido}, this.value)">
-                        <option value="carrinho" ${pedido.statusPedido === 'carrinho' ? 'selected' : ''}>Carrinho</option>
                         <option value="em_preparo" ${pedido.statusPedido === 'em_preparo' ? 'selected' : ''}>Em preparo</option>
                         <option value="finalizado" ${pedido.statusPedido === 'finalizado' ? 'selected' : ''}>Finalizado</option>
                     </select>
