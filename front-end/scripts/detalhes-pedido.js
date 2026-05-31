@@ -31,9 +31,14 @@ async function carregarItensPedido() {
 
             itensContainer.innerHTML += `
                 <div class="pedido-item">
-                    <h2>${item.nomeLanche}</h2>
-                    <p>Quantidade: ${item.quantidade}</p>
-                    <p>Subtotal: R$ ${formatarMoeda(subtotal)}</p>
+                    <div class="pedido-info">
+                        <h2>${item.nomeLanche}</h2>
+                        <p>Quantidade: ${item.quantidade}</p>
+                    </div>
+                    
+                    <div class="pedido-subtotal">
+                        <p>Subtotal: R$ ${formatarMoeda(subtotal)}</p>
+                    </div>
                 </div>
             `;
         });

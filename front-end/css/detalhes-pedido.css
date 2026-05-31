@@ -1,9 +1,56 @@
 .detalhes {
     grid-area: 1 / 2 / 2 / 3;
+    width: 100%;
 }
 
-.informacoes {
-    max-width: 60%;
-    font-size: 20px;
-    line-height: 1.5;
+.itens-pedido {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+}
+
+.pedido-item {
+    background-color: var(--cor-bg-escuro-transparente);
+
+    padding: 20px;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    transition: transform 0.2s ease;
+}
+
+.pedido-item:hover {
+    transform: translateY(-2px);
+}
+
+.pedido-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pedido-subtotal {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.total-pedido {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    border-top: 2px solid rgba(255,255,255,0.2);
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-pedido h2 {
+    font-size: 2rem;
 }
