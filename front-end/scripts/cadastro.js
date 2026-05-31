@@ -2,9 +2,13 @@ import { API_URL } from "./api.js";
 
 const formCadastro = document.querySelector('.form-cadastro');
 
-const btnCadastro = formCadastro.querySelector('button');
-
+const inputNome = document.querySelector('#nome-cadastro');
+const inputEmail = document.querySelector('#email-cadastro');
 const inputCpf = document.querySelector('#cpf');
+const inputSenha = document.querySelector('#senha-cadastro');
+const inputConfirmarSenha = document.querySelector('#confirmar-senha');
+
+const btnCadastro = formCadastro.querySelector('button');
 
 inputCpf.addEventListener('input', () => {
     let valor = inputCpf.value.replace(/\D/g, '').slice(0, 11);
@@ -65,41 +69,21 @@ function validarCPF(cpf) {
 formCadastro.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const nomeUsuario = document.querySelector('#nome-cadastro').value.trim();
-    const emailUsuario = document.querySelector('#email-cadastro').value.trim();
-    const cpfUsuario = document.querySelector('#cpf').value.trim;
-    const senhaUsuario = document.querySelector('#senha-cadastro').value;
-    const confirmarSenha = document.querySelector('#confirmar-senha').value;
+    const nomeUsuario = inputNome.value.trim();
+    const emailUsuario = inputEmail.value.trim();
+    const cpfUsuario = inputCpf.value.trim();
+    const senhaUsuario = inputSenha.value;
+    const confirmarSenha = inputConfirmarSenha.value;
 
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!nomeUsuario) {
-        alert('Informe seu nome');
-        return;
-    }
-
-    if (!emailUsuario) {
-        alert('Informe seu email');
-        return;
-    }
 
     if (!regexEmail.test(emailUsuario)) {
         alert('Email inválido');
         return;
     }
 
-    if (!cpfUsuario) {
-        alert('Informe seu CPF');
-        return;
-    }
-
-    if (validarCPF(cpfUsuario)) {
-        alert('CPF invpalido');
-        return;
-    }
-
-    if (senhaUsuario.length < 8) {
-        alert('A senha deve possuir pelo menos 8 caracteres');
+    if (!validarCPF(cpfUsuario)) {
+        alert('CPF inválido');
         return;
     }
 
@@ -112,10 +96,10 @@ formCadastro.addEventListener('submit', async (event) => {
     btnCadastro.textContent = 'Cadastrando...';
 
     const novoUsuario = {
-        nomeUsuario,
-        emailUsuario,
-        cpfUsuario,
-        senhaUsuario
+        nomeUsuario: inputNome,
+        emailUsuario: inputEmail,
+        cpfUsuario: inputCpf,
+        senhaUsuario: inputSenha
     };
 
     try {
