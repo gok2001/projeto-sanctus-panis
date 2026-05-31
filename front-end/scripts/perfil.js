@@ -1,9 +1,11 @@
-import { estaLogado, ehAdmin } from "./auth.js";
+import { estaLogado, ehAdmin, logout } from "./auth.js";
 
 const API_URL = 'http://localhost:1880';
 const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
 
 const formPerfil = document.querySelector('.perfil-form');
+
+const btnLogout = document.querySelector('#btn-logout');
 
 const inputNome = document.querySelector('#nome');
 const inputEmail = document.querySelector('#email');
@@ -149,6 +151,16 @@ formProduto.addEventListener('submit', async (event) => {
         console.error(erro);
         alert('Erro ao adicionar produto');
     }
+});
+
+btnLogout.addEventListener('click', () => {
+    const confirmar = confirm('Deseja realmente sair?');
+
+    if (!confirmar) {
+        return;
+    }
+
+    logout();
 });
 
 window.atualizarProduto = async function(idProduto) {
