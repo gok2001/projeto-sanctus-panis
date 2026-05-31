@@ -19,17 +19,24 @@ async function loadComponent(id, file) {
 function atualizarMenuUsuario() {
     const usuario = obterUsuario();
 
-    if (!usuario) return;
+    const linkHistorico = document.querySelector('#link-historico');
+
+    if (!usuario) {
+        linkHistorico.style.display = 'none';
+        return;
+    }
     
     const linkUsuario = document.querySelector('#link-usuario');
 
     if (!linkUsuario) return;
 
     if (usuario) {
+        const primeiroNome = usuario.nomeUsuario.split(' ')[0];
+
         linkUsuario.href = '../pages/perfil.html';
         linkUsuario.innerHTML = `
             <div class="login-icon"></div>
-            Perfil
+            Perfil (${primeiroNome})
         `;
     }
 }
@@ -47,8 +54,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-let botaoCardapio = document.getElementById('botao-cardapio');
+const botaoCardapio = document.querySelector('#botao-cardapio');
 
-botaoCardapio.onclick = function () {
-    location.href = 'cardapio.html';
+if (botaoCardapio) {
+    botaoCardapio.onclick = () => {
+        location.href = 'cardapio.html';
+    }
 }
