@@ -8,7 +8,7 @@ export function estaLogado(){
 
 export function ehAdmin(){
     const usuario = obterUsuario();
-    return usuario && usuario.roleUsuario === 'admin';
+    return usuario?.roleUsuario === 'admin';
 }
 
 export function logout(){

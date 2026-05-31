@@ -1,3 +1,5 @@
+import { obterUsuario } from "./auth";
+
 async function loadComponent(id, file) {
     const element = document.getElementById(id);
     if (!element) return;
@@ -15,7 +17,7 @@ async function loadComponent(id, file) {
 }
 
 function atualizarMenuUsuario() {
-    const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const usuario = obterUsuario();
 
     if (!usuario) return;
     

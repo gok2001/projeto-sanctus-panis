@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:1880';
+import { API_URL } from "./api";
+
 const params = new URLSearchParams(window.location.search);
 const idPedido = params.get('id');
 const itensContainer = document.querySelector('.itens-pedido');

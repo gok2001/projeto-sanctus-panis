@@ -1,6 +1,5 @@
-const API_URL = 'http://localhost:1880';
-const URL_addPedido = `${API_URL}/addPedido`;
-const URL_addItemPedido = `${API_URL}/addItemPedido`;
+import { API_URL } from "./api";
+import { obterUsuario } from "./auth";
 
 const formFinalizarPedido = document.querySelector('.form-finalizar-pedido');
 const itensResumo = document.querySelector('#itens-resumo');
@@ -10,7 +9,7 @@ const selectPagamento = document.querySelector('#seleciona-pagamento');
 const trocoContainer = document.querySelector('#troco-container');
 const inputTroco = document.querySelector('#troco');
 
-const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+const usuario = obterUsuario();
 
 window.addEventListener('DOMContentLoaded', () => {
     carregarResumoPedido();
@@ -39,7 +38,7 @@ formFinalizarPedido.addEventListener('submit', async (event) => {
 
     try {
         const responsePedido = await fetch(
-            URL_addPedido,
+            `${API_URL}/addPedido`,
             {
                 method: 'POST',
                 headers: {
@@ -64,7 +63,7 @@ formFinalizarPedido.addEventListener('submit', async (event) => {
             };
 
             const responseItem = await fetch(
-                URL_addItemPedido,
+                `${API_URL}/addItemPedido`,
                 {
                     method: 'POST',
                     headers: {

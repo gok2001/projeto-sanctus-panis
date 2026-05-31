@@ -1,5 +1,7 @@
-const API_URL = 'http://localhost:1880';
-const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+import { API_URL } from "./api";
+import { obterUsuario } from "./auth";
+
+const usuario = obterUsuario();
 const pedidosContainer = document.querySelector('.pedidos');
 
 window.addEventListener('DOMContentLoaded', () => {

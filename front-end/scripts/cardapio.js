@@ -1,4 +1,5 @@
 import { estaLogado, ehAdmin } from "./auth.js";
+import { API_URL } from "./api.js";
 
 const cardapio = document.querySelector('.lista-cardapio')
 const btnAdmin = document.querySelector('.btn-admin');
@@ -9,12 +10,10 @@ const formLanche = document.querySelector('.form-lanche');
 
 let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-const URL_getLanche = 'http://localhost:1880/getLanche';
-const responseLanche = await fetch(URL_getLanche);
+const responseLanche = await fetch(`${API_URL}/getLanche`);
 const lanches = await responseLanche.json();
 
 lanches.forEach(lanche => {
-
     const card = document.createElement('article');
     card.classList.add('item-cardapio');
     card.dataset.id = lanche.idLanche;
@@ -109,8 +108,7 @@ btnAdmin.addEventListener('click', () => {
     }
 });
 
-const URL_getProduto = 'http://localhost:1880/getProduto';
-const responseProduto = await fetch(URL_getProduto);
+const responseProduto = await fetch(`${API_URL}/getProduto`);
 const produtos = await responseProduto.json();
 
 function criarIngrediente() {
@@ -143,8 +141,6 @@ btnAddIngrediente.addEventListener('click', () => {
     ingredientesContainer.appendChild(criarIngrediente());
 });
 
-const URL_addLanche = 'http://localhost:1880/addLanche';
-
 formLanche.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -168,7 +164,7 @@ formLanche.addEventListener('submit', async (event) => {
     
     try {
         const response = await fetch(
-            URL_addLanche, 
+            `${API_URL}/addLanche`, 
             {
                 method: 'POST',
                 headers: {

@@ -1,4 +1,5 @@
-const URL = 'http://localhost:1880/login';
+import { API_URL } from "./api";
+
 const formLogin = document.querySelector('.login-form');
 
 formLogin.addEventListener('submit', async (event) => {
@@ -13,7 +14,9 @@ formLogin.addEventListener('submit', async (event) => {
     };
 
     try {
-        const response = await fetch(URL, {
+        const response = await fetch(
+            `${API_URl}/login`,
+            {
 
             method: 'POST',
             headers: {

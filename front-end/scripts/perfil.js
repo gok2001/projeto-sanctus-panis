@@ -1,18 +1,13 @@
-import { estaLogado, ehAdmin, logout } from "./auth.js";
+import { estaLogado, ehAdmin, logout, obterUsuario } from "./auth.js";
+import { API_URL } from "./api.js";
 
-const API_URL = 'http://localhost:1880';
-const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
-
+const usuario = obterUsuario();
 const formPerfil = document.querySelector('.perfil-form');
-
 const btnLogout = document.querySelector('#btn-logout');
-
 const inputNome = document.querySelector('#nome');
 const inputEmail = document.querySelector('#email');
 const inputSenha = document.querySelector('#senha');
-
 const adminArea = document.querySelector('.admin-area');
-
 const produtosContainer = document.querySelector('#produtos-container');
 const formProduto = document.querySelector('.form-produto');
 const inputNomeProduto = document.querySelector('.nome-produto');

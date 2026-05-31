@@ -1,4 +1,5 @@
-const URL = 'http://localhost:1880/addUsuario';
+import { API_URL } from "./api";
+
 const formCadastro = document.querySelector('.form-cadastro');
 
 formCadastro.addEventListener('submit', async (event) => {
@@ -23,7 +24,9 @@ formCadastro.addEventListener('submit', async (event) => {
     };
 
     try {
-        await fetch(URL, {
+        await fetch(
+            `${API_URL}/addUsuario`,
+            {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
