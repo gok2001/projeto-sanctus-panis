@@ -71,7 +71,7 @@ formCadastro.addEventListener('submit', async (event) => {
 
     const nomeUsuario = inputNome.value.trim();
     const emailUsuario = inputEmail.value.trim();
-    const cpfUsuario = inputCpf.value.trim();
+    const cpfUsuario = inputCpf.value.replace(/\D/g, '').trim();
     const senhaUsuario = inputSenha.value;
     const confirmarSenha = inputConfirmarSenha.value;
 
@@ -96,10 +96,10 @@ formCadastro.addEventListener('submit', async (event) => {
     btnCadastro.textContent = 'Cadastrando...';
 
     const novoUsuario = {
-        nomeUsuario: inputNome,
-        emailUsuario: inputEmail,
-        cpfUsuario: inputCpf,
-        senhaUsuario: inputSenha
+        nomeUsuario,
+        emailUsuario,
+        cpfUsuario,
+        senhaUsuario
     };
 
     try {

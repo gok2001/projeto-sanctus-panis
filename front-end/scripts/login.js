@@ -2,23 +2,16 @@ import { API_URL } from "./api.js";
 
 const formLogin = document.querySelector('.login-form');
 
+const inputEmail = document.querySelector('#email-login');
+const inputSenha = document.querySelector('#senha-login');
+
 const btnLogin = formLogin.querySelector('button');
 
 formLogin.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const emailUsuario = document.querySelector('#email-login').value.trim();
-    const senhaUsuario = document.querySelector('#senha-login').value;
-
-    if (!emailUsuario) {
-        alert('Informe seu email');
-        return;
-    }
-
-    if (!senhaUsuario) {
-        alert('Informe sua senha');
-        return;
-    }
+    const emailUsuario = inputEmail.value.trim();
+    const senhaUsuario = inputSenha.value;
 
     btnLogin.disabled = true;
     btnLogin.textContent = 'Entrando...'

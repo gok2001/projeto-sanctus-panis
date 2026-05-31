@@ -4,9 +4,17 @@ import { API_URL } from "./api.js";
 const usuario = obterUsuario();
 const formPerfil = document.querySelector('.perfil-form');
 
+const inputNome = document.querySelector('#nome');
+const inputEmail = document.querySelector('#email');
+const inputSenha = document.querySelector('#senha');
+
 const adminArea = document.querySelector('.admin-area');
 const produtosContainer = document.querySelector('#produtos-container');
 const formProduto = document.querySelector('.form-produto');
+
+const inputNomeProduto = document.querySelector('.nome-produto');
+const inputQtdProduto = document.querySelector('.quantidade-produto');
+const inputUnidadeProduto = document.querySelector('.unidade-produto');
 
 const btnLogout = document.querySelector('#btn-logout');
 const btnAtualizar = formPerfil.querySelector('button[type="submit"');
@@ -25,8 +33,8 @@ function verificarUsuario() {
 }
 
 function carregarDadosUsuario() {
-    nomeUsuario.value = usuario.nomeUsuario;
-    emailUsuario.value = usuario.emailUsuario;
+    inputNome.value = usuario.nomeUsuario;
+    inputEmail.value = usuario.emailUsuario;
 }
 
 function verificarAdmin() {
@@ -39,24 +47,19 @@ function verificarAdmin() {
 formPerfil.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const nomeUsuario = document.querySelector('#nome').value;trim();
-    const emailUsuario = document.querySelector('#email').value.trim();
-    const senhaUsuario = document.querySelector('#senha');
+    const nomeUsuario = inputNome.value.trim();
+    const emailUsuario = inputEmail.value.trim();
+    const senhaUsuario = inputSenha.value;
 
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!nome) {
-        alert('Informe seu nome');
-        return;
-    }
-
-    if (!regexEmail.test(email)) {
+    if (!regexEmail.test(emailUsuario)) {
         alert('Email inválido');
         return;
     }
 
-    if (senha && senha.length < 6) {
-        alert('A nova senha deve possuir pelo menos 6 caracteres');
+    if (senhaUsuario && senhaUsuario.length < 8) {
+        alert('A nova senha deve possuir pelo menos 8 caracteres');
         return;
     }
 
@@ -65,8 +68,8 @@ formPerfil.addEventListener('submit', async (event) => {
 
     const dadosAtualizados = {
         idUsuario: usuario.idUsuario,
-        nomeUsuario: nomeUsuario.value,
-        emailUsuario: emailUsuario.value,
+        nomeUsuario,
+        emailUsuario
     };
 
     if (senhaUsuario) {
@@ -142,9 +145,9 @@ async function carregarProdutos() {
 formProduto.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const nomeProduto = document.querySelector('.nome-produto').value.trim();
-    const qtdProduto = Number(document.querySelector('.quantidade-produto').value);
-    const unidadeProduto = document.querySelector('.unidade-produto').trim();
+    const nomeProduto = inputNomeProduto.value.trim();
+    const qtdProduto = Number(inputQtdProduto.value);
+    const unidadeProduto = inputUnidadeProduto.value.trim();
 
     if (!nomeProduto) {
         alert('Informe o nome do produto');
@@ -165,9 +168,9 @@ formProduto.addEventListener('submit', async (event) => {
     btnProduto.textContent = 'Adicionando...';
 
     const novoProduto = { 
-        nomeProduto: nomeProduto.value,
-        qtdProduto: qtdProduto.value,
-        unidadeProduto: unidadeProduto.value
+        nomeProduto,
+        qtdProduto,
+        unidadeProduto
     };
 
     try {
