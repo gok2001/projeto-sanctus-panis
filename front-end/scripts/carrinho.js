@@ -53,58 +53,13 @@ btnAddItens.addEventListener('click', () => {
     window.location.href = './cardapio.html';
 });
 
-const URL_addPedido = 'http://localhost:1880/addPedido';
-const URL_addItemPedido = 'http://localhost:1880/addItemPedido';
-
-btnFinalizar.addEventListener('click', async () => {
+btnFinalizar.addEventListener('click', () => {
     if (carrinho.length === 0) {
         alert('Carrinho vazio');
-
         return;
     }
 
-    try {
-        const usuario = JSON.parse(localStorage.getItem('usuarioLogado'))
-        const dadosPedido = { idUsuario: usuario.idUsuario };
-        const responsePedido = await fetch(
-            URL_addPedido,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-
-                body: JSON.stringify(dadosPedido)
-            }
-        );
-
-        const pedidoCriado = await responsePedido.json();
-        const idPedido = pedidoCriado.insertId;
-
-        for (const item of carrinho) {
-            const dadosItem = {
-                idPedido,
-                idLanche: item.id,
-                quantidade: item.quantidade
-            };
-
-            await fetch(
-                URL_addItemPedido,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-    
-                    body: JSON.stringify(dadosItem)
-                }
-            );
-        }
-        
-        window.location.href = './pagamento.html';
-    } catch (erro) {
-        alert('Erro ao finalizar pedido');
-    }
+    window.location.href = './pagamento.html';
 });
 
 rendenizarCarrinho();
