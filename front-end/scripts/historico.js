@@ -26,12 +26,19 @@ async function carregarTodosPedidos() {
             const data = new Date(pedido.datahoraPedido).toLocaleString('pt-BR');
 
             pedidosContainer.innerHTML += `
-                <a href="detalhes-pedido.html?id=${pedido.idPedido}" class="pedido">
-                    <p>Pedido #${pedido.idPedido}</p>
-                    <p>Cliente: ${pedido.nomeUsuario}</p>
-                    <p>Data: ${data}</p>
-                    <p>Status: ${pedido.statusPedido}</p>
-                </a>
+                <div class="pedido">
+                    <a href="detalhes-pedido.html?id=${pedido.idPedido}">
+                        <p>Pedido #${pedido.idPedido}</p>
+                        <p>Cliente: ${pedido.nomeUsuario}</p>
+                        <p>Data: ${data}</p>
+                    </a>
+
+                    <select onchange="atualizarStatus(${pedido.idPedido}, this.value)">
+                        <option value="carrinho" ${pedido.statusPedido === 'carrinho' ? 'selected' : ''}>Carrinho</option>
+                        <option value="em_preparo" ${pedido.statusPedido === 'em_preparo' ? 'selected' : ''}>Em preparo</option>
+                        <option value="finalizado" ${pedido.statusPedido === 'finalizado' ? 'selected' : ''}>Finalizado</option>
+                    </select>
+                </div>
             `;
         });
     } catch (erro) {
@@ -71,5 +78,34 @@ async function carregarPedidosUsuario() {
         console.error(erro);
 
         pedidosContainer.innerHTML = '<p>Erro ao carregar pedidos.</p>';
+    }
+}
+
+window.atualizarStatus = async function(idPedido, statusPedido) {
+    try {
+        const response = await fetch(
+            `${API_URL}/updateStatusPedido`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-Type':
+                        'application/json'
+                },
+                body: JSON.stringify({
+                    idPedido,
+                    statusPedido
+                })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error('Erro ao atualizar status');
+        }
+
+        alert('Status atualizado');
+    } catch (erro) {
+        console.error(erro);
+
+        alert('Erro ao atualizar status');
     }
 }
