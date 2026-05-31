@@ -7,9 +7,6 @@ const formPerfil = document.querySelector('.perfil-form');
 const adminArea = document.querySelector('.admin-area');
 const produtosContainer = document.querySelector('#produtos-container');
 const formProduto = document.querySelector('.form-produto');
-const inputNomeProduto = document.querySelector('.nome-produto');
-const inputQtdProduto = document.querySelector('.quantidade-produto');
-const inputUnidadeProduto = document.querySelector('.unidade-produto');
 
 const btnLogout = document.querySelector('#btn-logout');
 const btnAtualizar = formPerfil.querySelector('button[type="submit"');
@@ -145,13 +142,32 @@ async function carregarProdutos() {
 formProduto.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    const nomeProduto = document.querySelector('.nome-produto').value.trim();
+    const qtdProduto = Number(document.querySelector('.quantidade-produto').value);
+    const unidadeProduto = document.querySelector('.unidade-produto').trim();
+
+    if (!nomeProduto) {
+        alert('Informe o nome do produto');
+        return;
+    }
+
+    if (qtdProduto <= 0 || isNaN(qtdProduto)) {
+        alert('Quantidade inválida');
+        return;
+    }
+
+    if (!unidadeProduto) {
+        alert('Informe a unidade do produto');
+        return;
+    }
+
     btnProduto.disabled = true;
     btnProduto.textContent = 'Adicionando...';
 
     const novoProduto = { 
-        nomeProduto: inputNomeProduto.value,
-        qtdProduto: inputQtdProduto.value,
-        unidadeProduto: inputUnidadeProduto.value
+        nomeProduto: nomeProduto.value,
+        qtdProduto: qtdProduto.value,
+        unidadeProduto: unidadeProduto.value
     };
 
     try {
