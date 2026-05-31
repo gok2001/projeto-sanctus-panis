@@ -1,3 +1,5 @@
+import { formatarMoeda } from "./utils.js";
+
 const itensCarrinho = document.querySelector('.itens-carrinho');
 const totalHTML = document.querySelector('.total');
 const btnAddItens = document.querySelector('.btn-add-itens');
@@ -26,14 +28,14 @@ function rendenizarCarrinho() {
             <div class="carrinho-pedido">
                 <h2 class="nome-lanche">${item.nome}</h2>
                 <p class="observacoes">Quantidade: ${item.quantidade}</p>
-                <p class="preco preco-carrinho">R$ ${subtotal.toFixed(2)}</p>
+                <p class="preco preco-carrinho">R$ ${formatarMoeda(subtotal)}</p>
 
                 <button class="btn btn-remover" data-index="${index}">Excluir</button>
             </div>
         `;
     });
 
-    totalHTML.innerHTML = `<p>Total: R$ ${total.toFixed(2)}</p>`;
+    totalHTML.innerHTML = `<p>Total: R$ ${formatarMoeda(total)}</p>`;
 
     const btnsRemover = document.querySelectorAll('.btn-remover');
     btnsRemover.forEach(btn => {

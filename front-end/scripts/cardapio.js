@@ -1,5 +1,6 @@
 import { estaLogado, ehAdmin } from "./auth.js";
 import { API_URL } from "./api.js";
+import { formatarMoeda } from "./utils.js";
 
 const cardapio = document.querySelector('.lista-cardapio')
 const btnAdmin = document.querySelector('.btn-admin');
@@ -25,7 +26,7 @@ lanches.forEach(lanche => {
 
             <h2>${lanche.nomeLanche}</h2>
             <p class="descricao">${lanche.descricao}</p>
-            <p class="preco">R$ ${lanche.precoLanche.toFixed(2)}</p>
+            <p class="preco">R$ ${formatarMoeda(lanche.precoLanche)}</p>
             
         </div>
 
@@ -123,7 +124,7 @@ function criarIngrediente() {
 
     div.innerHTML = `
         <select class="produto-select">${options}</select>
-        <input type="number" class="quantidade-input" placeholder="Quantidade">
+        <input type="number" class="quantidade-input" step="0.01" placeholder="Quantidade">
         <input type="text" class="unidade-input" placeholder="g/un">
         <button type="button" class="btn btn-remove">X</button>
     `;
@@ -145,7 +146,7 @@ formLanche.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const nomeLanche = document.querySelector('#nome-lanche').value;
-    const precoLanche = document.querySelector('#preco-lanche').value;
+    const precoLanche = document.querySelector('#preco-lanche').value.replace(',', '.');
     const ingredientes = [];
     
     document.querySelectorAll('.ingrediente-item').forEach(item => {

@@ -1,4 +1,5 @@
 import { API_URL } from "./api.js";
+import { formatarMoeda } from "./utils.js";
 
 const params = new URLSearchParams(window.location.search);
 const idPedido = params.get('id');
@@ -25,19 +26,19 @@ async function carregarItensPedido() {
         itensContainer.innerHTML = '';
 
         itens.forEach(item => {
-            const subtotal =item.precoLanche * item.quantidade;
+            const subtotal = item.precoLanche * item.quantidade;
             total += subtotal;
 
             itensContainer.innerHTML += `
                 <div class="pedido-item">
                     <h2>${item.nomeLanche}</h2>
                     <p>Quantidade: ${item.quantidade}</p>
-                    <p>Subtotal: R$ ${subtotal.toFixed(2)}</p>
+                    <p>Subtotal: R$ ${formatarMoeda(subtotal)}</p>
                 </div>
             `;
         });
 
-        totalContainer.innerHTML = `<h2>Total: R$ ${total.toFixed(2)}</h2>`;
+        totalContainer.innerHTML = `<h2>Total: R$ ${formatarMoeda(total)}</h2>`;
     } catch (erro) {
         console.error(erro);
 
