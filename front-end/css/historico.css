@@ -8,16 +8,56 @@
     gap: 20px;
 }
 
+.pedido-info {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .pedido {
     background-color: var(--cor-bg-escuro-transparente);
+
     padding: 20px;
     border-radius: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
     text-decoration: none;
     color: var(--cor-texto-escuro);
-    transition: transform 0.2s ease, background 0.2s ease;
+
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .pedido:hover {
     background-color: var(--cor-bg-escuro-transparente-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+}
+
+.pedido select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+
+    min-width: 140px;
+}
+
+.pedido a {
+    flex: 1;
+    color: inherit;
+    text-decoration: none;
+}
+
+.status-em-preparo {
+    color: orange;
+    font-weight: bold;
+}
+
+.status-finalizado {
+    color: limegreen;
+    font-weight: bold;
 }

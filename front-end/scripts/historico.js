@@ -69,9 +69,11 @@ async function carregarPedidosUsuario() {
 
             pedidosContainer.innerHTML += `
                 <a href="detalhes-pedido.html?id=${pedido.idPedido}" class="pedido">
-                    <p>Pedido #${pedido.idPedido}</p>
-                    <p>Data: ${data}</p>
-                    <p>Status: ${pedido.statusPedido}</p>
+                    <div class="pedido-info">
+                        <p>Pedido #${pedido.idPedido}</p>
+                        <p>Data: ${data}</p>
+                        <p class="${pedido.statusPedido === 'finalizado' ? 'status-finalizado' : 'status-em-preparo'}">Status: ${pedido.statusPedido}</p>
+                    </div>
                 </a>
             `;
         });
