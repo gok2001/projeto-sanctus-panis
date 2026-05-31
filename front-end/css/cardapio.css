@@ -18,12 +18,14 @@
     width: 100%;
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    align-items: center;
+    gap: 30px;
 }
 
 .item-info {
+    flex: 1;
+
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -39,7 +41,10 @@
 }
 
 .acoes-item {
+    min-width: 250px;
+
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 20px;
 }
@@ -48,6 +53,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.qtd {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .btn-admin {
@@ -67,18 +78,23 @@
 }
 
 .lanche-field {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    padding: 0;
+
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .ingredientes-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 100%;
 }
 
 .ingrediente-item {
-    display: flex;
-    gap: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) 100px 100px 50px;
+    gap: 10px;
 }
